@@ -121,8 +121,10 @@ public class Main {
         //change frame theme
 
 
-        Login login = new Login(frame);
-        frame.getContentPane().add(login.getLoginPanel());
+//        Login login = new Login(frame);
+//        frame.getContentPane().add(login.getLoginPanel());
+        Home home = new Home();
+        frame.getContentPane().add(home.getHomePanel());
 
 
     }
