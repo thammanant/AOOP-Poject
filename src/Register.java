@@ -19,8 +19,19 @@ public class Register extends LoginNRegister {
         emailTextField.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if(emailTextField.getText().equals(userTxt)){
+                    emailTextField.setText("");
+                }
                 super.mouseClicked(e);
-                emailTextField.setText("");
+
+                if (passwordTextField.getText().isEmpty()){
+                    passwordTextField.setText(passTxt);
+                    passwordTextField.setEchoChar((char)0);
+                }
+                if (confirmPasswordTextField.getText().isEmpty()){
+                    confirmPasswordTextField.setText(confirmpassTxt);
+                    confirmPasswordTextField.setEchoChar((char)0);
+                }
             }
         });
 
@@ -30,9 +41,19 @@ public class Register extends LoginNRegister {
         passwordTextField.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (passwordTextField.getText().equals(passTxt)) {
+                    passwordTextField.setText("");
+                }
                 super.mouseClicked(e);
-                passwordTextField.setText("");
                 passwordTextField.setEchoChar(passwdChar);
+
+                if (emailTextField.getText().isEmpty()) {
+                    emailTextField.setText(userTxt);
+                }
+                if (confirmPasswordTextField.getText().isEmpty()){
+                    confirmPasswordTextField.setText(confirmpassTxt);
+                    confirmPasswordTextField.setEchoChar((char)0);
+                }
             }
         });
 
@@ -42,9 +63,19 @@ public class Register extends LoginNRegister {
         confirmPasswordTextField.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                confirmPasswordTextField.setText("");
+                if (confirmPasswordTextField.getText().equals(confirmpassTxt)) {
+                    confirmPasswordTextField.setText("");
+                }
                 confirmPasswordTextField.setEchoChar(passwdChar);
+                super.mouseClicked(e);
+
+                if (emailTextField.getText().isEmpty()) {
+                    emailTextField.setText(userTxt);
+                }
+                if (passwordTextField.getText().isEmpty()){
+                    passwordTextField.setText(passTxt);
+                    passwordTextField.setEchoChar((char)0);
+                }
             }
         });
 
