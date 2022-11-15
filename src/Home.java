@@ -5,4 +5,7 @@ public class Home {
     private JLabel UserStatus;
     private JButton Order;
 
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
 }
