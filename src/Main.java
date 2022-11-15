@@ -121,9 +121,8 @@ public class Main {
         //change frame theme
 
 
-        Login login = new Login(frame);
-        frame.getContentPane().add(login.getLoginPanel());
-
+        Order order_2 = new Order();
+        frame.getContentPane().add(order_2.getorderpanel());
 
     }
 }
