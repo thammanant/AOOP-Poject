@@ -1,10 +1,13 @@
-import Resources.ClothesType;
+import Resources.*;
 
 import javax.swing.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
     public static void main(String[] args) {
+
 //        //database
 //        User[] allUserPass = new User[100];
 //
@@ -118,7 +121,12 @@ public class Main {
         frame.setVisible(true);
         frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //change frame theme
+        //set frame look and feel
+        try {
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        }
 
 
 //        Login login = new Login(frame);
