@@ -48,7 +48,7 @@ public class Other {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Report(frame).getReportPanel()));
+                frame.setContentPane((new Report(frame).get_Report_panel()));
                 frame.revalidate();
             }
         });

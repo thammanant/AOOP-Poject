@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 //        //database
-//        AbstactClass.User[] allUserPass = new AbstactClass.User[100];
+//        User[] allUserPass = new User[100];
 //
 //        // First pages
 //        String name = "John";
@@ -133,12 +133,11 @@ public class Main {
 
 
 
-        Login login = new Login(frame);
-        frame.add(login.getLoginPanel());
+//        Login login = new Login(frame);
+//        frame.add(login.getLoginPanel());
 
 //        Other test = new Other(frame);
 //        frame.add(test.getOtherPanel());
-
 
 
 
