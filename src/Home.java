@@ -19,6 +19,14 @@ public class Home {
                 frame.revalidate();
             }
         });
+        // set new order button
+        NewOrderButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane((new Order(frame).getorderpanel()));
+                frame.revalidate();
+            }
+        });
     }
 
     public JPanel getHomePanel(){
