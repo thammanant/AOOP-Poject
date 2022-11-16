@@ -129,9 +129,8 @@ public class Main {
         }
 
 
-        Jimmy test = new Jimmy(frame);
-        frame.getContentPane().add(test.getjimmypanel());
-
+        Address addressPanel = new Address(frame);
+        frame.getContentPane().add(addressPanel.getAddressPanel());
 
 
     }
