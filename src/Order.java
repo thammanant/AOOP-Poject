@@ -8,7 +8,7 @@ public class Order {
     private JButton button1;
     private JButton button2;
 
-    public Order(){
+    public Order(JFrame frame){
 
     }
 

@@ -123,8 +123,8 @@ public class Main {
 
 //        Login login = new Login(frame);
 //        frame.getContentPane().add(login.getLoginPanel());
-//        Home home = new Home(frame);
-//        frame.getContentPane().add(home.getHomePanel());
+        Home home = new Home(frame);
+        frame.getContentPane().add(home.getHomePanel());
 
 
     }
