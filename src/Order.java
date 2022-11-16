@@ -178,6 +178,96 @@ public class Order {
                     value6.setText(Integer.toString(--amount6));
             }
         });
+
+        add_button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value7.setText(Integer.toString(++amount7));
+            }
+        });
+
+        subtract_button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount7>0)
+                    value7.setText(Integer.toString(--amount7));
+            }
+        });
+
+        add_button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value8.setText(Integer.toString(++amount8));
+            }
+        });
+
+        subtract_button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount8>0)
+                    value8.setText(Integer.toString(--amount8));
+            }
+        });
+
+        add_button9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value9.setText(Integer.toString(++amount9));
+            }
+        });
+
+        subtract_button9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount9>0)
+                    value9.setText(Integer.toString(--amount9));
+            }
+        });
+
+        add_button10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value10.setText(Integer.toString(++amount10));
+            }
+        });
+
+        subtract_button10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount10>0)
+                    value10.setText(Integer.toString(--amount10));
+            }
+        });
+
+        add_button11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value11.setText(Integer.toString(++amount11));
+            }
+        });
+
+        subtract_button11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount11>0)
+                    value11.setText(Integer.toString(--amount11));
+            }
+        });
+
+        add_button12.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value12.setText(Integer.toString(++amount12));
+            }
+        });
+
+        subtract_button12.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount12>0)
+                    value12.setText(Integer.toString(--amount12));
+            }
+        });
         //Cancel button will back to home page
         cancelButton.addActionListener(new ActionListener() {
             @Override
