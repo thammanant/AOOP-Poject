@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="7f96" layout-manager="GridLayoutManager" row-count="1" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="7f96" layout-manager="GridLayoutManager" row-count="1" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -16,24 +16,9 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="55bb" class="javax.swing.JButton" binding="HomeButton">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="Picture/home_1_48x48.png"/>
-              <text value=""/>
-              <verticalAlignment value="3"/>
-              <verticalTextPosition value="0"/>
-            </properties>
-          </component>
           <component id="290a1" class="javax.swing.JButton" binding="NewOrderButton">
             <constraints>
-              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <borderPainted value="false"/>
@@ -45,27 +30,22 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="76019" class="javax.swing.JButton" binding="ChatButton">
+          <component id="76019" class="javax.swing.JButton" binding="OtherButton">
             <constraints>
-              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <icon value="Picture/bubble-chat_48x48.png"/>
+              <icon value="Picture/other_48x48.png"/>
               <text value=""/>
             </properties>
           </component>
-          <hspacer id="cbad5">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
           <hspacer id="9e1c7">
             <constraints>
-              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <hspacer id="1baa9">
@@ -75,46 +55,27 @@
           </hspacer>
           <hspacer id="7c94c">
             <constraints>
-              <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="b12b1" class="javax.swing.JButton" binding="History_Button">
+          <component id="b12b1" class="javax.swing.JButton" binding="Home_Button">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <icon value="Picture/history_48x48.png"/>
+              <icon value="Picture/home_48x48.png"/>
               <text value=""/>
             </properties>
           </component>
           <hspacer id="33dff">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <hspacer id="7e5d1">
-            <constraints>
-              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <component id="22340" class="javax.swing.JButton" binding="Report_Button">
-            <constraints>
-              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="Picture/question_48x48.png"/>
-              <label value=""/>
-              <text value=""/>
-            </properties>
-          </component>
         </children>
       </grid>
       <vspacer id="d53eb">
