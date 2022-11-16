@@ -23,7 +23,7 @@ public class Home {
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Order(frame).getorderpanel()));
+                frame.setContentPane((new Order(frame).getOrderPanel()));
                 frame.revalidate();
             }
         });
