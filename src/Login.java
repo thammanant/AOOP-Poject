@@ -16,6 +16,7 @@ public class Login extends LoginNRegister {
     private JButton RegisterButton;
     private JButton LoginButton;
     private JLabel image;
+    private JLabel Status;
 
 
     public Login(JFrame frame) {
@@ -67,7 +68,7 @@ public class Login extends LoginNRegister {
             public void actionPerformed(ActionEvent e) {
                 String email = emailTextField.getText();
                 String password = PasswordTextField.getText();
-                CheckValidations(email, password);
+                CheckValidations(email, password, frame);
             }
         });
 
@@ -82,13 +83,16 @@ public class Login extends LoginNRegister {
     }
 
     //check validation
-    private void CheckValidations(String email, String password) {
+    private void CheckValidations(String email, String password, JFrame frame) {
         if (email.isEmpty() || email.equals(userTxt)) {
-            JOptionPane.showMessageDialog(null, emptyUsername);
+            Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {
-            JOptionPane.showMessageDialog(null, emptyPasswd);
+            Status.setText(emptyPasswd);
         } else {
             JOptionPane.showMessageDialog(null, "Login Successful!");
+            //change panel
+            frame.setContentPane(new Home(frame).getHomePanel());
+            frame.revalidate();
         }
     }
 

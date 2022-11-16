@@ -12,6 +12,7 @@ public class Register extends LoginNRegister {
     private JButton registerButton;
     private JPasswordField passwordTextField;
     private JPasswordField confirmPasswordTextField;
+    private JLabel Status;
 
     public Register(JFrame frame) {
         //set text field
@@ -87,11 +88,11 @@ public class Register extends LoginNRegister {
                 String password = passwordTextField.getText();
                 String confirmPassword = confirmPasswordTextField.getText();
                 if (email.isEmpty() || email.equals(userTxt)) {
-                    JOptionPane.showMessageDialog(null, emptyUsername);
+                    Status.setText(emptyUsername);
                 } else if (password.isEmpty() || password.equals(passTxt)) {
-                    JOptionPane.showMessageDialog(null, emptyPasswd);
+                    Status.setText(emptyPasswd);
                 } else if (!password.equals(confirmPassword)) {
-                    JOptionPane.showMessageDialog(null, passwdNotMatch);
+                    Status.setText(passwdNotMatch);
                 } else {
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                     frame.setContentPane(new Login(frame).getLoginPanel());

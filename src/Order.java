@@ -8,7 +8,13 @@ public class Order {
     private JButton button1;
     private JButton button2;
 
-    public Order(){
+    public Order(JFrame frame) {
+
+        //set button cancel
+        cancelButton.addActionListener(e -> {
+            frame.setContentPane(new Home(frame).getHomePanel());
+            frame.revalidate();
+        });
 
     }
 
