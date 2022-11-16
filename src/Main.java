@@ -133,6 +133,9 @@ public class Main {
         Login login = new Login(frame);
         frame.add(login.getLoginPanel());
 
+//        Other test = new Other(frame);
+//        frame.add(test.getOtherPanel());
+
 
 
     }
