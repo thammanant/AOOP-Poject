@@ -129,10 +129,9 @@ public class Main {
         }
 
 
-        Address addressPanel = new Address(frame);
-        frame.getContentPane().add(addressPanel.getAddressPanel());
-        Order order = new Order(frame);
-        frame.getContentPane().add(order.getOrderPanel());
+        Login login = new Login(frame);
+        frame.add(login.getLoginPanel());
+
 
     }
 }
