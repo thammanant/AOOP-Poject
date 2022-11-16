@@ -38,6 +38,14 @@ public class Home {
                 frame.revalidate();
             }
         });
+
+        Report_Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane((new Report(frame).getReportPanel()));
+                frame.revalidate();
+            }
+        });
     }
 
     public JPanel getHomePanel(){
