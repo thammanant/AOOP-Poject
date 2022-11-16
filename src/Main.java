@@ -127,6 +127,9 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
+        Report test = new Report(frame);
+        frame.add(test.get_Report_panel());
+
 
 
 
