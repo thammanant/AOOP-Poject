@@ -131,8 +131,11 @@ public class Main {
 
 //        Login login = new Login(frame);
 //        frame.getContentPane().add(login.getLoginPanel());
-        Home home = new Home(frame);
-        frame.getContentPane().add(home.getHomePanel());
+//        Home home = new Home(frame);
+//        frame.getContentPane().add(home.getHomePanel());
+        Total total = new Total(frame);
+        frame.getContentPane().add(total.getTotalPanel());
+
 
 
     }
