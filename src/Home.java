@@ -7,10 +7,10 @@ public class Home {
 
     private JButton HomeButton;
     private JButton NewOrderButton;
-    private JButton OtherButton;
+    private JButton ChatButton;
     private JPanel HomePanel;
-    private JButton button1;
-    private JButton button2;
+    private JButton History_Button;
+    private JButton Report_Button;
 
     public Home(JFrame frame) {
         //set Button home
@@ -31,10 +31,10 @@ public class Home {
         });
 
         //set the other button
-        OtherButton.addActionListener(new ActionListener() {
+        History_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Others(frame).getOtherPanel()));
+                frame.setContentPane((new History(frame).getHistoryPanel()));
                 frame.revalidate();
             }
         });
