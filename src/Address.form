@@ -78,7 +78,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="25af5" class="javax.swing.JTextField" binding="ZipField">
+      <component id="25af5" class="javax.swing.JTextField" binding="PostalField">
         <constraints>
           <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -101,7 +101,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
-          <text value="Zip"/>
+          <text value="Postal code"/>
         </properties>
       </component>
       <hspacer id="a0f89">
