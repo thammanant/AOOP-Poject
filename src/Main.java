@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 //        //database
-//        User[] allUserPass = new User[100];
+//        AbstactClass.User[] allUserPass = new AbstactClass.User[100];
 //
 //        // First pages
 //        String name = "John";
