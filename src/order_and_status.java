@@ -9,7 +9,6 @@ public class order_and_status {
 
     public order_and_status(JFrame frame){
 
-
     }
     public JPanel getOrder_and_statusPanel(){
         return Basket_panel;
