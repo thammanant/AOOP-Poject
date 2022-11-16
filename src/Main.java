@@ -129,7 +129,7 @@ public class Main {
         }
 
 
-        Jimmy test = new Jimmy();
+        Jimmy test = new Jimmy(frame);
         frame.getContentPane().add(test.getjimmypanel());
 
 
