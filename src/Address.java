@@ -8,8 +8,19 @@ public class Address {
     private JTextField textField4;
     private JTextField textField5;
     private JPanel AddressPanel;
+    private JButton GoToTotal;
+    private JButton GoToConfirm;
 
     public Address(JFrame frame) {
+        GoToTotal.addActionListener(e -> {
+//            frame.setContentPane(new Total(frame).getPanel());
+//            frame.revalidate();
+        });
+        GoToConfirm.addActionListener(e -> {
+//            frame.setContentPane(new Confirm(frame).getPanel());
+//            frame.revalidate();
+        });
+
     }
 
     public JPanel getAddressPanel() {
