@@ -37,7 +37,9 @@
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="1"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Cotton(White)"/>
         </properties>
       </component>
       <component id="eb5a" class="javax.swing.JLabel" binding="cloth_name2">
@@ -45,7 +47,9 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="2"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Mixed(White)"/>
         </properties>
       </component>
       <component id="e7a6" class="javax.swing.JLabel" binding="cloth_name4">
@@ -53,7 +57,9 @@
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="4"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Wool(White)"/>
         </properties>
       </component>
       <component id="316b5" class="javax.swing.JLabel" binding="cloth_name5">
@@ -61,7 +67,9 @@
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Bedding(White)"/>
         </properties>
       </component>
       <component id="9b17d" class="javax.swing.JLabel" binding="cloth_name6">
@@ -69,7 +77,9 @@
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="6"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Baby wear(White)"/>
         </properties>
       </component>
       <component id="417ac" class="javax.swing.JLabel" binding="cloth_name7">
@@ -77,7 +87,9 @@
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Cotton(Colour)"/>
         </properties>
       </component>
       <component id="c5843" class="javax.swing.JLabel" binding="cloth_name8">
@@ -85,7 +97,9 @@
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="8"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Mixed(Colour)"/>
         </properties>
       </component>
       <component id="c598" class="javax.swing.JLabel" binding="cloth_name9">
@@ -93,7 +107,9 @@
           <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Delicates(Colour)"/>
         </properties>
       </component>
       <component id="68683" class="javax.swing.JLabel">
@@ -101,7 +117,9 @@
           <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="10"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Wool(Colour)"/>
         </properties>
       </component>
       <component id="8412b" class="javax.swing.JLabel" binding="cloth_name11">
@@ -109,7 +127,9 @@
           <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Bedding(Colour)"/>
         </properties>
       </component>
       <component id="92e59" class="javax.swing.JLabel">
@@ -117,7 +137,9 @@
           <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="12"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Baby_wear(Colour)"/>
         </properties>
       </component>
       <hspacer id="f4318">
@@ -559,7 +581,9 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="3"/>
+          <font name="Source Code Pro" size="12"/>
+          <foreground color="-16777216"/>
+          <text value="Delicates(White)"/>
         </properties>
       </component>
     </children>
