@@ -129,10 +129,12 @@ public class Main {
         }
 
 
-        Address addressPanel = new Address(frame);
-        frame.getContentPane().add(addressPanel.getAddressPanel());
-        Order order = new Order(frame);
-        frame.getContentPane().add(order.getOrderPanel());
+//        Address addressPanel = new Address(frame);
+//        frame.getContentPane().add(addressPanel.getAddressPanel());
+//        Order order = new Order(frame);
+//        frame.getContentPane().add(order.getOrderPanel());
+        TotalDetail totalDetail = new TotalDetail(frame);
+        frame.getContentPane().add(totalDetail.getTotalDetailPanel());
 
     }
 }
