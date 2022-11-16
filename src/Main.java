@@ -129,14 +129,10 @@ public class Main {
         }
 
 
-//        Login login = new Login(frame);
-//        frame.getContentPane().add(login.getLoginPanel());
-//        Home home = new Home(frame);
-//        frame.getContentPane().add(home.getHomePanel());
-        Total total = new Total(frame);
-        frame.getContentPane().add(total.getTotalPanel());
-
-
+        Address addressPanel = new Address(frame);
+        frame.getContentPane().add(addressPanel.getAddressPanel());
+        Order order = new Order(frame);
+        frame.getContentPane().add(order.getOrderPanel());
 
     }
 }
