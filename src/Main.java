@@ -129,8 +129,10 @@ public class Main {
         }
 
 
-        Login login = new Login(frame);
-        frame.add(login.getLoginPanel());
+//        Login login = new Login(frame);
+//        frame.add(login.getLoginPanel());
+        Total total = new Total(frame);
+        frame.add(total.getTotalPanel());
 
 
     }

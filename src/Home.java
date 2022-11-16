@@ -11,6 +11,8 @@ public class Home {
     private JPanel HomePanel;
 
     public Home(JFrame frame) {
+        Color colour5 = new Color(189, 250, 253);
+        HomePanel.setBackground(colour5);
         //set Button home
         HomeButton.addActionListener(new ActionListener() {
             @Override
@@ -27,6 +29,8 @@ public class Home {
                 frame.revalidate();
             }
         });
+
+
     }
 
     public JPanel getHomePanel(){
