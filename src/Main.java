@@ -129,8 +129,8 @@ public class Main {
         }
 
 
-        Login login = new Login(frame);
-        frame.getContentPane().add(login.getLoginPanel());
+        Address addressPanel = new Address(frame);
+        frame.getContentPane().add(addressPanel.getAddressPanel());
 
 
     }
