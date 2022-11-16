@@ -1,8 +1,4 @@
-import Resources.*;
-
 import javax.swing.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 
@@ -129,8 +125,8 @@ public class Main {
         }
 
 
-        Address addressPanel = new Address(frame);
-        frame.getContentPane().add(addressPanel.getAddressPanel());
+        order_and_status test = new order_and_status(frame);
+        frame.getContentPane().add(test.getOrder_and_statusPanel());
 
 
     }

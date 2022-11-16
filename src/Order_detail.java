@@ -2,17 +2,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Jimmy {
+public class Order_detail {
     private JPanel panel1;
     private JLabel Profile_icon;
     private JButton Chat_icon;
     private JButton exit_button;
 
-    public Jimmy(JFrame frame) {
+    public Order_detail(JFrame frame) {
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Register(frame).getRegisterPanel());
+                frame.setContentPane(new Home(frame).getHomePanel());
                 frame.revalidate();
             }
         });
