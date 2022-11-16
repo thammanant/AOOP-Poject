@@ -58,18 +58,18 @@ public class Order {
     //-value is the amount of cloth
     //-add_button and subtract_button follow by number to increase and decrease the amount of that cloth
     /*
-    1->(White)
-    2->(White)
-    3->(White)
-    4->(White)
-    5->(White)
-    6->(White)
-    7->(Colour)
-    8->(Colour)
-    9->(Colour)
-    10->(Colour)
-    11->(Colour)
-    12->(Colour)
+    1->Cotton(White)
+    2->Mixed(White)
+    3->Delicates(White)
+    4->Wool(White)
+    5->Bedding(White)
+    6->Baby_wear(White)
+    7->Cotton(Colour)
+    8->Mixed(Colour)
+    9->Delicates(Colour)
+    10->Wool(Colour)
+    11->Bedding(Colour)
+    12->Baby_wear(Colour)
     */
 
     int amount1 = 0;
