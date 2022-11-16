@@ -276,6 +276,15 @@ public class Order {
                 frame.revalidate();
             }
         });
+
+        //press process will go total page.
+        processButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane((new Total(frame).getTotalPanel()));
+                frame.revalidate();
+            }
+        });
     }
 
     public JPanel getOrderPanel(){

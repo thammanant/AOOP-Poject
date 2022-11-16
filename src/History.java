@@ -2,21 +2,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Order_detail {
-    private JPanel panel1;
-    private JLabel Profile_icon;
-    private JButton Chat_icon;
-    private JButton exit_button;
+public class History {
+    private JButton Exit_button;
+    private JPanel HistoryPanel;
     private JButton Back_button;
 
-    public Order_detail(JFrame frame) {
-        exit_button.addActionListener(new ActionListener() {
+    public History(JFrame frame)
+    {
+        Exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new Home(frame).getHomePanel());
                 frame.revalidate();
             }
         });
+
         Back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,8 +26,8 @@ public class Order_detail {
         });
     }
 
-
-    public JPanel getjimmypanel(){
-       return panel1;
+    public JPanel getHistoryPanel(){
+        return HistoryPanel;
     }
+
 }
