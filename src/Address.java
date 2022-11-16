@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Address {
     private JLabel AddTitle;
@@ -12,10 +14,14 @@ public class Address {
     private JButton GoToConfirm;
 
     public Address(JFrame frame) {
-        GoToTotal.addActionListener(e -> {
-//            frame.setContentPane(new Total(frame).getPanel());
-//            frame.revalidate();
+        GoToTotal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Total(frame).getTotalPanel());
+                frame.revalidate();
+            }
         });
+
         GoToConfirm.addActionListener(e -> {
 //            frame.setContentPane(new Confirm(frame).getPanel());
 //            frame.revalidate();

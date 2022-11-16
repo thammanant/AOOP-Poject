@@ -125,7 +125,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <text value="Button"/>
+          <text value="Back"/>
         </properties>
       </component>
       <component id="4932f" class="javax.swing.JButton" binding="GoToConfirm">

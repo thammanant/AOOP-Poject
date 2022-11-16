@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Total {
     private JPanel TotalPanel;
@@ -49,7 +51,22 @@ public class Total {
         Color colour5 = new Color(189, 250, 253);
         TotalPanel.setBackground(colour5);
         ButtonPanel.setBackground(colour5);
-
+        // set edit button
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Order(frame).getOrderPanel());
+                frame.revalidate();
+            }
+        });
+        // set confirm button
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Address(frame).getAddressPanel());
+                frame.revalidate();
+            }
+        });
 
     }
 
