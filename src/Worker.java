@@ -1,4 +1,6 @@
-public class Worker extends User{
+import AbstactClass.User;
+
+public class Worker extends User {
 
     private String email;
     private String password;

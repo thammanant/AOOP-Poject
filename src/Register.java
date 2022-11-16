@@ -1,4 +1,4 @@
-import Picture.LoginNRegister;
+import AbstactClass.LoginNRegister;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

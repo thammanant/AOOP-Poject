@@ -1,7 +1,8 @@
+import AbstactClass.User;
 import Resources.ClothesAmount;
 import Resources.ClothesType;
 
-public class Customer extends User{
+public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
     private String status = "Waiting";
