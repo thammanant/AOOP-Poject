@@ -8,11 +8,11 @@ public class User_status {
     private JButton Home_Button;
     private JPanel User_StatusPanel;
 
-    public User_status(JFrame frame){
+    public User_status(JFrame frame, Customer customer){
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Order(frame).getOrderPanel()));
+                frame.setContentPane((new Order(frame, customer).getOrderPanel()));
                 frame.revalidate();
             }
         });
@@ -21,7 +21,7 @@ public class User_status {
         Home_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
+                frame.setContentPane((new Home(frame,customer).getHomePanel()));
                 frame.revalidate();
             }
         });
@@ -29,7 +29,7 @@ public class User_status {
         OtherButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Other(frame).getOtherPanel()));
+                frame.setContentPane((new Other(frame,customer).getOtherPanel()));
                 frame.revalidate();
             }
         });

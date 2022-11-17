@@ -39,7 +39,7 @@ public class Other {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Order_detail(frame, customer).getjimmypanel()));
+                frame.setContentPane((new Order_detail(frame, customer).get_order_detailPanel()));
                 frame.revalidate();
             }
         });
