@@ -59,16 +59,16 @@ public class Order {
     //-add_button and subtract_button follow by number to increase and decrease the amount of that cloth
     /*
     1->Cotton(White)
-    2->Mixed(White)
-    3->Delicates(White)
-    4->Wool(White)
-    5->Bedding(White)
-    6->Baby_wear(White)
-    7->Cotton(Colour)
-    8->Mixed(Colour)
-    9->Delicates(Colour)
-    10->Wool(Colour)
-    11->Bedding(Colour)
+    2->Cotton(Colour)
+    3->Mixed(White)
+    4->Mixed(Colour)
+    5->Delicates(White)
+    6->Delicates(Colour)
+    7->Wool(White)
+    8->Wool(Colour)
+    9->Bedding(White)
+    10->Bedding(Colour)
+    11->Baby_wear(White)
     12->Baby_wear(Colour)
     */
 
