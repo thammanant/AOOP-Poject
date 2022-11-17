@@ -1,3 +1,5 @@
+import Resources.ClothesAmount;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -53,23 +55,24 @@ public class Total {
         TotalPanel.setBackground(colour5);
         ButtonPanel.setBackground(colour5);
         //add amount from order
-//        Amount1.setText(customer.printAmount(0));
-//        Amount2.setText(customer.printAmount(1));
-//        Amount3.setText(customer.printAmount(2));
-//        Amount4.setText(customer.printAmount(3));
-//        Amount5.setText(customer.printAmount(4));
-//        Amount6.setText(customer.printAmount(5));
-//        Amount7.setText(customer.printAmount(6));
-//        Amount8.setText(customer.printAmount(7));
-//        Amount9.setText(customer.printAmount(8));
-//        Amount10.setText(customer.printAmount(9));
-//        Amount11.setText(customer.printAmount(10));
-//        Amount12.setText(customer.printAmount(11));
+        Amount1.setText(customer.printAmount(0));
+        Amount2.setText(customer.printAmount(1));
+        Amount3.setText(customer.printAmount(2));
+        Amount4.setText(customer.printAmount(3));
+        Amount5.setText(customer.printAmount(4));
+        Amount6.setText(customer.printAmount(5));
+        Amount7.setText(customer.printAmount(6));
+        Amount8.setText(customer.printAmount(7));
+        Amount9.setText(customer.printAmount(8));
+        Amount10.setText(customer.printAmount(9));
+        Amount11.setText(customer.printAmount(10));
+        Amount12.setText(customer.printAmount(11));
 
         // set edit button
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                customer.resetClothes();
                 frame.setContentPane(new Order(frame, customer).getOrderPanel());
                 frame.revalidate();
             }

@@ -50,7 +50,6 @@ public class ClothesAmount {
     public int printAmount(int i){
         return amount[i];
     }
-
     public int getSize() {
         return this.size;
     }

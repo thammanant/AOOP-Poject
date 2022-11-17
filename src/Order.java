@@ -281,7 +281,7 @@ public class Order {
         processButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount1,amount2);
+                customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount11,amount2);
                 frame.setContentPane((new Total(frame, customer).getTotalPanel()));
                 frame.revalidate();
             }
