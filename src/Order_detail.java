@@ -27,7 +27,7 @@ public class Order_detail {
     }
 
 
-    public JPanel getjimmypanel(){
+    public JPanel get_order_detailPanel(){
        return panel1;
     }
 }
