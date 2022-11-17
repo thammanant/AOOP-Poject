@@ -7,12 +7,12 @@ public class History {
     private JPanel HistoryPanel;
     private JButton Back_button;
 
-    public History(JFrame frame)
+    public History(JFrame frame, Customer customer)
     {
         Exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Home(frame).getHomePanel());
+                frame.setContentPane(new Home(frame,customer).getHomePanel());
                 frame.revalidate();
             }
         });
@@ -20,7 +20,7 @@ public class History {
         Back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Other(frame).getOtherPanel());
+                frame.setContentPane(new Other(frame,customer).getOtherPanel());
                 frame.revalidate();
             }
         });

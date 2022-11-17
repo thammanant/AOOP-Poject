@@ -43,7 +43,7 @@ public class Main {
 //        System.out.println();
 //
 //        allUserPass[0] = customer;
-//        allUserPass[1] = customer2;
+//        allUserPass[1 ] = customer2;
 //        allUserPass[2] = worker;
 //
 //        for (int i = 0; i < 3; i++) {
@@ -127,10 +127,9 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
-        Report test = new Report(frame);
-        frame.add(test.get_Report_panel());
 
-
+//        Report test = new Report(frame);
+//        frame.add(test.get_Report_panel());
 
 
 //        Login login = new Login(frame);
@@ -138,7 +137,8 @@ public class Main {
 
 //        Other test = new Other(frame);
 //        frame.add(test.getOtherPanel());
-
+        Order order = new Order(frame, new Customer("H","H","5"));
+        frame.add(order.getOrderPanel());
 
 
     }
