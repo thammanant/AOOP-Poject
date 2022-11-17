@@ -127,17 +127,16 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
-        Report test = new Report(frame);
-        frame.add(test.get_Report_panel());
+
+
+        Home test = new Home(frame);
+        frame.add(test.getHomePanel());
+
+//        Report test = new Report(frame);
+//        frame.add(test.get_Report_panel());
 
 
 
-
-//        Login login = new Login(frame);
-//        frame.add(login.getLoginPanel());
-
-//        Other test = new Other(frame);
-//        frame.add(test.getOtherPanel());
 
 
 
