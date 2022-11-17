@@ -85,7 +85,7 @@ public class Order {
     int amount11 = 0;
     int amount12 = 0;
 
-    public Order(JFrame frame){
+    public Order(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
         OrderPanel.setBackground(colour5);
 
@@ -272,7 +272,7 @@ public class Order {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
+                frame.setContentPane((new Home(frame, customer).getHomePanel()));
                 frame.revalidate();
             }
         });
@@ -281,7 +281,8 @@ public class Order {
         processButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Total(frame).getTotalPanel()));
+                customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount11,amount12);
+                frame.setContentPane((new Total(frame, customer).getTotalPanel()));
                 frame.revalidate();
             }
         });

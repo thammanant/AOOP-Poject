@@ -4,27 +4,31 @@ import java.awt.event.ActionListener;
 
 public class Home {
 
+    private JButton HomeButton;
     private JButton NewOrderButton;
     private JButton OtherButton;
     private JPanel HomePanel;
-    private JButton Refresh_Button;
+    private JButton Home_Button;
+    private JLabel Hi_user;
+    private JLabel Empty_basket_button;
+    private JButton Check_your_order;
 
-    public Home(JFrame frame) {
+    public Home(JFrame frame, Customer customer) {
 
         // set new order button
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Order(frame).getOrderPanel()));
+                frame.setContentPane((new Order(frame, customer).getOrderPanel()));
                 frame.revalidate();
             }
         });
 
-        //refresh home page
-        Refresh_Button.addActionListener(new ActionListener() {
+        //set the other button
+        Home_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
+                frame.setContentPane((new Home(frame,customer).getHomePanel()));
                 frame.revalidate();
             }
         });
@@ -32,7 +36,7 @@ public class Home {
         OtherButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Other(frame).getOtherPanel()));
+                frame.setContentPane((new Other(frame,customer).getOtherPanel()));
                 frame.revalidate();
             }
         });
