@@ -10,13 +10,13 @@ public class Home {
     private JPanel HomePanel;
     private JButton Home_Button;
 
-    public Home(JFrame frame) {
+    public Home(JFrame frame, Customer customer) {
 
         // set new order button
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Order(frame).getOrderPanel()));
+                frame.setContentPane((new Order(frame, customer).getOrderPanel()));
                 frame.revalidate();
             }
         });
@@ -25,7 +25,7 @@ public class Home {
         Home_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
+                frame.setContentPane((new Home(frame,customer).getHomePanel()));
                 frame.revalidate();
             }
         });
@@ -33,7 +33,7 @@ public class Home {
         OtherButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Other(frame).getOtherPanel()));
+                frame.setContentPane((new Other(frame,customer).getOtherPanel()));
                 frame.revalidate();
             }
         });

@@ -47,15 +47,30 @@ public class Total {
     private JButton confirmButton;
     private JPanel ButtonPanel;
 
-    public Total(JFrame frame){
+
+    public Total(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
         TotalPanel.setBackground(colour5);
         ButtonPanel.setBackground(colour5);
+        //add amount from order
+//        Amount1.setText(customer.printAmount(0));
+//        Amount2.setText(customer.printAmount(1));
+//        Amount3.setText(customer.printAmount(2));
+//        Amount4.setText(customer.printAmount(3));
+//        Amount5.setText(customer.printAmount(4));
+//        Amount6.setText(customer.printAmount(5));
+//        Amount7.setText(customer.printAmount(6));
+//        Amount8.setText(customer.printAmount(7));
+//        Amount9.setText(customer.printAmount(8));
+//        Amount10.setText(customer.printAmount(9));
+//        Amount11.setText(customer.printAmount(10));
+//        Amount12.setText(customer.printAmount(11));
+
         // set edit button
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Order(frame).getOrderPanel());
+                frame.setContentPane(new Order(frame, customer).getOrderPanel());
                 frame.revalidate();
             }
         });
@@ -63,7 +78,7 @@ public class Total {
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Address(frame).getAddressPanel());
+                frame.setContentPane(new Address(frame,customer).getAddressPanel());
                 frame.revalidate();
             }
         });
