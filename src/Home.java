@@ -4,11 +4,10 @@ import java.awt.event.ActionListener;
 
 public class Home {
 
-    private JButton HomeButton;
     private JButton NewOrderButton;
     private JButton OtherButton;
     private JPanel HomePanel;
-    private JButton Home_Button;
+    private JButton Refresh_Button;
 
     public Home(JFrame frame) {
 
@@ -21,8 +20,8 @@ public class Home {
             }
         });
 
-        //set the other button
-        Home_Button.addActionListener(new ActionListener() {
+        //refresh home page
+        Refresh_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane((new Home(frame).getHomePanel()));
