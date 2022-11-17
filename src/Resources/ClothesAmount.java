@@ -50,6 +50,13 @@ public class ClothesAmount {
     public int printAmount(int i){
         return amount[i];
     }
+    public int printTotal(){
+        int res =0;
+        for(int i=0;i<size;i++){
+            res += amount[i];
+        }
+        return res;
+    }
     public int getSize() {
         return this.size;
     }

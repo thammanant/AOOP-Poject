@@ -67,7 +67,7 @@ public class Total {
         Amount10.setText(customer.printAmount(9));
         Amount11.setText(customer.printAmount(10));
         Amount12.setText(customer.printAmount(11));
-
+        AmountTotal.setText(customer.printtotal());
         // set edit button
         editButton.addActionListener(new ActionListener() {
             @Override

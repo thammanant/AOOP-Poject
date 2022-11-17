@@ -55,6 +55,10 @@ public class Customer extends User {
         String a = Integer.toString(this.clothes.printAmount(i));
         return a;
     }
+    public String printtotal(){
+        String t =Integer.toString(this.clothes.printTotal());
+        return t;
+    }
     public String checkClothes(){
         if (this.getClothes().getSize() == 0) {
             return "All cleaned!";
