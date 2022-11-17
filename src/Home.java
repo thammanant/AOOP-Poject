@@ -9,6 +9,9 @@ public class Home {
     private JButton OtherButton;
     private JPanel HomePanel;
     private JButton Home_Button;
+    private JLabel Hi_user;
+    private JLabel Empty_basket_button;
+    private JButton Check_your_order;
 
     public Home(JFrame frame, Customer customer) {
 
