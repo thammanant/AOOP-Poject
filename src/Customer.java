@@ -60,4 +60,8 @@ public class Customer extends User {
             return this.printClothes();
         }
     }
+    //function add all clothes
+    public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12){
+
+    }
 }
