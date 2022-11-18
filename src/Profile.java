@@ -27,7 +27,7 @@ public class Profile {
     }
 
 
-    public JPanel get_order_detailPanel(){
+    public JPanel get_profilepanel(){
        return panel1;
     }
 }

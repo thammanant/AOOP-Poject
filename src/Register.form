@@ -116,7 +116,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="5fbdf" class="javax.swing.JCheckBox" binding="User">
+      <component id="c46eb" class="javax.swing.JRadioButton" binding="Customer">
         <constraints>
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -128,7 +128,7 @@
           <verifyInputWhenFocusTarget value="true"/>
         </properties>
       </component>
-      <component id="52794" class="javax.swing.JCheckBox" binding="Worker">
+      <component id="faac8" class="javax.swing.JRadioButton" binding="Worker">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

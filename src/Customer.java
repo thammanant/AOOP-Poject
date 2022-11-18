@@ -65,10 +65,7 @@ public class Customer extends User {
 
     //check whether there is order or not
     public boolean check(){
-        if (this.getClothes().getSize() != 0)
-            return true;
-        else
-            return false;
+        return this.getClothes().getSize() != 0;
     }
 
 

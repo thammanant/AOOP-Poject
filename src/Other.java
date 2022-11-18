@@ -6,18 +6,18 @@ import java.awt.event.ActionListener;
 public class Other {
     private JPanel OtherPanel;
     private JButton HomeButton;
-    private JButton button1;
-    private JButton button3;
-    private JButton button2;
+    private JButton History_Button;
+    private JButton Order_Button;
+    private JButton Profile_Button;
     private JPanel MenuPanel;
 
-    public Other(JFrame frame,Customer customer){
+    public Other(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
         MenuPanel.setBackground(colour5);
 
-        button1.setText("\u2022 History");
-        button2.setText("\u2022 Profile");
-        button3.setText("\u2022 Report");
+        History_Button.setText("\u2022 History");
+        Profile_Button.setText("\u2022 Profile");
+        Order_Button.setText("\u2022 Report");
 
         HomeButton.addActionListener(new ActionListener() {
             @Override
@@ -27,7 +27,7 @@ public class Other {
             }
         });
         //goto history of the done order
-        button1.addActionListener(new ActionListener() {
+        History_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane((new History(frame,customer).getHistoryPanel()));
@@ -36,16 +36,16 @@ public class Other {
         });
 
         //goto the customer's profile
-        button2.addActionListener(new ActionListener() {
+        Profile_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Profile(frame,customer).get_order_detailPanel()));
+                frame.setContentPane((new Profile(frame, customer).get_profilepanel()));
                 frame.revalidate();
             }
         });
 
         //goto report
-        button3.addActionListener(new ActionListener() {
+        Order_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane((new Report(frame,customer).get_Report_panel()));

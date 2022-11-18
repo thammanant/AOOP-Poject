@@ -43,7 +43,7 @@ public class Main {
 //        System.out.println();
 //
 //        allUserPass[0] = customer;
-//        allUserPass[1] = customer2;
+//        allUserPass[1 ] = customer2;
 //        allUserPass[2] = worker;
 //
 //        for (int i = 0; i < 3; i++) {
@@ -128,14 +128,8 @@ public class Main {
             ex.printStackTrace();
         }
 
-
-        Register test = new Register(frame,new Customer("a","b","c"));
-        frame.add(test.getRegisterPanel());
-
-//        Report test = new Report(frame);
-//        frame.add(test.get_Report_panel());
-
-
+        Login login = new Login(frame, new Customer("H","H","5"));
+        frame.add(login.getLoginPanel());
 
 
 
