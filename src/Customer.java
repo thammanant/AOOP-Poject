@@ -2,6 +2,8 @@ import AbstactClass.User;
 import Resources.ClothesAmount;
 import Resources.ClothesType;
 
+import javax.swing.*;
+
 public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
@@ -55,18 +57,41 @@ public class Customer extends User {
         String a = Integer.toString(this.clothes.printAmount(i));
         return a;
     }
+    //print amount total
     public String printtotal(){
         String t =Integer.toString(this.clothes.printTotal());
         return t;
     }
-    public String checkClothes(){
-        if (this.getClothes().getSize() == 0) {
-            return "All cleaned!";
+
+    //check whether there is order or not
+    public boolean check(){
+        if (this.getClothes().getSize() != 0)
+            return true;
+        else
+            return false;
+    }
+
+
+    //check order and text it.
+    public String textorderClothes() {
+        String s = "";
+        if (check()) {
+            s = "You have " + this.getClothes() + " order";
         }
         else {
-            return this.printClothes();
+            s = "All cleaned";
         }
+        return s;
     }
+
+    //popup that there is no order
+    public void Popup_order() {
+            JOptionPane.showMessageDialog(null, "You have no order now!");
+        }
+
+
+
+
     //function add all clothes
     public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12){
         addClothes(ClothesType.CottonWhite,am1);
