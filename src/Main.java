@@ -128,15 +128,10 @@ public class Main {
             ex.printStackTrace();
         }
 
-//        Report test = new Report(frame);
-//        frame.add(test.get_Report_panel());
-
-
         Login login = new Login(frame, new Customer("H","H","5"));
         frame.add(login.getLoginPanel());
 
-//        Other test = new Other(frame);
-//        frame.add(test.getOtherPanel());
+
 
 
     }
