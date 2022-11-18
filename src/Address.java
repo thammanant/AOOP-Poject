@@ -31,11 +31,11 @@ public class Address {
     private final String emptycity = "City cannot be empty!";
     private final String emptystate = "State cannot be empty!";
     private final String emptypostal = "Postal code cannot be empty!";
-    public Address(JFrame frame) {
+    public Address(JFrame frame, Customer customer) {
         GoToTotal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Total(frame).getTotalPanel());
+                frame.setContentPane(new Total(frame,customer).getTotalPanel());
                 frame.revalidate();
             }
         });
@@ -222,7 +222,7 @@ public class Address {
                     Status.setText(emptypostal);
                 } else {
                     JOptionPane.showMessageDialog(null,"Your order have been sent","Message",JOptionPane.PLAIN_MESSAGE);
-                    frame.setContentPane(new Home(frame).getHomePanel());
+                    frame.setContentPane(new Home(frame,customer).getHomePanel());
                     frame.revalidate();
                 }
             }

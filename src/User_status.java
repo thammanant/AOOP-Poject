@@ -2,21 +2,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Home {
-
+public class User_status {
     private JButton NewOrderButton;
     private JButton OtherButton;
-    private JPanel HomePanel;
-    private JButton RefreshButton;
-    private JLabel Hi_user;
-    private JLabel orderr;
-    private JButton Check_your_order;
+    private JButton Home_Button;
+    private JPanel User_StatusPanel;
 
-    public Home(JFrame frame, Customer customer) {
-
-        orderr.setText(customer.textorderClothes());
-
-        // set new order button
+    public User_status(JFrame frame, Customer customer){
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -25,8 +17,8 @@ public class Home {
             }
         });
 
-        //set the other button
-        RefreshButton.addActionListener(new ActionListener() {
+        //goto home page
+        Home_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane((new Home(frame,customer).getHomePanel()));
@@ -41,20 +33,8 @@ public class Home {
                 frame.revalidate();
             }
         });
-
-        Check_your_order.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(customer.check()){
-                    frame.setContentPane((new User_status(frame,customer).getUser_StatusPanel()));
-                    frame.revalidate();}
-                else
-                    customer.Popup_order();
-            }
-        });
     }
-
-    public JPanel getHomePanel(){
-        return HomePanel;
+    public JPanel getUser_StatusPanel(){
+        return User_StatusPanel;
     }
 }

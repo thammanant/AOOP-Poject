@@ -16,7 +16,7 @@ public class Register extends LoginNRegister {
     private JCheckBox User;
     private JCheckBox Worker;
 
-    public Register(JFrame frame) {
+    public Register(JFrame frame, Customer customer) {
         //set text field
         emailTextField.setText(this.userTxt);
         emailTextField.addMouseListener(new MouseAdapter() {
@@ -97,7 +97,7 @@ public class Register extends LoginNRegister {
                     Status.setText(passwdNotMatch);
                 } else {
                     JOptionPane.showMessageDialog(null, "Register successfully!");
-                    frame.setContentPane(new Login(frame).getLoginPanel());
+                    frame.setContentPane(new Login(frame,customer).getLoginPanel());
                     frame.revalidate();
                 }
             }

@@ -16,7 +16,7 @@ public class Login extends LoginNRegister {
     private JLabel Status;
 
 
-    public Login(JFrame frame) {
+    public Login(JFrame frame, Customer customer) {
         //change panel theme
         LoginPanel.setBackground(colour5);
 
@@ -65,7 +65,7 @@ public class Login extends LoginNRegister {
             public void actionPerformed(ActionEvent e) {
                 String email = emailTextField.getText();
                 String password = PasswordTextField.getText();
-                CheckValidations(email, password, frame);
+                CheckValidations(email, password, frame,customer);
             }
         });
 
@@ -73,14 +73,14 @@ public class Login extends LoginNRegister {
         RegisterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Register(frame).getRegisterPanel());
+                frame.setContentPane(new Register(frame,customer).getRegisterPanel());
                 frame.revalidate();
             }
         });
     }
 
     //check validation
-    private void CheckValidations(String email, String password, JFrame frame) {
+    private void CheckValidations(String email, String password, JFrame frame, Customer customer) {
         if (email.isEmpty() || email.equals(userTxt)) {
             Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {
@@ -88,7 +88,7 @@ public class Login extends LoginNRegister {
         } else {
             JOptionPane.showMessageDialog(null, "Login Successful!");
             //change panel
-            frame.setContentPane(new Home(frame).getHomePanel());
+            frame.setContentPane(new Home(frame,customer).getHomePanel());
             frame.revalidate();
         }
     }

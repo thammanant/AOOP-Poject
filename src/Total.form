@@ -287,7 +287,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="4a183" class="javax.swing.JLabel" binding="Amount2">
@@ -297,7 +297,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="5bb66" class="javax.swing.JLabel" binding="Amount3">
@@ -307,7 +307,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="b4773" class="javax.swing.JLabel" binding="Amount4">
@@ -317,7 +317,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="afa8f" class="javax.swing.JLabel" binding="Amount5">
@@ -327,7 +327,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="ad737" class="javax.swing.JLabel" binding="Amount6">
@@ -337,7 +337,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="728d6" class="javax.swing.JLabel" binding="Amount7">
@@ -347,7 +347,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="77ef8" class="javax.swing.JLabel" binding="Amount8">
@@ -357,7 +357,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="5ffc5" class="javax.swing.JLabel" binding="Amount9">
@@ -367,7 +367,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="658e8" class="javax.swing.JLabel" binding="Amount10">
@@ -377,7 +377,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="728df" class="javax.swing.JLabel" binding="Amount11">
@@ -387,7 +387,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="d2579" class="javax.swing.JLabel" binding="Amount12">
@@ -397,7 +397,7 @@
         <properties>
           <font name="Source Code Pro" size="12" style="1"/>
           <foreground color="-16777216"/>
-          <text value="0"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="6c55c" class="javax.swing.JLabel" binding="AmountTotal">
