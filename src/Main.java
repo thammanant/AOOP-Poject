@@ -129,8 +129,8 @@ public class Main {
         }
 
 
-        Home test = new Home(frame);
-        frame.add(test.getHomePanel());
+        Register test = new Register(frame);
+        frame.add(test.getRegisterPanel());
 
 //        Report test = new Report(frame);
 //        frame.add(test.get_Report_panel());
