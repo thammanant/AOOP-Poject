@@ -1,5 +1,4 @@
-package Picture;
-
+package AbstactClass;
 
 import java.awt.*;
 
