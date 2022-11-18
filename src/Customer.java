@@ -1,15 +1,26 @@
 import Resources.ClothesAmount;
 import Resources.ClothesType;
 
-public class Customer extends User{
+public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
     private String status = "Waiting";
+
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.clothes = new ClothesAmount();
+    }
+
+    public Customer(String name, String address) {
+        this.name = name;
+        this.address = address;
+        this.phone = "";
+        this.clothes = new ClothesAmount();
+    }
+
+    public Customer() {
     }
 
     private ClothesAmount getClothes() {

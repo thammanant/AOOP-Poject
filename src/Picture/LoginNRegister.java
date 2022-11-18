@@ -4,7 +4,7 @@ package Picture;
 import java.awt.*;
 
 public abstract class LoginNRegister {
-    protected final String userTxt = "Enter your Email";
+    protected final String userTxt = "Enter your Username";
     protected final String passTxt = "Enter your Password";
     protected final String confirmpassTxt = "Confirm your password";
     protected final String emptyUsername = "Username cannot be empty!";

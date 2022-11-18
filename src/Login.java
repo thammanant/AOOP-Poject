@@ -1,4 +1,6 @@
 import Picture.LoginNRegister;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -8,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class Login extends LoginNRegister {
     private JPanel LoginPanel;
@@ -68,7 +71,11 @@ public class Login extends LoginNRegister {
             public void actionPerformed(ActionEvent e) {
                 String email = emailTextField.getText();
                 String password = PasswordTextField.getText();
-                CheckValidations(email, password, frame);
+                try {
+                    CheckValidations(email, password, frame);
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -83,16 +90,22 @@ public class Login extends LoginNRegister {
     }
 
     //check validation
-    private void CheckValidations(String email, String password, JFrame frame) {
+    private void CheckValidations(String email, String password, JFrame frame) throws JacksonUtilityException, FirebaseException, IOException {
         if (email.isEmpty() || email.equals(userTxt)) {
             Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {
             Status.setText(emptyPasswd);
         } else {
-            JOptionPane.showMessageDialog(null, "Login Successful!");
-            //change panel
-            frame.setContentPane(new Home(frame).getHomePanel());
-            frame.revalidate();
+            //check if user exists
+            if (DataBaseFB.checkUser(email, password)) {
+                //if user exists, go to main menu
+                JOptionPane.showMessageDialog(null, "Login Successful!");
+                //change panel
+                frame.setContentPane(new Home(frame).getHomePanel());
+                frame.revalidate();;
+            } else {
+                Status.setText("User does not exist!");
+            }
         }
     }
 
