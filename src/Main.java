@@ -129,8 +129,8 @@ public class Main {
         }
 
 
-        Home test = new Home(frame);
-        frame.add(test.getHomePanel());
+        Home_worker test = new Home_worker(frame);
+        frame.add(test.get_Home_worker_panel());
 
 //        Report test = new Report(frame);
 //        frame.add(test.get_Report_panel());
