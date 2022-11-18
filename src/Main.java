@@ -129,8 +129,8 @@ public class Main {
         }
 
 
-        Profile_worker test = new Profile_worker(frame);
-        frame.add(test.get_profile_worker());
+        Register test = new Register(frame);
+        frame.add(test.getRegisterPanel());
 
 //        Report test = new Report(frame);
 //        frame.add(test.get_Report_panel());
