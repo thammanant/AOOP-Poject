@@ -29,6 +29,20 @@ public class Report {
             }
         });
 
+        Send_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (reportTextArea.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "There is no message to sent");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "The report has been sented");
+                    //change panel
+                    frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    frame.revalidate();
+                }
+            }
+        });
     }
 
     public JPanel get_Report_panel(){
