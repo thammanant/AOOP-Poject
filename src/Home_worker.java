@@ -10,21 +10,21 @@ public class Home_worker {
 
 
     public Home_worker(JFrame frame){
-        Home_Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
-                frame.revalidate();
-            }
-        });
-
-        OtherButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Other(frame).getOtherPanel()));
-                frame.revalidate();
-            }
-        });
+//        Home_Button.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                frame.setContentPane((new Home(frame).getHomePanel()));
+//                frame.revalidate();
+//            }
+//        });
+//
+//        OtherButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                frame.setContentPane((new Other(frame).getOtherPanel()));
+//                frame.revalidate();
+//            }
+//        });
 
     }
 
