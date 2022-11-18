@@ -112,20 +112,6 @@
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="b6cca" class="javax.swing.JLabel" binding="Empty_basket_button">
-        <constraints>
-          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <focusable value="false"/>
-          <font name="Source Code Pro" size="22" style="1"/>
-          <horizontalAlignment value="0"/>
-          <horizontalTextPosition value="2"/>
-          <icon value="Picture/empty_basket 64x64.png"/>
-          <iconTextGap value="6"/>
-          <text value="All Cleaned"/>
-        </properties>
-      </component>
       <component id="33122" class="javax.swing.JButton" binding="Check_your_order">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -146,6 +132,20 @@
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
+      <component id="b6cca" class="javax.swing.JLabel" binding="orderr">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <font name="Source Code Pro" size="22" style="1"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="2"/>
+          <icon value="Picture/empty_basket 64x64.png"/>
+          <iconTextGap value="6"/>
+          <text value="All Cleaned"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
