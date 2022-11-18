@@ -11,7 +11,7 @@ public class Other {
     private JButton button2;
     private JPanel MenuPanel;
 
-    public Other(JFrame frame){
+    public Other(JFrame frame,Customer customer){
         Color colour5 = new Color(189, 250, 253);
         MenuPanel.setBackground(colour5);
 
@@ -22,7 +22,7 @@ public class Other {
         HomeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
+                frame.setContentPane((new Home(frame,customer).getHomePanel()));
                 frame.revalidate();
             }
         });
@@ -30,7 +30,7 @@ public class Other {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new History(frame).getHistoryPanel()));
+                frame.setContentPane((new History(frame,customer).getHistoryPanel()));
                 frame.revalidate();
             }
         });
@@ -39,7 +39,7 @@ public class Other {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Profile(frame).get_order_detailPanel()));
+                frame.setContentPane((new Profile(frame,customer).get_order_detailPanel()));
                 frame.revalidate();
             }
         });
@@ -48,7 +48,7 @@ public class Other {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Report(frame).get_Report_panel()));
+                frame.setContentPane((new Report(frame,customer).get_Report_panel()));
                 frame.revalidate();
             }
         });

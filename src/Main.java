@@ -129,7 +129,7 @@ public class Main {
         }
 
 
-        Register test = new Register(frame);
+        Register test = new Register(frame,new Customer("a","b","c"));
         frame.add(test.getRegisterPanel());
 
 //        Report test = new Report(frame);

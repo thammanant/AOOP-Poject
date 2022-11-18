@@ -9,18 +9,18 @@ public class Profile {
     private JButton exit_button;
     private JButton Back_button;
 
-    public Profile(JFrame frame) {
+    public Profile(JFrame frame, Customer customer) {
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Home(frame).getHomePanel());
+                frame.setContentPane(new Home(frame,customer).getHomePanel());
                 frame.revalidate();
             }
         });
         Back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Other(frame).getOtherPanel());
+                frame.setContentPane(new Other(frame,customer).getOtherPanel());
                 frame.revalidate();
             }
         });
