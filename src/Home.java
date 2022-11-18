@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,8 @@ public class Home {
     private JButton Check_your_order;
 
     public Home(JFrame frame, Customer customer) {
+        Color colour5 = new Color(189, 250, 253);
+        HomePanel.setBackground(colour5);
 
         // set new order button
         NewOrderButton.addActionListener(new ActionListener() {

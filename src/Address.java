@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -32,6 +33,8 @@ public class Address {
     private final String emptystate = "State cannot be empty!";
     private final String emptypostal = "Postal code cannot be empty!";
     public Address(JFrame frame, Customer customer) {
+        Color colour5 = new Color(189, 250, 253);
+        AddressPanel.setBackground(colour5);
         GoToTotal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
