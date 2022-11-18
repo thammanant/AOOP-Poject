@@ -9,10 +9,12 @@ public class Home {
     private JPanel HomePanel;
     private JButton RefreshButton;
     private JLabel Hi_user;
-    private JLabel Empty_basket_button;
+    private JLabel orderr;
     private JButton Check_your_order;
 
     public Home(JFrame frame, Customer customer) {
+
+        orderr.setText(customer.textorderClothes());
 
         // set new order button
         NewOrderButton.addActionListener(new ActionListener() {
@@ -43,8 +45,11 @@ public class Home {
         Check_your_order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new User_status(frame,customer).getUser_StatusPanel()));
-                frame.revalidate();
+                if(customer.check()){
+                    frame.setContentPane((new User_status(frame,customer).getUser_StatusPanel()));
+                    frame.revalidate();}
+                else
+                    customer.Popup_order();
             }
         });
     }
