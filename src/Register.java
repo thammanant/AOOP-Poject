@@ -16,6 +16,7 @@ public class Register extends LoginNRegister{
     private JLabel Status;
     private JRadioButton Customer;
     private JRadioButton Worker;
+    private JButton Back_button;
     private String type;
     private boolean sta = true;
 
@@ -119,6 +120,13 @@ public class Register extends LoginNRegister{
             }
         });
 
+        Back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Login(frame,customer).getLoginPanel());
+                frame.revalidate();
+            }
+        });
     }
 
     //getter
