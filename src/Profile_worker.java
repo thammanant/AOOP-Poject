@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Order_detail {
-    private JPanel panel1;
+public class Profile_worker {
+    private JPanel Profile_worker;
     private JLabel Profile_icon;
-    private JButton Chat_icon;
-    private JButton exit_button;
     private JButton Back_button;
+    private JButton exit_button;
+    private JButton Chat_icon;
 
-    public Order_detail(JFrame frame) {
+    public Profile_worker(JFrame frame){
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -24,10 +24,10 @@ public class Order_detail {
                 frame.revalidate();
             }
         });
+
     }
 
-
-    public JPanel get_order_detailPanel(){
-       return panel1;
+    public JPanel get_profile_worker(){
+        return Profile_worker;
     }
 }
