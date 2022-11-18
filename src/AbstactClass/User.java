@@ -5,6 +5,7 @@ public abstract class User {
     protected String phone;
     protected String email;
     protected String password;
+    protected String type;
 
     public String getName() {
         return name;

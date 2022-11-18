@@ -1,4 +1,5 @@
 import AbstactClass.LoginNRegister;
+import AbstactClass.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -6,17 +7,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Register extends LoginNRegister {
+public class Register extends LoginNRegister{
     private JPanel RegisterPanel;
     private JTextField emailTextField;
     private JButton registerButton;
     private JPasswordField passwordTextField;
     private JPasswordField confirmPasswordTextField;
     private JLabel Status;
-    private JCheckBox User;
-    private JCheckBox Worker;
+    private JRadioButton Customer;
+    private JRadioButton Worker;
+    private String type;
+    private boolean sta = true;
 
     public Register(JFrame frame, Customer customer) {
+        ButtonGroup Type = new ButtonGroup();
+        Type.add(Customer);
+        Type.add(Worker);
         //set text field
         emailTextField.setText(this.userTxt);
         emailTextField.addMouseListener(new MouseAdapter() {
@@ -91,14 +97,24 @@ public class Register extends LoginNRegister {
                 String confirmPassword = confirmPasswordTextField.getText();
                 if (email.isEmpty() || email.equals(userTxt)) {
                     Status.setText(emptyUsername);
+                    sta = false;
                 } else if (password.isEmpty() || password.equals(passTxt)) {
                     Status.setText(emptyPasswd);
+                    sta = false;
                 } else if (!password.equals(confirmPassword)) {
                     Status.setText(passwdNotMatch);
-                } else {
+                    sta = false;
+                }else if (Customer.isSelected() || Worker.isSelected()){
                     JOptionPane.showMessageDialog(null, "Register successfully!");
-                    frame.setContentPane(new Login(frame,customer).getLoginPanel());
-                    frame.revalidate();
+                if (Customer.isSelected()) {
+                    type = "Customer";
+                } else if (Worker.isSelected()) {
+                    type = "Worker";
+                }
+                frame.setContentPane(new Login(frame, customer).getLoginPanel());
+                frame.revalidate();
+                }else {
+                    Status.setText("Please select your type");
                 }
             }
         });
