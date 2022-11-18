@@ -39,7 +39,7 @@ public class Other {
         Profile_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Order_detail(frame, customer).get_order_detailPanel()));
+                frame.setContentPane((new Profile(frame, customer).get_profilepanel()));
                 frame.revalidate();
             }
         });

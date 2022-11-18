@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Order_detail {
+public class Profile {
     private JPanel panel1;
     private JLabel Profile_icon;
     private JButton Chat_icon;
     private JButton exit_button;
     private JButton Back_button;
 
-    public Order_detail(JFrame frame, Customer customer) {
+    public Profile(JFrame frame, Customer customer) {
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -27,7 +27,7 @@ public class Order_detail {
     }
 
 
-    public JPanel get_order_detailPanel(){
+    public JPanel get_profilepanel(){
        return panel1;
     }
 }

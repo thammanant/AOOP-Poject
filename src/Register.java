@@ -13,6 +13,8 @@ public class Register extends LoginNRegister {
     private JPasswordField passwordTextField;
     private JPasswordField confirmPasswordTextField;
     private JLabel Status;
+    private JCheckBox User;
+    private JCheckBox Worker;
 
     public Register(JFrame frame, Customer customer) {
         //set text field
