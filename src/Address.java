@@ -1,3 +1,6 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
+
 import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
 import java.awt.*;
@@ -5,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 
 public class Address {
@@ -238,7 +242,11 @@ public class Address {
                     Status.setText(emptypostal);
                 } else {
                     JOptionPane.showMessageDialog(null,"Your order have been sent","Message",JOptionPane.PLAIN_MESSAGE);
-                    frame.setContentPane(new Home(frame,customer).getHomePanel());
+                    try {
+                        frame.setContentPane(new Home(frame,customer).getHomePanel());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     frame.revalidate();
                 }
             }
