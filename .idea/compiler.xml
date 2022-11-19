@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Project" />
+        <module name="firebase4j" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="18">
+      <module name="AOOP" target="19" />
       <module name="firebase4j" target="19" />
-      <module name="Project" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>
