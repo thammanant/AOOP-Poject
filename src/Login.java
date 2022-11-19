@@ -99,7 +99,9 @@ public class Login extends LoginNRegister {
                 //check if user is customer or worker
                 if(DataBaseFB.checkType(email).equals("Customer")){
                     //set panel
-                    frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    Customer customer1 = new Customer(DataBaseFB.getCustomerName(email), DataBaseFB.getCustomerAddress(email), DataBaseFB.getCustomerPhone(email));
+                    customer1.setPassword(password);
+                    frame.setContentPane(new Home(frame, customer1).getHomePanel());
                     frame.revalidate();
                 }
                 else if (DataBaseFB.checkType(email).equals("Worker")){

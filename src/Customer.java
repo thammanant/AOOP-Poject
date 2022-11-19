@@ -19,6 +19,12 @@ public class Customer extends User {
         this.phone = phone;
         this.clothes = new ClothesAmount();
     }
+    public Customer(String name) {
+        this.name = name;
+        this.address = "None";
+        this.phone = "None";
+        this.clothes = new ClothesAmount();
+    }
 
     public Customer() {
         this.clothes = new ClothesAmount();
@@ -80,7 +86,7 @@ public class Customer extends User {
 
     //display how many order using database
     public String displayOrder() {
-        if(this.clothes == null){
+        if(this.clothes == null || this.clothes.getSize() == 0) {
             return "All Clean!";
         }
         else {
