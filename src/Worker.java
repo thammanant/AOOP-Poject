@@ -10,8 +10,10 @@ public class Worker extends User {
         this.phone = phone;
     }
 
+    public Worker(String email) {
+        this.email = email;
+    }
     public Worker() {
-
     }
 
     @Override
