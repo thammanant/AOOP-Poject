@@ -25,14 +25,23 @@ public class Other_Worker {
         WorkerReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+//                frame.setContentPane(new Report(frame,worker).get_Report_panel());
             }
         });
         //set worker home button
         WorkerHomeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
+                frame.revalidate();
+            }
+        });
+        //set worker profile button
+        WorkerProfileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                frame.revalidate();
             }
         });
     }

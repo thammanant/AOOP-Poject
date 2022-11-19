@@ -8,19 +8,23 @@ public class Profile_worker {
     private JButton Back_button;
     private JButton exit_button;
     private JButton Chat_icon;
+    private JLabel NamePanel;
+    private JLabel ContactPanel;
 
-    public Profile_worker(JFrame frame, Customer customer){
+    public Profile_worker(JFrame frame, Worker worker){
+        NamePanel.setText("Name: "+ worker.getEmail());
+        ContactPanel.setText("Contact: "+ worker.getPhone());
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Home(frame,customer).getHomePanel());
+                frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
                 frame.revalidate();
             }
         });
         Back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Other(frame,customer).getOtherPanel());
+                frame.setContentPane(new Other_Worker(frame,worker).getWorkerOtherPanel());
                 frame.revalidate();
             }
         });
