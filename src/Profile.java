@@ -12,8 +12,12 @@ public class Profile {
     private JButton Chat_icon;
     private JButton exit_button;
     private JButton Back_button;
+    private JLabel Name;
+    private JLabel Phone;
 
     public Profile(JFrame frame, Customer customer) {
+        Name.setText(customer.getName());
+        Phone.setText(customer.getPhone());
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
