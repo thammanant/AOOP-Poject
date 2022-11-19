@@ -17,6 +17,9 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-16777216"/>
+          <caretColor color="-16777216"/>
+          <foreground color="-1"/>
           <horizontalAlignment value="2"/>
           <text value=""/>
           <verifyInputWhenFocusTarget value="false"/>
@@ -59,6 +62,9 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-16777216"/>
+          <caretColor color="-16777216"/>
+          <foreground color="-1"/>
           <horizontalAlignment value="2"/>
           <text value=""/>
         </properties>
@@ -68,19 +74,9 @@
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <vspacer id="60490">
-        <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <vspacer id="9823e">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="e5c28">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <component id="13ec0" class="javax.swing.JButton" binding="RegisterButton">
@@ -90,7 +86,14 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-3619196"/>
+          <borderPainted value="true"/>
+          <contentAreaFilled value="true"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <font name="Source Code Pro" size="14" style="1"/>
+          <foreground color="-16777216"/>
+          <opaque value="true"/>
           <text value="Register"/>
         </properties>
       </component>
@@ -101,8 +104,15 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-3619196"/>
+          <contentAreaFilled value="true"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <font name="Source Code Pro" size="14" style="1"/>
+          <foreground color="-16777216"/>
+          <opaque value="true"/>
           <text value="Login"/>
+          <visible value="true"/>
         </properties>
       </component>
       <component id="4d95d" class="javax.swing.JLabel" binding="Status">
@@ -117,6 +127,26 @@
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
           <text value=""/>
+        </properties>
+      </component>
+      <vspacer id="60490">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="e5c28">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="6d560" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Source Code Pro" size="22" style="1"/>
+          <foreground color="-1392116"/>
+          <text value="  Welcome to Wash app"/>
         </properties>
       </component>
     </children>

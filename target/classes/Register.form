@@ -142,7 +142,7 @@
           <font name="Source Code Pro" size="14" style="1"/>
           <iconTextGap value="7"/>
           <selected value="false"/>
-          <text value="User"/>
+          <text value="Customer"/>
           <verifyInputWhenFocusTarget value="true"/>
         </properties>
       </component>

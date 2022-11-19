@@ -18,5 +18,10 @@ public abstract class LoginNRegister {
     protected Color colour4 = new Color(0, 198, 224);
     protected Color colour5 = new Color(189, 250, 253);
 
+    protected Color colour6 = new Color(19, 64, 116);
+    protected Color colour7 = new Color(19, 49, 92);
+    protected Color colour8 = new Color(11, 37, 69);
+    protected Color colour9 = new Color(141, 169, 196);
+    protected Color colour10 = new Color(238, 244, 237);
 
 }

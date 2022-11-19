@@ -23,7 +23,7 @@ public class Login extends LoginNRegister {
 
     public Login(JFrame frame, Customer customer) {
         //change panel theme
-        LoginPanel.setBackground(colour5);
+        LoginPanel.setBackground(colour3);
 
         //set text field
         emailTextField.setText(userTxt);

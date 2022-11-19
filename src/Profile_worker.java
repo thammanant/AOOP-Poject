@@ -8,6 +8,7 @@ public class Profile_worker {
     private JButton Back_button;
     private JButton exit_button;
     private JButton Chat_icon;
+    private JButton Edit_button;
 
     public Profile_worker(JFrame frame, Customer customer){
         exit_button.addActionListener(new ActionListener() {
