@@ -8,6 +8,8 @@ public class Other_Worker {
     private JButton WorkerReportButton;
     private JButton WorkerProfileButton;
     private JButton WorkerHomeButton;
+    private JButton Logout_button;
+
     public Other_Worker(JFrame frame, Worker worker){
         Color colour3 = new Color(4, 116, 140);
         WorkerOtherPanel.setBackground(colour3);
@@ -35,6 +37,7 @@ public class Other_Worker {
 
             }
         });
+
     }
     public JPanel getWorkerMenuPanel() {return WorkerOtherPanel;}
 }
