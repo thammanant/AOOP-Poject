@@ -76,18 +76,19 @@ public class Order {
     12->Baby_wear(Colour)
     */
 
-    int amount1 = 0;
-    int amount2 = 0;
-    int amount3 = 0;
-    int amount4 = 0;
-    int amount5 = 0;
-    int amount6 = 0;
-    int amount7 = 0;
-    int amount8 = 0;
-    int amount9 = 0;
-    int amount10 = 0;
-    int amount11 = 0;
-    int amount12 = 0;
+    private int amount1 = 0;
+    private int  amount2 = 0;
+    private int  amount3 = 0;
+    private int amount4 = 0;
+    private int amount5 = 0;
+    private int amount6 = 0;
+    private int amount7 = 0;
+    private int amount8 = 0;
+    private int amount9 = 0;
+    private int amount10 = 0;
+    private int amount11 = 0;
+    private int amount12 = 0;
+    private int total = 0;
 
     public Order(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
@@ -289,9 +290,14 @@ public class Order {
         processButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                total = amount1+ amount2 + amount3 + amount4 + amount5 + amount6 + amount7 + amount8 + amount9 + amount10 + amount11 + amount12;
+                if (total == 0) {
+                    JOptionPane.showMessageDialog(null,"Please select your order!","Message",JOptionPane.PLAIN_MESSAGE);
+                }else{
                 customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount11,amount12);
                 frame.setContentPane((new Total(frame, customer).getTotalPanel()));
                 frame.revalidate();
+                }
             }
         });
     }
