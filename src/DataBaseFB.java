@@ -72,8 +72,7 @@ public class DataBaseFB{
         response = firebase.get( username );
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        String type = (String) dataMap2.get("Type");
-        return type;
+        return (String) dataMap2.get("Type");
     }
 
     //get customer data
@@ -81,8 +80,7 @@ public class DataBaseFB{
         response = firebase.get( username );
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        Customer customer = (Customer) dataMap2.get("Customer");
-        return customer;
+        return (Customer) dataMap2.get("Customer");
     }
 
     //get worker data
@@ -90,8 +88,7 @@ public class DataBaseFB{
         response = firebase.get( username );
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        Worker worker = (Worker) dataMap2.get("Worker");
-        return worker;
+        return (Worker) dataMap2.get("Worker");
     }
 
     //update customer data
@@ -136,8 +133,7 @@ public class DataBaseFB{
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
-        Vector<ClothesAmount> history = (Vector<ClothesAmount>) dataMap3.get("History");
-        return history;
+        return (Vector<ClothesAmount>) dataMap3.get("History");
     }
 
     //find all exist username in database
@@ -169,8 +165,7 @@ public class DataBaseFB{
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
-        String status = (String) dataMap3.get("Status");
-        return status;
+        return (String) dataMap3.get("Status");
     }
 
     //set customer phone number
@@ -203,10 +198,16 @@ public class DataBaseFB{
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
-        String address = (String) dataMap3.get("Address");
-        return address;
+        return (String) dataMap3.get("Address");
     }
 
-    //get customer name
+    //get customer phone number
+    public static String getPhoneNumber(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        return (String) dataMap3.get("PhoneNumber");
+    }
 
 }
