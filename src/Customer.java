@@ -1,11 +1,13 @@
+import AbstactClass.User;
 import Resources.ClothesAmount;
 import Resources.ClothesType;
+
+import javax.swing.*;
 
 public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
     private String status = "Waiting";
-
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -13,14 +15,8 @@ public class Customer extends User {
         this.clothes = new ClothesAmount();
     }
 
-    public Customer(String name, String address) {
-        this.name = name;
-        this.address = address;
-        this.phone = "";
-        this.clothes = new ClothesAmount();
-    }
-
     public Customer() {
+
     }
 
     private ClothesAmount getClothes() {
@@ -61,13 +57,55 @@ public class Customer extends User {
     public String printClothes() {
         return this.clothes.printAll();
     }
+    public String printAmount(int i){
+        String a = Integer.toString(this.clothes.printAmount(i));
+        return a;
+    }
+    //print amount total
+    public String printtotal(){
+        String t =Integer.toString(this.clothes.printTotal());
+        return t;
+    }
 
-    public String checkClothes(){
-        if (this.getClothes().getSize() == 0) {
-            return "All cleaned!";
+    //check whether there is order or not
+    public boolean check(){
+        return this.getClothes().getSize() != 0;
+    }
+
+
+    //check order and text it.
+    public String textorderClothes() {
+        String s = "";
+        if (check()) {
+            s = "You have " + this.getClothes() + " order";
         }
         else {
-            return this.printClothes();
+            s = "All cleaned";
         }
+        return s;
+    }
+
+    //popup that there is no order
+    public void Popup_order() {
+            JOptionPane.showMessageDialog(null, "You have no order now!");
+        }
+
+
+
+
+    //function add all clothes
+    public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12){
+        addClothes(ClothesType.CottonWhite,am1);
+        addClothes(ClothesType.CottonColoured,am2);
+        addClothes(ClothesType.MixedWhite,am3);
+        addClothes(ClothesType.MixedColoured,am4);
+        addClothes(ClothesType.DelicatesWhite,am5);
+        addClothes(ClothesType.DelicatesColoured,am6);
+        addClothes(ClothesType.WoolWhite,am7);
+        addClothes(ClothesType.WoolColoured,am8);
+        addClothes(ClothesType.BeddingWhite,am9);
+        addClothes(ClothesType.BeddingColoured,am10);
+        addClothes(ClothesType.Baby_wearWhite,am11);
+        addClothes(ClothesType.Baby_wearColoured,am12);
     }
 }

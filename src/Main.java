@@ -1,3 +1,5 @@
+import Resources.*;
+
 import javax.swing.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +43,7 @@ public class Main {
 //        System.out.println();
 //
 //        allUserPass[0] = customer;
-//        allUserPass[1] = customer2;
+//        allUserPass[1 ] = customer2;
 //        allUserPass[2] = worker;
 //
 //        for (int i = 0; i < 3; i++) {
@@ -126,9 +128,10 @@ public class Main {
             ex.printStackTrace();
         }
 
+        Login login = new Login(frame, new Customer("H","H","5"));
+        frame.getContentPane().add(login.getLoginPanel());
 
-        Login login = new Login(frame);
-        frame.add(login.getLoginPanel());
+
 
 
     }

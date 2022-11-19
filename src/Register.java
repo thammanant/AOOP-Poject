@@ -1,10 +1,7 @@
-
-import Picture.LoginNRegister;
+import AbstactClass.LoginNRegister;
+import AbstactClass.User;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,34 +9,41 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
-public class Register extends LoginNRegister {
+public class Register extends LoginNRegister{
     private JPanel RegisterPanel;
     private JTextField emailTextField;
     private JButton registerButton;
     private JPasswordField passwordTextField;
     private JPasswordField confirmPasswordTextField;
     private JLabel Status;
+    private JRadioButton Customer;
+    private JRadioButton Worker;
+    private JButton Back_button;
+    private String type;
+    private boolean sta = true;
 
-    public Register(JFrame frame) {
+    public Register(JFrame frame, Customer customer) {
+        ButtonGroup Type = new ButtonGroup();
+        Type.add(Customer);
+        Type.add(Worker);
         //set text field
         emailTextField.setText(this.userTxt);
         emailTextField.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (emailTextField.getText().equals(userTxt)) {
+                if(emailTextField.getText().equals(userTxt)){
                     emailTextField.setText("");
                 }
                 super.mouseClicked(e);
 
-                if (passwordTextField.getText().isEmpty()) {
+                if (passwordTextField.getText().isEmpty()){
                     passwordTextField.setText(passTxt);
-                    passwordTextField.setEchoChar((char) 0);
+                    passwordTextField.setEchoChar((char)0);
                 }
-                if (confirmPasswordTextField.getText().isEmpty()) {
+                if (confirmPasswordTextField.getText().isEmpty()){
                     confirmPasswordTextField.setText(confirmpassTxt);
-                    confirmPasswordTextField.setEchoChar((char) 0);
+                    confirmPasswordTextField.setEchoChar((char)0);
                 }
             }
         });
@@ -59,9 +63,9 @@ public class Register extends LoginNRegister {
                 if (emailTextField.getText().isEmpty()) {
                     emailTextField.setText(userTxt);
                 }
-                if (confirmPasswordTextField.getText().isEmpty()) {
+                if (confirmPasswordTextField.getText().isEmpty()){
                     confirmPasswordTextField.setText(confirmpassTxt);
-                    confirmPasswordTextField.setEchoChar((char) 0);
+                    confirmPasswordTextField.setEchoChar((char)0);
                 }
             }
         });
@@ -81,9 +85,9 @@ public class Register extends LoginNRegister {
                 if (emailTextField.getText().isEmpty()) {
                     emailTextField.setText(userTxt);
                 }
-                if (passwordTextField.getText().isEmpty()) {
+                if (passwordTextField.getText().isEmpty()){
                     passwordTextField.setText(passTxt);
-                    passwordTextField.setEchoChar((char) 0);
+                    passwordTextField.setEchoChar((char)0);
                 }
             }
         });
@@ -92,27 +96,51 @@ public class Register extends LoginNRegister {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = emailTextField.getText();
+                String email = emailTextField.getText();
                 String password = passwordTextField.getText();
                 String confirmPassword = confirmPasswordTextField.getText();
-                if (username.isEmpty() || username.equals(userTxt)) {
+                if (email.isEmpty() || email.equals(userTxt)) {
                     Status.setText(emptyUsername);
+                    sta = false;
                 } else if (password.isEmpty() || password.equals(passTxt)) {
                     Status.setText(emptyPasswd);
+                    sta = false;
                 } else if (!password.equals(confirmPassword)) {
                     Status.setText(passwdNotMatch);
-                } else {
+                    sta = false;
+                }else if (Customer.isSelected() || Worker.isSelected()){
+                    JOptionPane.showMessageDialog(null, "Register successfully!");
+                if (Customer.isSelected()) {
+                    type = "Customer";
+                    //database
                     try {
-                        DataBaseFB.put(username, password);
-                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        DataBaseFB.put(email, password, type);
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
-                    Status.setText("Register Success");
-                    frame.setContentPane(new Login(frame).getLoginPanel());
-                    frame.revalidate();
+                } else if (Worker.isSelected()) {
+                    type = "Worker";
+                    //database
+                    try {
+                        DataBaseFB.put(email, password, type);
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                frame.setContentPane(new Login(frame, customer).getLoginPanel());
+                frame.revalidate();
+                }else {
+                    Status.setText("Please select your type");
                 }
             }
+        });
 
+        Back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Login(frame,customer).getLoginPanel());
+                frame.revalidate();
+            }
         });
     }
 

@@ -6,7 +6,6 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -28,30 +27,34 @@ public class DataBaseFB{
     public DataBaseFB() throws FirebaseException {}
 
     // put
-    public static void put(String username, String password) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    public static void put(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
         Customer customer = new Customer();
         dataMap = new LinkedHashMap<String, Object>();
         dataMap.put( "Username", username );
         dataMap.put( "Password", password);
         Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
-        dataMap2.put( "CustomerID", customer.getID() );
-        dataMap.put( "Customer", dataMap2 );
+        dataMap2.put( type + "ID", customer.getID());
+        dataMap.put( type, dataMap2 );
 
         response = firebase.put( username, dataMap );
     }
 
-    public static boolean checkUser(String username, String password) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        //check is user exist
-        response = firebase.get(username);
-        if (response.getBody().equals("null")) {
+    public static boolean checkUserPass(String username, String password) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        Map<String, Object> dataMap = response.getBody();
+        if (dataMap == null) {
             return false;
         }
+        String pass = (String) dataMap.get("Password");
+        if (pass == null) {
+            return false;
+        }
+        return pass.equals(password);
+    }
 
-        //check password
-        Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
-        dataMap = response.getBody();
-        return (dataMap.get("Password").equals(password));
+    public static void checkType(String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        //check type
 
     }
 

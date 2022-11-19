@@ -59,16 +59,16 @@ public class Order {
     //-add_button and subtract_button follow by number to increase and decrease the amount of that cloth
     /*
     1->Cotton(White)
-    2->Mixed(White)
-    3->Delicates(White)
-    4->Wool(White)
-    5->Bedding(White)
-    6->Baby_wear(White)
-    7->Cotton(Colour)
-    8->Mixed(Colour)
-    9->Delicates(Colour)
-    10->Wool(Colour)
-    11->Bedding(Colour)
+    2->Cotton(Colour)
+    3->Mixed(White)
+    4->Mixed(Colour)
+    5->Delicates(White)
+    6->Delicates(Colour)
+    7->Wool(White)
+    8->Wool(Colour)
+    9->Bedding(White)
+    10->Bedding(Colour)
+    11->Baby_wear(White)
     12->Baby_wear(Colour)
     */
 
@@ -85,7 +85,7 @@ public class Order {
     int amount11 = 0;
     int amount12 = 0;
 
-    public Order(JFrame frame){
+    public Order(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
         OrderPanel.setBackground(colour5);
 
@@ -272,7 +272,17 @@ public class Order {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame).getHomePanel()));
+                frame.setContentPane((new Home(frame, customer).getHomePanel()));
+                frame.revalidate();
+            }
+        });
+
+        //press process will go total page.
+        processButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount11,amount12);
+                frame.setContentPane((new Total(frame, customer).getTotalPanel()));
                 frame.revalidate();
             }
         });

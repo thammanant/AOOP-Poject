@@ -1,5 +1,4 @@
-package Picture;
-
+package AbstactClass;
 
 import java.awt.*;
 
@@ -10,6 +9,7 @@ public abstract class LoginNRegister {
     protected final String emptyUsername = "Username cannot be empty!";
     protected final String emptyPasswd = "Password cannot be empty!";
     protected final String passwdNotMatch = "Password does not match!";
+    protected final String invalidUser = "Invalid Username or Password";
     protected final char passwdChar = '\u2022';
 
     protected Color colour1 = new Color(2, 12, 47);

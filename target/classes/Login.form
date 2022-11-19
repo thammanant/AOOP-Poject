@@ -90,6 +90,7 @@
           </grid>
         </constraints>
         <properties>
+          <font name="Source Code Pro" size="14" style="1"/>
           <text value="Register"/>
         </properties>
       </component>
@@ -100,6 +101,7 @@
           </grid>
         </constraints>
         <properties>
+          <font name="Source Code Pro" size="14" style="1"/>
           <text value="Login"/>
         </properties>
       </component>
