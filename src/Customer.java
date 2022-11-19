@@ -21,7 +21,7 @@ public class Customer extends User {
     }
 
     public Customer() {
-
+        this.clothes = new ClothesAmount();
     }
 
     private ClothesAmount getClothes() {
