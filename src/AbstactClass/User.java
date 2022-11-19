@@ -5,7 +5,6 @@ import java.util.Random;
 public abstract class User {
     protected String name;
     protected String phone;
-    protected String email;
     protected String password;
     protected String type;
     protected String ID;
@@ -18,12 +17,6 @@ public abstract class User {
     }
     public void setName(String name) {
         this.name = name;
-    }
-    public void setEmail(String email){
-        this.email = email;
-    }
-    public String getEmail(){
-        return this.email;
     }
     public void setPassword(String password)
     {

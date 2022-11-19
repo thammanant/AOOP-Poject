@@ -1,7 +1,11 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Home {
 
@@ -13,11 +17,11 @@ public class Home {
     private JLabel orderr;
     private JButton Check_your_order;
 
-    public Home(JFrame frame, Customer customer) {
+    public Home(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour5 = new Color(189, 250, 253);
         HomePanel.setBackground(colour5);
-
-        orderr.setText(customer.textorderClothes());
+        Hi_user.setText("Hi " + customer.getName());
+        orderr.setText(customer.displayOrder());
 
         // set new order button
         NewOrderButton.addActionListener(new ActionListener() {
@@ -32,7 +36,11 @@ public class Home {
         RefreshButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home(frame,customer).getHomePanel()));
+                try {
+                    frame.setContentPane((new Home(frame,customer).getHomePanel()));
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });

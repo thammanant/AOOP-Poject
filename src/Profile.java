@@ -1,7 +1,10 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Profile {
     private JPanel panel1;
@@ -9,16 +12,20 @@ public class Profile {
     private JButton Chat_icon;
     private JButton exit_button;
     private JButton Back_button;
-    private JPanel panel2;
+    private JLabel Name;
+    private JLabel Phone;
 
     public Profile(JFrame frame, Customer customer) {
-        Color colour5 = new Color(189, 250, 253);
-        panel1.setBackground(colour5);
-        panel2.setBackground(colour5);
+        Name.setText("Name: " + customer.getName());
+        Phone.setText("Contact: " +customer.getPhone());
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Home(frame,customer).getHomePanel());
+                try {
+                    frame.setContentPane(new Home(frame,customer).getHomePanel());
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });
@@ -26,6 +33,15 @@ public class Profile {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new Other(frame,customer).getOtherPanel());
+                frame.revalidate();
+            }
+        });
+        // set chat button
+        Chat_icon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"Coming soon","Message",JOptionPane.PLAIN_MESSAGE);
+                frame.setContentPane(new Profile(frame,customer).get_profilepanel());
                 frame.revalidate();
             }
         });
