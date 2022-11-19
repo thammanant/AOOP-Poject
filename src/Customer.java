@@ -79,20 +79,12 @@ public class Customer extends User {
 
 
     //display how many order using database
-    public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
-        Vector<ClothesAmount> temp = new Vector<ClothesAmount>();
-        temp = DataBaseFB.getHistory(name);
-        if(temp == null){
-            return "All Clean!";
-        }
-        //get temp size
-        int size = temp.size();
-
-        if (size == 0) {
+    public String displayOrder() {
+        if(this.clothes == null){
             return "All Clean!";
         }
         else {
-            return "You have" + size + " order(s) \n";
+            return "You have " + this.clothes.getSize() + "order";
         }
     }
 
