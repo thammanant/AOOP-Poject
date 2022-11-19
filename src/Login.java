@@ -1,10 +1,15 @@
 import AbstactClass.LoginNRegister;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Objects;
 
 public class Login extends LoginNRegister {
     private JPanel LoginPanel;
@@ -25,7 +30,7 @@ public class Login extends LoginNRegister {
         emailTextField.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(emailTextField.getText().equals(userTxt)){
+                if (emailTextField.getText().equals(userTxt)) {
                     emailTextField.setText("");
                 }
 
@@ -55,7 +60,7 @@ public class Login extends LoginNRegister {
                 }
             }
         });
-        if (emailTextField.getText().isEmpty()){
+        if (emailTextField.getText().isEmpty()) {
             emailTextField.setText(userTxt);
         }
 
@@ -65,7 +70,11 @@ public class Login extends LoginNRegister {
             public void actionPerformed(ActionEvent e) {
                 String email = emailTextField.getText();
                 String password = PasswordTextField.getText();
-                CheckValidations(email, password, frame,customer);
+                try {
+                    CheckValidations(email, password, frame, customer);
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -73,27 +82,42 @@ public class Login extends LoginNRegister {
         RegisterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Register(frame,customer).getRegisterPanel());
+                frame.setContentPane(new Register(frame, customer).getRegisterPanel());
                 frame.revalidate();
             }
         });
     }
 
     //check validation
-    private void CheckValidations(String email, String password, JFrame frame, Customer customer) {
+    private void CheckValidations(String email, String password, JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         if (email.isEmpty() || email.equals(userTxt)) {
             Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {
             Status.setText(emptyPasswd);
         } else {
-            JOptionPane.showMessageDialog(null, "Login Successful!");
-            //change panel
-            frame.setContentPane(new Home(frame,customer).getHomePanel());
-            frame.revalidate();
+            if (DataBaseFB.checkUserPass(email, password)) {
+                //check if user is customer or worker
+                if(DataBaseFB.checkType(email).equals("Customer")){
+                    //set panel
+                    frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    frame.revalidate();
+                }
+                else if (DataBaseFB.checkType(email).equals("Worker")){
+                    //set panel
+                    frame.setContentPane(new Home_worker(frame).get_Home_worker_panel());
+                    frame.revalidate();
+                }
+                else {
+                Status.setText(invalidUser);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, invalidUser);
+            }
         }
     }
 
-    //getters
+
     public JPanel getLoginPanel() {
         return LoginPanel;
     }

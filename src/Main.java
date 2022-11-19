@@ -129,7 +129,7 @@ public class Main {
         }
 
         Login login = new Login(frame, new Customer("H","H","5"));
-        frame.add(login.getLoginPanel());
+        frame.getContentPane().add(login.getLoginPanel());
 
 
 

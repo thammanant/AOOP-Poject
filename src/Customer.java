@@ -15,6 +15,10 @@ public class Customer extends User {
         this.clothes = new ClothesAmount();
     }
 
+    public Customer() {
+
+    }
+
     private ClothesAmount getClothes() {
         return this.clothes;
     }

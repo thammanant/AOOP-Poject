@@ -1,11 +1,14 @@
 import AbstactClass.LoginNRegister;
 import AbstactClass.User;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class Register extends LoginNRegister{
     private JPanel RegisterPanel;
@@ -16,6 +19,7 @@ public class Register extends LoginNRegister{
     private JLabel Status;
     private JRadioButton Customer;
     private JRadioButton Worker;
+    private JButton Back_button;
     private String type;
     private boolean sta = true;
 
@@ -108,8 +112,24 @@ public class Register extends LoginNRegister{
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
+                    //database
+                    try {
+                        DataBaseFB.put(email, password, type);
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
+                    try {
+                        DataBaseFB.put(email, password, type);
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        DataBaseFB.put(email, password, type);
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
                 frame.setContentPane(new Login(frame, customer).getLoginPanel());
                 frame.revalidate();
@@ -119,6 +139,13 @@ public class Register extends LoginNRegister{
             }
         });
 
+        Back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Login(frame,customer).getLoginPanel());
+                frame.revalidate();
+            }
+        });
     }
 
     //getter

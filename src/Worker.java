@@ -10,6 +10,10 @@ public class Worker extends User {
         this.phone = phone;
     }
 
+    public Worker() {
+
+    }
+
     @Override
     public String printAll() {
         String result = "";
