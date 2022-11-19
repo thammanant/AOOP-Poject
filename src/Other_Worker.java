@@ -9,8 +9,8 @@ public class Other_Worker {
     private JButton WorkerProfileButton;
     private JButton WorkerHomeButton;
     public Other_Worker(JFrame frame, Worker worker){
-        Color colour3 = new Color(4, 116, 140);
-        WorkerOtherPanel.setBackground(colour3);
+        Color colour5 = new Color(189, 250, 253);
+        WorkerOtherPanel.setBackground(colour5);
         //set text button
         WorkerProfileButton.setText("\u2022 Profile");
         WorkerReportButton.setText("\u2022 Report");
