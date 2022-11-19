@@ -242,7 +242,9 @@ public class Address {
                     Status.setText(emptypostal);
                 } else {
                     try {
-                        DataBaseFB.setAddress(customer.getName(),address + "," + apartment + "," + city + "," + state + "," + postal);
+                        String temp = address + "," + apartment + "," + city + "," + state + "," + postal;
+                        customer.setAddress(temp);
+                        DataBaseFB.updateCustomerData(customer.getName(),customer);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
