@@ -36,5 +36,5 @@ public class Other_Worker {
             }
         });
     }
-    public JPanel getWorkerMenuPanel() {return WorkerOtherPanel;}
+    public JPanel getWorkerOtherPanel() {return WorkerOtherPanel;}
 }

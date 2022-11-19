@@ -128,7 +128,7 @@ public class Main {
             ex.printStackTrace();
         }
 
-        Login login = new Login(frame, new Customer("H","H","5"));
+        Login login = new Login(frame, new Customer("H","H","5"), new Worker("H","0"));
         frame.getContentPane().add(login.getLoginPanel());
 
 
