@@ -132,7 +132,5 @@ public class Main {
         frame.getContentPane().add(login.getLoginPanel());
 
 
-
-
     }
 }

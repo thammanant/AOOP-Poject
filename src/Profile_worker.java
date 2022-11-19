@@ -28,7 +28,15 @@ public class Profile_worker {
                 frame.revalidate();
             }
         });
-
+        // set chat button
+        Chat_icon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"Coming soon","Message",JOptionPane.PLAIN_MESSAGE);
+                frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                frame.revalidate();
+            }
+        });
     }
 
     public JPanel get_profile_worker(){
