@@ -111,22 +111,33 @@ public class DataBaseFB{
 
     //update customer data
     public static void updateCustomerData(String username, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        dataMap = new LinkedHashMap<String, Object>();
-        dataMap.put( "Username", username );
-        dataMap2 = new LinkedHashMap<String, Object>();
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
         dataMap2.put("Customer", customer);
-        dataMap2.put("Type", "Customer");
         dataMap.put("Data", dataMap2);
+        dataMap.put("Password", customer.getPassword());
         response = firebase.put( username, dataMap );
     }
 
     //update worker data
     public static void updateWorkerData(String username, Worker worker) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        dataMap = new LinkedHashMap<String, Object>();
-        dataMap.put( "Username", username );
-        dataMap2 = new LinkedHashMap<String, Object>();
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
         dataMap2.put("Worker", worker);
-        dataMap2.put("Type", "Worker");
         dataMap.put("Data", dataMap2);
         response = firebase.put( username, dataMap );
     }
@@ -135,12 +146,16 @@ public class DataBaseFB{
     public static void addHistory(String username, ClothesAmount clothesAmount) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
-        Vector<ClothesAmount> history = (Vector<ClothesAmount>) dataMap3.get("History");
-        history.add(clothesAmount);
-        dataMap3.put("History", history);
-        dataMap2.put("Customer", dataMap3);
+        if(dataMap2 == null) {
+            return;
+        }
+        Vector<ClothesAmount> temp = (Vector<ClothesAmount>) dataMap2.get("History");
+        temp.add(clothesAmount);
+        dataMap2.put("History", temp);
         dataMap.put("Data", dataMap2);
         response = firebase.put( username, dataMap );
     }
@@ -167,14 +182,11 @@ public class DataBaseFB{
     public static Vector<String> getAllUsername() throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get();
         dataMap = response.getBody();
-        if(dataMap == null) {
-            return null;
-        }
-        Vector<String> usernames = new Vector<>();
+        Vector<String> temp = new Vector<>();
         for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
-            usernames.add(entry.getKey());
+            temp.add(entry.getKey());
         }
-        return usernames;
+        return temp;
     }
 
 }
