@@ -26,8 +26,8 @@ public class DataBaseFB{
 
     public DataBaseFB() throws FirebaseException {}
 
-    // put
-    public static void put(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    // create a new user and add to database
+    public static void addNewUser(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
         dataMap = new LinkedHashMap<String, Object>();
         dataMap.put( "Username", username );

@@ -1,5 +1,4 @@
 import AbstactClass.LoginNRegister;
-import AbstactClass.User;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
@@ -114,19 +113,22 @@ public class Register extends LoginNRegister{
                     type = "Customer";
                     //database
                     try {
-                        DataBaseFB.put(email, password, type);
+                        DataBaseFB.addNewUser(email, password, type);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
                     try {
-                        DataBaseFB.put(email, password, type);
+                        DataBaseFB.addNewUser(email, password, type);
+                        customer.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        DataBaseFB.put(email, password, type);
+                        DataBaseFB.addNewUser(email, password, type);
+                        Worker worker = new Worker(email);
+                        worker.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
