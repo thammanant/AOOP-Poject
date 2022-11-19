@@ -11,7 +11,7 @@ public class Home_worker {
 
 
     public Home_worker(JFrame frame, Worker worker){
-        Hi.setText(worker.getName());
+        Hi.setText("Hi: " + worker.getName());
         Home_Button.addActionListener(new ActionListener() {
             @Override
            public void actionPerformed(ActionEvent e) {

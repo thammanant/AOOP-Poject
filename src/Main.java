@@ -128,8 +128,10 @@ public class Main {
             ex.printStackTrace();
         }
 
-        Login login = new Login(frame, new Customer(), new Worker());
-        frame.getContentPane().add(login.getLoginPanel());
+//        Login login = new Login(frame, new Customer(), new Worker());
+//        frame.getContentPane().add(login.getLoginPanel());
+        Home_worker home = new Home_worker(frame,new Worker());
+        frame.getContentPane().add(home.get_Home_worker_panel());
 
 
     }
