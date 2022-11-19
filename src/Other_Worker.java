@@ -8,6 +8,8 @@ public class Other_Worker {
     private JButton WorkerReportButton;
     private JButton WorkerProfileButton;
     private JButton WorkerHomeButton;
+    private JButton Logout_button;
+
     public Other_Worker(JFrame frame, Worker worker){
         Color colour5 = new Color(189, 250, 253);
         WorkerOtherPanel.setBackground(colour5);
@@ -41,6 +43,14 @@ public class Other_Worker {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                frame.revalidate();
+            }
+        });
+
+        Logout_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane((new Login(frame,new Customer(),worker).getLoginPanel()));
                 frame.revalidate();
             }
         });

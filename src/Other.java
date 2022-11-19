@@ -14,6 +14,7 @@ public class Other {
     private JButton Order_Button;
     private JButton Profile_Button;
     private JPanel MenuPanel;
+    private JButton Logout_button;
 
     public Other(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
@@ -57,6 +58,14 @@ public class Other {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane((new Report(frame,customer).get_Report_panel()));
+                frame.revalidate();
+            }
+        });
+
+        Logout_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane((new Login(frame,customer, new Worker()).getLoginPanel()));
                 frame.revalidate();
             }
         });
