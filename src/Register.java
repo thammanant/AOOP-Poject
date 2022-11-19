@@ -111,8 +111,8 @@ public class Register extends LoginNRegister{
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
-                    customer.setName(email);
-                    customer.setPhone("None");
+                    Customer customer = new Customer(email);
+                    customer.setPassword(password);
                     customer.resetClothes();
                     try {
                         DataBaseFB.updateCustomerData(customer.getName(),customer);
