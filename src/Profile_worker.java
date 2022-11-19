@@ -8,6 +8,7 @@ public class Profile_worker {
     private JButton Back_button;
     private JButton exit_button;
     private JButton Chat_icon;
+    private JButton Edit;
     private JLabel NamePanel;
     private JLabel ContactPanel;
 

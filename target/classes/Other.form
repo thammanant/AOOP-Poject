@@ -55,6 +55,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-16777216"/>
               <text value="Button"/>
             </properties>
           </component>
@@ -118,6 +119,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-16777216"/>
               <text value="Button"/>
             </properties>
           </component>
