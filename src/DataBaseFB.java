@@ -151,5 +151,59 @@ public class DataBaseFB{
         return usernames;
     }
 
+    //set customer status
+    public static void setCustomerStatus(String username, String status) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        dataMap3.put("Status", status);
+        dataMap2.put("Customer", dataMap3);
+        dataMap.put("Data", dataMap2);
+        response = firebase.put( username, dataMap );
+    }
 
+    //get customer status
+    public static String getCustomerStatus(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        String status = (String) dataMap3.get("Status");
+        return status;
+    }
+
+    //set customer phone number
+    public static void setPhoneNumber(String username, String phoneNumber) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        dataMap3.put("PhoneNumber", phoneNumber);
+        dataMap2.put("Customer", dataMap3);
+        dataMap.put("Data", dataMap2);
+        response = firebase.put( username, dataMap );
+    }
+
+    //set customer address
+    public static void setAddress(String username, String address) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        dataMap3.put("Address", address);
+        dataMap2.put("Customer", dataMap3);
+        dataMap.put("Data", dataMap2);
+        response = firebase.put( username, dataMap );
+    }
+
+    //get customer address
+    public static String getAddress(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        String address = (String) dataMap3.get("Address");
+        return address;
+    }
 }
