@@ -111,6 +111,9 @@ public class Register extends LoginNRegister{
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
+                    customer.setName(email);
+                    customer.setPhone("None");
+                    customer.resetClothes();
                     //database
                     try {
                         DataBaseFB.addNewUser(email, password, type);
@@ -119,6 +122,8 @@ public class Register extends LoginNRegister{
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
+                    worker.setName(email);
+                    worker.setPhone("None");
                     try {
                         DataBaseFB.addNewUser(email, password, type);
                         customer.setName(email);
