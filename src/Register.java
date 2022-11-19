@@ -120,7 +120,11 @@ public class Register extends LoginNRegister{
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
-                    //database
+                    try {
+                        DataBaseFB.put(email, password, type);
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     try {
                         DataBaseFB.put(email, password, type);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {

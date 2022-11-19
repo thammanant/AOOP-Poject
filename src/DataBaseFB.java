@@ -29,14 +29,19 @@ public class DataBaseFB{
     // put
     public static void put(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
-        Customer customer = new Customer();
         dataMap = new LinkedHashMap<String, Object>();
         dataMap.put( "Username", username );
         dataMap.put( "Password", password);
         Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
-        dataMap2.put( type + "ID", customer.getID());
-        dataMap.put( type, dataMap2 );
-
+        if(type.equals("Customer")) {
+            dataMap2.put("Customer", new Customer());
+            dataMap2.put("Type", "Customer");
+        }
+        else if(type.equals("Worker")) {
+            dataMap2.put("Worker", new Worker());
+            dataMap2.put("Type", "Worker");
+        }
+        dataMap.put("Data", dataMap2);
         response = firebase.put( username, dataMap );
     }
 
@@ -53,9 +58,14 @@ public class DataBaseFB{
         return pass.equals(password);
     }
 
-    public static void checkType(String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        //check type
-
+    //check if user is customer or worker
+    public static String checkType(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        //get type in data map
+        response = firebase.get( username );
+        Map<String, Object> dataMap = response.getBody();
+        Map<String, Object> dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        String type = (String) dataMap2.get("Type");
+        return type;
     }
 
 }

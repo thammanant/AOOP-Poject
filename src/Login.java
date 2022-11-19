@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Login extends LoginNRegister {
     private JPanel LoginPanel;
@@ -95,11 +96,22 @@ public class Login extends LoginNRegister {
             Status.setText(emptyPasswd);
         } else {
             if (DataBaseFB.checkUserPass(email, password)) {
-                customer.setEmail(email);
-                customer.setPassword(password);
-                frame.setContentPane(new Home(frame, customer).getHomePanel());
-                frame.revalidate();
-            } else {
+                //check if user is customer or worker
+                if(DataBaseFB.checkType(email).equals("Customer")){
+                    //set panel
+                    frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    frame.revalidate();
+                }
+                else if (DataBaseFB.checkType(email).equals("Worker")){
+                    //set panel
+                    frame.setContentPane(new Home_worker(frame).get_Home_worker_panel());
+                    frame.revalidate();
+                }
+                else {
+                Status.setText(invalidUser);
+                }
+            }
+            else {
                 JOptionPane.showMessageDialog(null, invalidUser);
             }
         }
