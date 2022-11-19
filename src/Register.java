@@ -114,6 +114,11 @@ public class Register extends LoginNRegister{
                     customer.setName(email);
                     customer.setPhone("None");
                     customer.resetClothes();
+                    try {
+                        DataBaseFB.updateCustomerData(email,customer);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     //database
                     try {
                         DataBaseFB.addNewUser(email, password, type);
@@ -124,6 +129,11 @@ public class Register extends LoginNRegister{
                     type = "Worker";
                     worker.setName(email);
                     worker.setPhone("None");
+                    try {
+                        DataBaseFB.updateWorkerData(email,worker);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     try {
                         DataBaseFB.addNewUser(email, password, type);
                         customer.setName(email);
