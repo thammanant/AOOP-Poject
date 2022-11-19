@@ -58,6 +58,12 @@ public class Order {
     private JLabel cloth_name9;
     private JLabel cloth_name11;
     private JLabel cloth_name3;
+    private JButton add_button13;
+    private JButton subtract_button13;
+    private JLabel value13;
+    private JLabel value14;
+    private JButton add_button14;
+    private JButton subtract_button14;
 
     //-value is the amount of cloth
     //-add_button and subtract_button follow by number to increase and decrease the amount of that cloth
@@ -88,6 +94,8 @@ public class Order {
     private int amount10 = 0;
     private int amount11 = 0;
     private int amount12 = 0;
+    private int amount13 =0;
+    private int amount14 = 0;
     private int total = 0;
 
     public Order(JFrame frame, Customer customer){
@@ -273,6 +281,38 @@ public class Order {
                     value12.setText(Integer.toString(--amount12));
             }
         });
+        add_button13.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                    value13.setText(Integer.toString(++amount13));
+
+            }
+        });
+        subtract_button13.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount13>0){
+                    value13.setText(Integer.toString(--amount13));
+                }
+            }
+        });
+        add_button14.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                    value14.setText(Integer.toString(++amount14));
+
+            }
+        });
+        subtract_button14.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(amount14>0){
+                    value14.setText(Integer.toString(--amount14));
+                }
+            }
+        });
         //Cancel button will back to home page
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -290,14 +330,14 @@ public class Order {
         processButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                total = amount1+ amount2 + amount3 + amount4 + amount5 + amount6 + amount7 + amount8 + amount9 + amount10 + amount11 + amount12;
+                total = amount1+ amount2 + amount3 + amount4 + amount5 + amount6 + amount7 + amount8 + amount9 + amount10 + amount11 + amount12 + amount13 + amount14;
                 if (total == 0) {
                     JOptionPane.showMessageDialog(null,"Please select your order!","Message",JOptionPane.PLAIN_MESSAGE);
                 }else{
-                customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount11,amount12);
+                customer.addAmountToClothes(amount1,amount2,amount3,amount4,amount5,amount6,amount7,amount8,amount9,amount10,amount11,amount12,amount13,amount14);
                 frame.setContentPane((new Total(frame, customer).getTotalPanel()));
                 frame.revalidate();
-                }
+                                                                                                                                                                              }
             }
         });
     }

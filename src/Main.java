@@ -110,7 +110,7 @@ public class Main {
 //
 //        System.out.println(customer2.checkClothes());
 //
-//        // Third pages
+//        // Third pagess
 //        customer.setAddress("123 Main St, Apt 1");
 //        System.out.println(customer.printAll());
 //
