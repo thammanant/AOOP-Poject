@@ -112,7 +112,6 @@ public class Register extends LoginNRegister{
                 if (Customer.isSelected()) {
                     type = "Customer";
                     customer.setName(email);
-                    customer.setPassword(password);
                     customer.setPhone("None");
                     customer.resetClothes();
                     try {
@@ -135,7 +134,7 @@ public class Register extends LoginNRegister{
                     type = "Worker";
                     worker.setName(email);
                     worker.setPhone("None");
-                    worker.setPassword(password);
+
                     try {
                         DataBaseFB.updateWorkerData(worker.getName(),worker);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {

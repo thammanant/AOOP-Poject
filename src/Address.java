@@ -242,6 +242,7 @@ public class Address {
                     Status.setText(emptypostal);
                 } else {
                     try {
+                        customer.setPhone(phone);
                         String temp = address + "," + apartment + "," + city + "," + state + "," + postal;
                         customer.setAddress(temp);
                         DataBaseFB.updateCustomerData(customer.getName(),customer);

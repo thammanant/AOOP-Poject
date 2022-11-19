@@ -7,9 +7,11 @@ public class Home_worker {
     private JButton OtherButton;
     private JButton Home_Button;
     private JButton Check_your_order_worker;
+    private JLabel Hi;
 
 
     public Home_worker(JFrame frame, Worker worker){
+        Hi.setText(worker.getName());
         Home_Button.addActionListener(new ActionListener() {
             @Override
            public void actionPerformed(ActionEvent e) {
