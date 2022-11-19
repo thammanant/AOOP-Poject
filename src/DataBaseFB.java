@@ -71,7 +71,13 @@ public class DataBaseFB{
         //get type in data map
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         return (String) dataMap2.get("Type");
     }
 
@@ -79,7 +85,13 @@ public class DataBaseFB{
     public static Customer getCustomerData(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         return (Customer) dataMap2.get("Customer");
     }
 
@@ -87,7 +99,13 @@ public class DataBaseFB{
     public static Worker getWorkerData(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         return (Worker) dataMap2.get("Worker");
     }
 
@@ -131,8 +149,17 @@ public class DataBaseFB{
     public static Vector<ClothesAmount> getHistory(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
-        dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        if(dataMap == null) {
+            return null;
+        }
+        dataMap2 = ((Map<String, Object>) dataMap.get("Data"));
+        if(dataMap2 == null) {
+            return null;
+        }
+        dataMap3 = ((Map<String, Object>) dataMap2.get("Customer"));
+        if(dataMap3 == null) {
+            return null;
+        }
         return (Vector<ClothesAmount>) dataMap3.get("History");
     }
 
@@ -140,6 +167,9 @@ public class DataBaseFB{
     public static Vector<String> getAllUsername() throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get();
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         Vector<String> usernames = new Vector<>();
         for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
             usernames.add(entry.getKey());
@@ -163,8 +193,17 @@ public class DataBaseFB{
     public static String getCustomerStatus(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        if(dataMap3 == null) {
+            return null;
+        }
         return (String) dataMap3.get("Status");
     }
 
@@ -196,8 +235,17 @@ public class DataBaseFB{
     public static String getAddress(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        if(dataMap3 == null) {
+            return null;
+        }
         return (String) dataMap3.get("Address");
     }
 
@@ -205,8 +253,17 @@ public class DataBaseFB{
     public static String getPhoneNumber(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
+        if(dataMap3 == null) {
+            return null;
+        }
         return (String) dataMap3.get("PhoneNumber");
     }
 
