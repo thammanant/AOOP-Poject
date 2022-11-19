@@ -1,5 +1,4 @@
 import AbstactClass.LoginNRegister;
-import AbstactClass.User;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
@@ -23,7 +22,7 @@ public class Register extends LoginNRegister{
     private String type;
     private boolean sta = true;
 
-    public Register(JFrame frame, Customer customer) {
+    public Register(JFrame frame, Customer customer, Worker worker) {
         ButtonGroup Type = new ButtonGroup();
         Type.add(Customer);
         Type.add(Worker);
@@ -112,26 +111,55 @@ public class Register extends LoginNRegister{
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
+                    customer.setName(email);
+                    customer.setPhone("None");
+                    customer.resetClothes();
+                    try {
+                        DataBaseFB.updateCustomerData(customer.getName(),customer);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        DataBaseFB.updateCustomerData(email,customer);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     //database
                     try {
-                        DataBaseFB.put(email, password, type);
+                        DataBaseFB.addNewUser(email, password, type);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
+                    worker.setName(email);
+                    worker.setPhone("None");
+
                     try {
-                        DataBaseFB.put(email, password, type);
+                        DataBaseFB.updateWorkerData(worker.getName(),worker);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        DataBaseFB.updateWorkerData(email,worker);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        DataBaseFB.addNewUser(email, password, type);
+                        customer.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        DataBaseFB.put(email, password, type);
+                        DataBaseFB.addNewUser(email, password, type);
+                        Worker worker = new Worker(email);
+                        worker.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
-                frame.setContentPane(new Login(frame, customer).getLoginPanel());
+                frame.setContentPane(new Login(frame, customer,worker).getLoginPanel());
                 frame.revalidate();
                 }else {
                     Status.setText("Please select your type");
@@ -142,7 +170,7 @@ public class Register extends LoginNRegister{
         Back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Login(frame,customer).getLoginPanel());
+                frame.setContentPane(new Login(frame,customer,worker).getLoginPanel());
                 frame.revalidate();
             }
         });

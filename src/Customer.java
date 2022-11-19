@@ -1,8 +1,13 @@
 import AbstactClass.User;
 import Resources.ClothesAmount;
 import Resources.ClothesType;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import javax.xml.crypto.Data;
+import java.io.IOException;
+import java.util.Vector;
 
 public class Customer extends User {
     private String address;
@@ -16,7 +21,7 @@ public class Customer extends User {
     }
 
     public Customer() {
-
+        this.clothes = new ClothesAmount();
     }
 
     private ClothesAmount getClothes() {
@@ -73,16 +78,14 @@ public class Customer extends User {
     }
 
 
-    //check order and text it.
-    public String textorderClothes() {
-        String s = "";
-        if (check()) {
-            s = "You have " + this.getClothes() + " order";
+    //display how many order using database
+    public String displayOrder() {
+        if(this.clothes == null){
+            return "All Clean!";
         }
         else {
-            s = "All cleaned";
+            return "You have " + this.clothes.getSize() + "order";
         }
-        return s;
     }
 
     //popup that there is no order

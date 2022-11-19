@@ -1,3 +1,6 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
+
 import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
 import java.awt.*;
@@ -5,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 
 public class Address {
@@ -205,14 +209,27 @@ public class Address {
         GoToConfirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String regex = "\\d+";
+                Boolean phone_check_int = true;
+                Boolean postcode_check_int = true;
                 String phone = PhoneField.getText();
                 String address = AddressField.getText();
                 String apartment = ApartmentField.getText();
                 String city = CityField.getText();
                 String state = StateField.getText();
-                String zipcode = PostalField.getText();
+                String postal = PostalField.getText();
+                if(phone.matches(regex)){
+                    phone_check_int = false;
+                }
+                if(postal.matches(regex)){
+                    postcode_check_int = false;
+                }
                 if(phone.isEmpty() || phone.equals(PhoneTxt)){
                     Status.setText(emptyphone);
+                } else if (phone_check_int) {
+                    Status.setText("Phone must be number.");
+                } else if (postcode_check_int) {
+                    Status.setText("Postal code must number.");
                 } else if (address.isEmpty() || address.equals(AddressTxt)) {
                     Status.setText(emptyaddress);
                 } else if (apartment.isEmpty() || apartment.equals(ApartmentTxt)) {
@@ -221,11 +238,23 @@ public class Address {
                     Status.setText(emptycity);
                 } else if (state.isEmpty() || state.equals(StateTxt)) {
                     Status.setText(emptystate);
-                } else if (zipcode.isEmpty() || zipcode.equals(PostalTxt)) {
+                } else if (postal.isEmpty() || postal.equals(PostalTxt)) {
                     Status.setText(emptypostal);
                 } else {
+                    try {
+                        customer.setPhone(phone);
+                        String temp = address + "," + apartment + "," + city + "," + state + "," + postal;
+                        customer.setAddress(temp);
+                        DataBaseFB.updateCustomerData(customer.getName(),customer);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     JOptionPane.showMessageDialog(null,"Your order have been sent","Message",JOptionPane.PLAIN_MESSAGE);
-                    frame.setContentPane(new Home(frame,customer).getHomePanel());
+                    try {
+                        frame.setContentPane(new Home(frame,customer).getHomePanel());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     frame.revalidate();
                 }
             }

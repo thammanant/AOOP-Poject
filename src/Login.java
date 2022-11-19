@@ -21,7 +21,7 @@ public class Login extends LoginNRegister {
     private JLabel Status;
 
 
-    public Login(JFrame frame, Customer customer) {
+    public Login(JFrame frame, Customer customer,Worker worker) {
         //change panel theme
         LoginPanel.setBackground(colour5);
 
@@ -71,7 +71,7 @@ public class Login extends LoginNRegister {
                 String email = emailTextField.getText();
                 String password = PasswordTextField.getText();
                 try {
-                    CheckValidations(email, password, frame, customer);
+                    CheckValidations(email, password, frame, customer,worker);
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -82,14 +82,14 @@ public class Login extends LoginNRegister {
         RegisterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Register(frame, customer).getRegisterPanel());
+                frame.setContentPane(new Register(frame, customer,worker).getRegisterPanel());
                 frame.revalidate();
             }
         });
     }
 
     //check validation
-    private void CheckValidations(String email, String password, JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
+    private void CheckValidations(String email, String password, JFrame frame, Customer customer,Worker worker) throws JacksonUtilityException, FirebaseException, IOException {
         if (email.isEmpty() || email.equals(userTxt)) {
             Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {
@@ -104,7 +104,7 @@ public class Login extends LoginNRegister {
                 }
                 else if (DataBaseFB.checkType(email).equals("Worker")){
                     //set panel
-                    frame.setContentPane(new Home_worker(frame).get_Home_worker_panel());
+                    frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
                     frame.revalidate();
                 }
                 else {

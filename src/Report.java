@@ -1,7 +1,12 @@
+import AbstactClass.User;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Report {
     private JPanel Report_panel;
@@ -10,13 +15,17 @@ public class Report {
     private JButton exit_button;
     private JButton Back_button;
 
-    public Report(JFrame frame,Customer customer){
+    public Report(JFrame frame, Customer customer){
         Color colour5 = new Color(189, 250, 253);
         Report_panel.setBackground(colour5);
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Home(frame,customer).getHomePanel());
+                try {
+                    frame.setContentPane(new Home(frame,customer).getHomePanel());
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });
@@ -38,7 +47,11 @@ public class Report {
                 else {
                     JOptionPane.showMessageDialog(null, "The report has been sented");
                     //change panel
-                    frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    try {
+                        frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     frame.revalidate();
                 }
             }

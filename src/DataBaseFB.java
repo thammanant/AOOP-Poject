@@ -1,3 +1,4 @@
+import Resources.ClothesAmount;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
@@ -8,11 +9,15 @@ import org.codehaus.jackson.map.JsonMappingException;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Vector;
 
 public class DataBaseFB{
     private static final String url = "https://washapp-1fe9f-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
     static Firebase firebase;
+    private static Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
+    private static Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
+    private static Map<String, Object> dataMap3 = new LinkedHashMap<String, Object>();
 
     static {
         try {
@@ -26,16 +31,18 @@ public class DataBaseFB{
 
     public DataBaseFB() throws FirebaseException {}
 
-    // put
-    public static void put(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    // create a new user and add to database
+    public static void addNewUser(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
         dataMap = new LinkedHashMap<String, Object>();
         dataMap.put( "Username", username );
         dataMap.put( "Password", password);
-        Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
+        dataMap2 = new LinkedHashMap<String, Object>();
         if(type.equals("Customer")) {
             dataMap2.put("Customer", new Customer());
             dataMap2.put("Type", "Customer");
+            Vector<ClothesAmount> temp = new Vector<>();
+            dataMap2.put("History",temp);
         }
         else if(type.equals("Worker")) {
             dataMap2.put("Worker", new Worker());
@@ -45,9 +52,10 @@ public class DataBaseFB{
         response = firebase.put( username, dataMap );
     }
 
+    // check if user exists
     public static boolean checkUserPass(String username, String password) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
-        Map<String, Object> dataMap = response.getBody();
+        dataMap = response.getBody();
         if (dataMap == null) {
             return false;
         }
@@ -62,10 +70,123 @@ public class DataBaseFB{
     public static String checkType(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         //get type in data map
         response = firebase.get( username );
-        Map<String, Object> dataMap = response.getBody();
-        Map<String, Object> dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        String type = (String) dataMap2.get("Type");
-        return type;
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
+        return (String) dataMap2.get("Type");
+    }
+
+    //get customer data
+    public static Customer getCustomerData(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
+        return (Customer) dataMap2.get("Customer");
+    }
+
+    //get worker data
+    public static Worker getWorkerData(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
+        return (Worker) dataMap2.get("Worker");
+    }
+
+    //update customer data
+    public static void updateCustomerData(String username, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
+        dataMap2.put("Customer", customer);
+        dataMap.put("Data", dataMap2);
+        dataMap.put("Password", customer.getPassword());
+        response = firebase.put( username, dataMap );
+    }
+
+    //update worker data
+    public static void updateWorkerData(String username, Worker worker) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
+        dataMap2.put("Worker", worker);
+        dataMap.put("Data", dataMap2);
+        response = firebase.put( username, dataMap );
+    }
+
+    //add clothesAmount to history
+    public static void addHistory(String username, ClothesAmount clothesAmount) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
+        Vector<ClothesAmount> temp = (Vector<ClothesAmount>) dataMap2.get("History");
+        temp.add(clothesAmount);
+        dataMap2.put("History", temp);
+        dataMap.put("Data", dataMap2);
+        response = firebase.put( username, dataMap );
+    }
+
+    //get history
+    public static Vector<ClothesAmount> getHistory(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
+        dataMap2 = ((Map<String, Object>) dataMap.get("Data"));
+        if(dataMap2 == null) {
+            return null;
+        }
+        dataMap3 = ((Map<String, Object>) dataMap2.get("Customer"));
+        if(dataMap3 == null) {
+            return null;
+        }
+        return (Vector<ClothesAmount>) dataMap3.get("History");
+    }
+
+    //find all exist username in database
+    public static Vector<String> getAllUsername() throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get();
+        dataMap = response.getBody();
+        Vector<String> temp = new Vector<>();
+        for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
+            temp.add(entry.getKey());
+        }
+        return temp;
     }
 
 }
