@@ -65,7 +65,7 @@ public class Other {
         Logout_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Login(frame,customer).getLoginPanel()));
+                frame.setContentPane((new Login(frame,customer, new Worker()).getLoginPanel()));
                 frame.revalidate();
             }
         });

@@ -47,6 +47,13 @@ public class Other_Worker {
             }
         });
 
+        Logout_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane((new Login(frame,new Customer(),worker).getLoginPanel()));
+                frame.revalidate();
+            }
+        });
     }
     public JPanel getWorkerOtherPanel() {return WorkerOtherPanel;}
 }

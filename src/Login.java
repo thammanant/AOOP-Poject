@@ -71,7 +71,7 @@ public class Login extends LoginNRegister {
                 String email = emailTextField.getText();
                 String password = PasswordTextField.getText();
                 try {
-                    CheckValidations(email, password, frame, customer,worker);
+                    CheckValidations(email, password, frame, customer);
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -89,7 +89,7 @@ public class Login extends LoginNRegister {
     }
 
     //check validation
-    private void CheckValidations(String email, String password, JFrame frame, Customer customer,Worker worker) throws JacksonUtilityException, FirebaseException, IOException {
+    private void CheckValidations(String email, String password, JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         if (email.isEmpty() || email.equals(userTxt)) {
             Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {
@@ -104,6 +104,7 @@ public class Login extends LoginNRegister {
                 }
                 else if (DataBaseFB.checkType(email).equals("Worker")){
                     //set panel
+                    Worker worker = new Worker();
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
                     frame.revalidate();
                 }
