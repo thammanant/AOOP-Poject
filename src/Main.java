@@ -1,12 +1,15 @@
 import Resources.*;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JacksonUtilityException, FirebaseException, IOException {
 
 //        //database
 //        User[] allUserPass = new User[100];
@@ -127,13 +130,15 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
+//        Login test = new Login(frame,new Customer(),new Worker());
+//        frame.getContentPane().add(test.getLoginPanel());
 
-        Other_Worker test = new Other_Worker(frame,new Worker());
-        frame.getContentPane().add(test.getWorkerOtherPanel());
+        Profile_worker p = new Profile_worker(frame,new Worker());
+        frame.getContentPane().add(p.get_profile_worker());
 
 
-//        Home_worker test = new Home_worker(frame,new Worker());
-//        frame.getContentPane().add(test.get_Home_worker_panel());
+//       Home_worker test = new Home_worker(frame,new Worker());
+//       frame.getContentPane().add(test.get_Home_worker_panel());
 
 
 
