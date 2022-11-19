@@ -9,4 +9,4 @@ The features are Login,Register,History,Address,Report,Order,Status of order, an
 How to install and run project: User can download our zip file and open it in User's IDE
 
 Credits:https://github.com/bane73/firebase4j
-        https://www.formdev.com/flatlaf/
+        https://github.com/JFormDesigner/FlatLaf
