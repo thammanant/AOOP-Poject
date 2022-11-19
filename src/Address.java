@@ -241,6 +241,11 @@ public class Address {
                 } else if (postal.isEmpty() || postal.equals(PostalTxt)) {
                     Status.setText(emptypostal);
                 } else {
+                    try {
+                        DataBaseFB.setAddress(customer.getName(),address + "," + apartment + "," + city + "," + state + "," + postal);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     JOptionPane.showMessageDialog(null,"Your order have been sent","Message",JOptionPane.PLAIN_MESSAGE);
                     try {
                         frame.setContentPane(new Home(frame,customer).getHomePanel());
