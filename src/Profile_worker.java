@@ -12,8 +12,9 @@ public class Profile_worker {
     private JLabel NamePanel;
     private JLabel ContactPanel;
 
+
     public Profile_worker(JFrame frame, Worker worker){
-        NamePanel.setText("Name: "+ worker.getName());
+        NamePanel.setText("Name: " + worker.getName());
         ContactPanel.setText("Contact: "+ worker.getPhone());
         exit_button.addActionListener(new ActionListener() {
             @Override
