@@ -21,6 +21,7 @@ public class Customer extends User {
         this.phone = phone;
         this.clothes = new ClothesAmount();
     }
+
     public Customer(String name) {
         this.name = name;
         this.address = "None";
@@ -106,7 +107,7 @@ public class Customer extends User {
     public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12, int am13,int am14){
         int arr[]= {am1,am2,am3,am4,am5,am6,am7,am8,am9,am10,am11,am12,am13,am14};
         ClothesType c[] ={ClothesType.CottonWhite,ClothesType.CottonColoured,ClothesType.MixedWhite,ClothesType.MixedColoured,ClothesType.DelicatesWhite,ClothesType.DelicatesColoured,ClothesType.WoolWhite,ClothesType.WoolColoured,ClothesType.BeddingWhite,ClothesType.BeddingColoured,ClothesType.Baby_wearWhite,ClothesType.Baby_wearColoured,ClothesType.LeatherWhite,ClothesType.LeatherColoured};
-        for(int i=0 ; i< arr.length-1 ; i++){
+        for(int i=0 ; i< arr.length ; i++){
                 addClothes(c[i],arr[i]);
         }
     }
