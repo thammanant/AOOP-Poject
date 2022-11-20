@@ -15,13 +15,6 @@ public class Customer extends User {
     private ClothesAmount clothes;
     private String status = "Waiting";
     private Vector<ClothesAmount> history = new Vector<ClothesAmount>();
-    private int[] arr = new int[100];
-
-    public void setArr(ClothesAmount clothes) {
-        for (int i = 0; i < clothes.getSize(); i++) {
-            arr[i] = clothes.getAmount(i);
-        }
-    }
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;

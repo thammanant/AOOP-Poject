@@ -253,7 +253,6 @@ public class Address {
                     }
                     try {
                         customer.addHistory(customer.getClothes());
-                        customer.setArr(customer.getClothes());
                         DataBaseFB.addHistory(customer.getName(),customer.getClothes(),customer);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
