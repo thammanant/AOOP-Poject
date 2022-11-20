@@ -32,6 +32,7 @@
             </constraints>
             <properties>
               <font name="Source Code Pro" size="32"/>
+              <foreground color="-789001"/>
               <text value="Name: User1"/>
             </properties>
           </component>
@@ -46,6 +47,7 @@
             </constraints>
             <properties>
               <font name="Source Code Pro" size="32"/>
+              <foreground color="-789001"/>
               <text value="Contact: 000-000-0000"/>
             </properties>
           </component>
@@ -79,7 +81,7 @@
             <properties>
               <alignmentX value="0.0"/>
               <font size="36"/>
-              <icon value="Picture/user_profile_96x96.png"/>
+              <icon value="Picture/user_1_96x96.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -124,7 +126,7 @@
           <contentAreaFilled value="false"/>
           <focusPainted value="false"/>
           <focusable value="false"/>
-          <icon value="Picture/left-arrow_48x48.png"/>
+          <icon value="Picture/previous_48x48.png"/>
           <text value=""/>
         </properties>
       </component>

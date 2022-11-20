@@ -101,8 +101,8 @@
         <properties>
           <font name="Source Code Pro" size="24" style="1"/>
           <foreground color="-789001"/>
-          <icon value="Picture/waving-hand.png"/>
-          <iconTextGap value="10"/>
+          <icon value="Picture/waving-hand_white.png"/>
+          <iconTextGap value="12"/>
           <text value="Hi, User1"/>
         </properties>
       </component>
@@ -130,7 +130,7 @@
           <focusPainted value="true"/>
           <focusable value="true"/>
           <font name="Source Code Pro" size="16" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-15062446"/>
           <label value="Check your order"/>
           <opaque value="true"/>
           <text value="Check your order"/>
@@ -153,6 +153,7 @@
         <properties>
           <focusable value="false"/>
           <font name="Source Code Pro" size="22" style="1"/>
+          <foreground color="-789001"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="2"/>
           <icon value="Picture/empty_basket 64x64.png"/>
