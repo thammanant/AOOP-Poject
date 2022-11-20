@@ -187,15 +187,43 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         if(dataMap2 == null) {
             return;
         }
-        int[] arr = new int[15];
+        int[] arr = new int[16];
         int sum = 0;
         for(int i = 0; i < customer.getClothes().getSize(); i++) {
             arr[i] = temp.printAmount(i);
             sum += arr[i];
         }
         arr[14] = sum;
+        arr[15] = -1;
 
         dataMap2.put("Order" + customer.getHistory().size(), arr);
+        dataMap.put("Data", dataMap2);
+        dataMap.put("Username", customer.getName());
+        dataMap.put("Password", customer.getPassword());
+        response = firebase.put( username, dataMap );
+
+    }
+    //set arr[15] = -2
+    public static void setHistoryStatus(String username, int index, Customer customer, int x) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
+        int[] arr = new int[16];
+        int sum = 0;
+        for(int i = 0; i < customer.getClothes().getSize(); i++) {
+            arr[i] = customer.getHistory().get(index).printAmount(i);
+            sum += arr[i];
+        }
+        arr[14] = sum;
+        arr[15] = x;
+
+        dataMap2.put("Order" + index, arr);
         dataMap.put("Data", dataMap2);
         dataMap.put("Username", customer.getName());
         dataMap.put("Password", customer.getPassword());
