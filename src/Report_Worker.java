@@ -9,10 +9,6 @@ public class Report_Worker {
     private JButton exit_button;
 
     public Report_Worker(JFrame frame, Worker worker){
-        Color colour5 = new Color(189, 250, 253);
-        Report_worker.setBackground(colour5);
-
-
     }
 
     public JPanel get_Report_Worker(){

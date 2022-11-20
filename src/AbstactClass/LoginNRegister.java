@@ -32,10 +32,10 @@ public abstract class LoginNRegister {
 
 
     ///
-    protected Color colour16 = new Color(243, 245, 247);
-    protected Color colour17 = new Color(26, 42, 82);
-    protected Color colour18 = new Color(39, 59, 105); //main background
-    protected Color colour19 = new Color(197, 254, 237); //button
+    protected Color colour16 = new Color(243, 245, 247); //text and bar F3F5F7
+    protected Color colour17 = new Color(26, 42, 82);// text in button 1A2A52
+    protected Color colour18 = new Color(39, 59, 105); //main background 273B69
+    protected Color colour19 = new Color(197, 254, 237); //button C5FEED
 //    protected Color colour20 = new Color(196, 229, 249);
 
 

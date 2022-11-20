@@ -20,6 +20,8 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-14206103"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -30,6 +32,8 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-14206103"/>
+          <foreground color="-789001"/>
           <text value="Register"/>
         </properties>
       </component>
@@ -45,6 +49,8 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-14206103"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -55,6 +61,8 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-14206103"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>

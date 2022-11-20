@@ -15,9 +15,6 @@ public class Profile_worker {
 
 
     public Profile_worker(JFrame frame, Worker worker){
-        Color colour5 = new Color(189, 250, 253);
-        Profile_worker.setBackground(colour5);
-
         NamePanel.setText("Name: " + worker.getName());
         ContactPanel.setText("Contact: "+ worker.getPhone());
         exit_button.addActionListener(new ActionListener() {

@@ -11,8 +11,7 @@ public class Other_Worker {
     private JButton Logout_button;
 
     public Other_Worker(JFrame frame, Worker worker){
-        Color colour5 = new Color(189, 250, 253);
-        WorkerOtherPanel.setBackground(colour5);
+
         //set text button
         WorkerProfileButton.setText("\u2022 Profile");
         WorkerReportButton.setText("\u2022 Report");

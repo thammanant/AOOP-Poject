@@ -17,9 +17,9 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-16777216"/>
+          <background color="-1"/>
           <caretColor color="-16777216"/>
-          <foreground color="-1"/>
+          <foreground color="-14206103"/>
           <horizontalAlignment value="2"/>
           <text value=""/>
           <verifyInputWhenFocusTarget value="false"/>
@@ -62,9 +62,9 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-16777216"/>
+          <background color="-1"/>
           <caretColor color="-16777216"/>
-          <foreground color="-1"/>
+          <foreground color="-14206103"/>
           <horizontalAlignment value="2"/>
           <text value=""/>
         </properties>
@@ -86,13 +86,13 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3619196"/>
-          <borderPainted value="true"/>
+          <background color="-3801363"/>
+          <borderPainted value="false"/>
           <contentAreaFilled value="true"/>
           <focusPainted value="false"/>
           <focusable value="false"/>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-15062446"/>
           <opaque value="true"/>
           <text value="Register"/>
         </properties>
@@ -104,12 +104,12 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3619196"/>
+          <background color="-3801363"/>
           <contentAreaFilled value="true"/>
           <focusPainted value="false"/>
           <focusable value="false"/>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-15062446"/>
           <opaque value="true"/>
           <text value="Login"/>
           <visible value="true"/>
@@ -145,7 +145,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="22" style="1"/>
-          <foreground color="-1392116"/>
+          <foreground color="-789001"/>
           <text value="  Welcome to Wash app"/>
         </properties>
       </component>

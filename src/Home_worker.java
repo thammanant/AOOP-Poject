@@ -12,7 +12,7 @@ public class Home_worker {
 
 
     public Home_worker(JFrame frame, Worker worker){
-        Color colour5 = new Color(189, 250, 253);
+        Color colour5 = new Color(39, 59, 105);
         Home_worker.setBackground(colour5);
         Hi.setText("Hi: " + worker.getName());
         Home_Button.addActionListener(new ActionListener() {
