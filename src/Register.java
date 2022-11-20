@@ -3,6 +3,8 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -166,10 +168,44 @@ public class Register extends LoginNRegister{
                 frame.revalidate();
             }
         });
+
     }
 
     //getter
     public JPanel getRegisterPanel() {
         return RegisterPanel;
+    }
+
+
+
+
+
+//    registerButton.setBounds(x_pos, y_pos, 30, 25);
+//    registerButton.setBorder(new RoundedBorder(10)); //10 is the radius
+//    registerButton.setForeground(Color.BLUE);
+
+    private static class RoundedBorder implements Border {
+
+        private int radius;
+
+
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+
+
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+
+
+        public boolean isBorderOpaque() {
+            return true;
+        }
+
+
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+        }
     }
 }

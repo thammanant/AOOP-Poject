@@ -28,7 +28,9 @@
         <constraints>
           <grid row="0" column="6" row-span="11" col-span="12" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <foreground color="-789001"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="80d77" class="javax.swing.JButton" binding="History_Button">
@@ -41,7 +43,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
-              <foreground color="-16777216"/>
+              <foreground color="-789001"/>
               <text value="History"/>
             </properties>
           </component>
@@ -55,6 +57,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
               <text value="Button"/>
             </properties>
           </component>
@@ -118,6 +121,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
               <text value="Button"/>
             </properties>
           </component>
@@ -142,6 +146,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
               <text value="Logout"/>
             </properties>
           </component>

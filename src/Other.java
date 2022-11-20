@@ -17,8 +17,8 @@ public class Other {
     private JButton Logout_button;
 
     public Other(JFrame frame, Customer customer){
-        Color colour5 = new Color(189, 250, 253);
-        MenuPanel.setBackground(colour5);
+        Color colour18 = new Color(39, 59, 105);
+        MenuPanel.setBackground(colour18);
 
         History_Button.setText("\u2022 History");
         Profile_Button.setText("\u2022 Profile");

@@ -3,6 +3,7 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,8 +23,10 @@ public class Login extends LoginNRegister {
 
 
     public Login(JFrame frame, Customer customer,Worker worker) {
+
+//        LoginButton.setBorder(new RoundBo);
         //change panel theme
-        LoginPanel.setBackground(colour5);
+        LoginPanel.setBackground(colour18);
 
         //set text field
         emailTextField.setText(userTxt);
@@ -118,6 +121,8 @@ public class Login extends LoginNRegister {
                 JOptionPane.showMessageDialog(null, invalidUser);
             }
         }
+
+
     }
 
 

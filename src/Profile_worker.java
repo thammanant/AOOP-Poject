@@ -1,6 +1,7 @@
 import net.thegreshams.firebase4j.error.FirebaseException;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.UnsupportedEncodingException;
@@ -11,11 +12,13 @@ public class Profile_worker {
     private JButton Back_button;
     private JButton exit_button;
     private JButton Chat_icon;
+    private JButton Edit;
     private JLabel NamePanel;
     private JLabel ContactPanel;
 
+
     public Profile_worker(JFrame frame, Worker worker){
-        NamePanel.setText("Name: "+ worker.getName());
+        NamePanel.setText("Name: " + worker.getName());
         ContactPanel.setText("Contact: "+ worker.getPhone());
         exit_button.addActionListener(new ActionListener() {
             @Override

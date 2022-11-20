@@ -18,5 +18,25 @@ public abstract class LoginNRegister {
     protected Color colour4 = new Color(0, 198, 224);
     protected Color colour5 = new Color(189, 250, 253);
 
+    protected Color colour6 = new Color(19, 64, 116);
+    protected Color colour7 = new Color(19, 49, 92);
+    protected Color colour8 = new Color(11, 37, 69);
+    protected Color colour9 = new Color(141, 169, 196);
+    protected Color colour10 = new Color(238, 244, 237);
+
+    protected Color colour11 = new Color(40, 48, 68);
+    protected Color colour12 = new Color(120, 161, 187);
+    protected Color colour13 = new Color(235, 245, 238);
+    protected Color colour14 = new Color(191, 168, 158);
+    protected Color colour15 = new Color(139, 120, 109);
+
+
+    ///
+    protected Color colour16 = new Color(243, 245, 247); //text and navbar
+    protected Color colour17 = new Color(26, 42, 82); // text of button
+    protected Color colour18 = new Color(39, 59, 105); //main background
+    protected Color colour19 = new Color(197, 254, 237); //button
+//    protected Color colour20 = new Color(196, 229, 249);
+
 
 }

@@ -99,8 +99,8 @@ public class Order {
     private int total = 0;
 
     public Order(JFrame frame, Customer customer){
-        Color colour5 = new Color(189, 250, 253);
-        OrderPanel.setBackground(colour5);
+        Color colour18 = new Color(39, 59, 105);
+        OrderPanel.setBackground(colour18);
 
         add_button1.addActionListener(new ActionListener() {
             @Override

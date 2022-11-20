@@ -55,9 +55,9 @@ public class Total {
 
 
     public Total(JFrame frame, Customer customer){
-        Color colour5 = new Color(189, 250, 253);
-        TotalPanel.setBackground(colour5);
-        ButtonPanel.setBackground(colour5);
+        Color colour18 = new Color(39, 59, 105);
+        TotalPanel.setBackground(colour18);
+        ButtonPanel.setBackground(colour18);
         //add amount from order
         Amount1.setText(customer.printAmount(0));
         Amount2.setText(customer.printAmount(1));

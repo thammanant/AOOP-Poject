@@ -16,7 +16,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="ClothsType"/>
         </properties>
       </component>
@@ -26,7 +26,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Amount"/>
         </properties>
       </component>
@@ -36,7 +36,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="1"/>
         </properties>
       </component>
@@ -46,7 +46,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Cotton (White)"/>
         </properties>
       </component>
@@ -56,7 +56,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="2"/>
         </properties>
       </component>
@@ -66,7 +66,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Cotton (Colour)"/>
         </properties>
       </component>
@@ -76,7 +76,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="3"/>
         </properties>
       </component>
@@ -86,7 +86,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Mixed (Colour)"/>
         </properties>
       </component>
@@ -96,7 +96,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Mixed (White)"/>
         </properties>
       </component>
@@ -106,7 +106,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="4"/>
         </properties>
       </component>
@@ -116,7 +116,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="5"/>
         </properties>
       </component>
@@ -126,7 +126,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Delicates (White)"/>
         </properties>
       </component>
@@ -136,7 +136,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="6"/>
         </properties>
       </component>
@@ -146,7 +146,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="7"/>
         </properties>
       </component>
@@ -156,7 +156,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="8"/>
         </properties>
       </component>
@@ -166,7 +166,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Delicates (Colour)"/>
         </properties>
       </component>
@@ -176,7 +176,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Wool (White)"/>
         </properties>
       </component>
@@ -186,7 +186,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Wool (Colour)"/>
         </properties>
       </component>
@@ -196,7 +196,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Bedding (Colour)"/>
         </properties>
       </component>
@@ -206,7 +206,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Baby Wear (White)"/>
         </properties>
       </component>
@@ -216,7 +216,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Baby Were (Colour)"/>
         </properties>
       </component>
@@ -226,7 +226,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="9"/>
         </properties>
       </component>
@@ -236,7 +236,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Bedding (White)"/>
         </properties>
       </component>
@@ -246,7 +246,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="10"/>
         </properties>
       </component>
@@ -256,7 +256,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="11"/>
         </properties>
       </component>
@@ -266,7 +266,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="14" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="12"/>
         </properties>
       </component>
@@ -276,7 +276,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -286,7 +286,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -296,7 +296,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -306,7 +306,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -316,7 +316,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -326,7 +326,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -336,7 +336,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -346,7 +346,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -356,7 +356,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -366,7 +366,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value=""/>
         </properties>
       </component>
@@ -381,7 +381,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="18" style="1"/>
-          <foreground color="-16777216"/>
+          <foreground color="-789001"/>
           <text value="Total"/>
         </properties>
       </component>
@@ -398,10 +398,11 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-3801363"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
-              <foreground color="-16777216"/>
+              <foreground color="-15062446"/>
               <text value="Edit"/>
             </properties>
           </component>
@@ -410,10 +411,11 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-3801363"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
               <font name="Source Code Pro" size="14" style="1"/>
-              <foreground color="-16777216"/>
+              <foreground color="-15062446"/>
               <text value="Confirm"/>
             </properties>
           </component>
@@ -455,7 +457,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-919561"/>
           <text value=""/>
         </properties>
       </component>
@@ -465,7 +467,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="12"/>
-          <foreground color="-16777216"/>
+          <foreground color="-919561"/>
           <text value=""/>
         </properties>
       </component>
@@ -491,7 +493,7 @@
             </constraints>
             <properties>
               <font name="Source Code Pro" size="14" style="1"/>
-              <foreground color="-16777216"/>
+              <foreground color="-789001"/>
               <text value="0"/>
             </properties>
           </component>
@@ -501,7 +503,7 @@
             </constraints>
             <properties>
               <font name="Source Code Pro" size="14" style="1"/>
-              <foreground color="-16777216"/>
+              <foreground color="-789001"/>
               <text value="Total"/>
             </properties>
           </component>

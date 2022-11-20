@@ -39,8 +39,8 @@ public class Address {
     private final String emptystate = "State cannot be empty!";
     private final String emptypostal = "Postal code cannot be empty!";
     public Address(JFrame frame, Customer customer) {
-        Color colour5 = new Color(189, 250, 253);
-        AddressPanel.setBackground(colour5);
+        Color colour18 = new Color(39, 59, 105);
+        AddressPanel.setBackground(colour18);
         GoToTotal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

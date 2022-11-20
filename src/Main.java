@@ -1,12 +1,15 @@
 import Resources.*;
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JacksonUtilityException, FirebaseException, IOException {
 
 //        //database
 //        User[] allUserPass = new User[100];
@@ -110,7 +113,7 @@ public class Main {
 //
 //        System.out.println(customer2.checkClothes());
 //
-//        // Third pagess
+//        // Third pages
 //        customer.setAddress("123 Main St, Apt 1");
 //        System.out.println(customer.printAll());
 //
@@ -123,7 +126,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //set frame look and feel
         try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme");
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }

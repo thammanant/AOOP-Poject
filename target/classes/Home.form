@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="HomePanel" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="578" height="621"/>
+      <xy x="20" y="20" width="578" height="519"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -13,7 +13,9 @@
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-789001"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="290a1" class="javax.swing.JButton" binding="NewOrderButton">
@@ -27,6 +29,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <icon value="Picture/plus_48x48.png"/>
+              <opaque value="false"/>
               <text value=""/>
             </properties>
           </component>
@@ -40,6 +43,7 @@
               <focusPainted value="false"/>
               <focusable value="false"/>
               <icon value="Picture/other_48x48.png"/>
+              <opaque value="false"/>
               <text value=""/>
             </properties>
           </component>
@@ -63,11 +67,13 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-394759"/>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
               <icon value="Picture/history_48x48.png"/>
+              <opaque value="false"/>
               <text value=""/>
             </properties>
           </component>
@@ -94,6 +100,9 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="24" style="1"/>
+          <foreground color="-789001"/>
+          <icon value="Picture/waving-hand_white.png"/>
+          <iconTextGap value="12"/>
           <text value="Hi, User1"/>
         </properties>
       </component>
@@ -117,8 +126,13 @@
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-3801363"/>
+          <focusPainted value="true"/>
+          <focusable value="true"/>
           <font name="Source Code Pro" size="16" style="1"/>
+          <foreground color="-15062446"/>
           <label value="Check your order"/>
+          <opaque value="true"/>
           <text value="Check your order"/>
         </properties>
       </component>
@@ -139,6 +153,7 @@
         <properties>
           <focusable value="false"/>
           <font name="Source Code Pro" size="22" style="1"/>
+          <foreground color="-789001"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="2"/>
           <icon value="Picture/empty_basket 64x64.png"/>
