@@ -44,7 +44,7 @@ public class History_detail {
     private JButton okButton;
     private JPanel history_detailpanel;
 
-    public History_detail(JFrame frame){
+    public History_detail(JFrame frame, int index_order){
 
     }
     public JPanel getHistory_detailpanel(){
