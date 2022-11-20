@@ -3,6 +3,7 @@ import Resources.ClothesAmount;
 import Resources.ClothesType;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
+import org.apache.log4j.helpers.CountingQuietWriter;
 
 import javax.swing.*;
 import javax.xml.crypto.Data;
@@ -13,6 +14,7 @@ public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
     private String status = "Waiting";
+    private Vector<ClothesAmount> history = new Vector<ClothesAmount>();
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -25,12 +27,13 @@ public class Customer extends User {
         this.phone = "None";
         this.clothes = new ClothesAmount();
     }
-
     public Customer() {
         this.clothes = new ClothesAmount();
     }
+    public void addHistory(ClothesAmount temp){this.history.add(temp);}
+    public Vector<ClothesAmount> getHistory(){return this.history;}
 
-    private ClothesAmount getClothes() {
+    public ClothesAmount getClothes() {
         return this.clothes;
     }
     public String getAddress() {
@@ -86,12 +89,11 @@ public class Customer extends User {
 
     //display how many order using database
     public String displayOrder() {
-        if(this.clothes == null || this.clothes.getSize() == 0) {
+        if(this.clothes == null || this.clothes.getSize() == 0)
             return "All Clean!";
-        }
         else {
             System.out.println(this.clothes.getSize());
-            return "You have " + this.clothes.getSize() + "order";
+            return "You have " + this.getHistory().size() + " order";
         }
     }
 
@@ -99,9 +101,6 @@ public class Customer extends User {
     public void Popup_order() {
             JOptionPane.showMessageDialog(null, "You have no order now!");
         }
-
-
-
 
     //function add all clothes
     public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12, int am13,int am14){

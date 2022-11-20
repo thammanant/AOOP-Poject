@@ -1,3 +1,4 @@
+import Resources.ClothesAmount;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
@@ -9,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.Vector;
 
 
 public class Address {
@@ -249,6 +251,7 @@ public class Address {
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
+                    customer.addHistory(customer.getClothes());
                     JOptionPane.showMessageDialog(null,"Your order have been sent","Message",JOptionPane.PLAIN_MESSAGE);
                     try {
                         frame.setContentPane(new Home(frame,customer).getHomePanel());
