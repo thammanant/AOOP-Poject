@@ -141,7 +141,6 @@ public class DataBaseFB{
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
         return (String) dataMap3.get("address");
-
     }
     //get customer phone
     public static String getCustomerPhone(String username) throws FirebaseException, UnsupportedEncodingException {
@@ -151,7 +150,12 @@ public class DataBaseFB{
         dataMap3 = (Map<String, Object>) dataMap2.get("Customer");
         return (String) dataMap3.get("phone");
     }
-
+    //get worker name
+    public static String getWorkerName(String username) throws  FirebaseException,UnsupportedEncodingException{
+        response = firebase.get(username);
+        dataMap = response.getBody();
+        return (String) dataMap.get("Username");
+    }
     //get history
     public static Vector<ClothesAmount> getHistory(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
