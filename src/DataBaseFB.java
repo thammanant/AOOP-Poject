@@ -18,7 +18,6 @@ public class DataBaseFB{
     private static Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
     private static Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
     private static Map<String, Object> dataMap3 = new LinkedHashMap<String, Object>();
-    private static Map<String, Object> dataMap4 = new LinkedHashMap<String, Object>();
 
     static {
         try {
@@ -113,15 +112,28 @@ public class DataBaseFB{
         response = firebase.put( username, dataMap );
     }
 
-    //find all exist username in database
-    public static Vector<String> getAllUsername() throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    //find all exist Customer usernames in database
+public static List<String> findAllCustomerUsernames() throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        List<String> usernames = new ArrayList<>();
         response = firebase.get();
         dataMap = response.getBody();
-        Vector<String> temp = new Vector<>();
-        for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
-            temp.add(entry.getKey());
+        if(dataMap == null) {
+            return usernames;
         }
-        return temp;
+        for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
+            dataMap2 = (Map<String, Object>) entry.getValue();
+            if(dataMap2 == null) {
+                continue;
+            }
+            dataMap3 = (Map<String, Object>) dataMap2.get("Data");
+            if(dataMap3 == null) {
+                continue;
+            }
+            if(dataMap3.get("Type").equals("Customer")) {
+                usernames.add(entry.getKey());
+            }
+        }
+        return usernames;
     }
 
     //get customer name
@@ -155,15 +167,6 @@ public class DataBaseFB{
         return (String) dataMap.get("Username");
     }
 
-    //get worker address
-    public static String getWorkerAddress(String username) throws FirebaseException, UnsupportedEncodingException {
-        response = firebase.get( username );
-        dataMap = response.getBody();
-        dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        dataMap3 = (Map<String, Object>) dataMap2.get("Worker");
-        return (String) dataMap3.get("address");
-    }
-
     //get worker phone
     public static String getWorkerPhone(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException  {
         response = firebase.get( username );
@@ -184,7 +187,7 @@ public class DataBaseFB{
         if(dataMap2 == null) {
             return;
         }
-        int arr[] = new int[15];
+        int[] arr = new int[15];
         int sum = 0;
         for(int i = 0; i < customer.getClothes().getSize(); i++) {
             arr[i] = temp.printAmount(i);
@@ -211,8 +214,7 @@ public class DataBaseFB{
         if(dataMap2 == null) {
             return null;
         }
-        int[] arr = (int[]) dataMap2.get("Order" + index);
-        return arr;
+        return (int[]) dataMap2.get("Order" + index);
     }
 
     //get history amount
