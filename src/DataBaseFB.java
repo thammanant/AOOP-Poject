@@ -194,4 +194,18 @@ public class DataBaseFB{
         int[] arr = (int[]) dataMap2.get("Order" + index);
         return arr;
     }
+
+    //get history amount
+    public static int getHistoryAmount(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return 0;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return 0;
+        }
+        return dataMap2.size() - 1;
+    }
 }
