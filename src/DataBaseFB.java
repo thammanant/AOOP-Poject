@@ -206,6 +206,6 @@ public class DataBaseFB{
         if(dataMap2 == null) {
             return 0;
         }
-        return dataMap2.size() - 1;
+        return dataMap2.size() - 2;
     }
 }

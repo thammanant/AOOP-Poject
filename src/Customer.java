@@ -91,12 +91,12 @@ public class Customer extends User {
 
 
     //display how many order using database
-    public String displayOrder() {
-        if(this.clothes == null || this.clothes.getSize() == 0)
+    public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
+        if(DataBaseFB.getHistoryAmount(this.getName()) == 0)
             return "All Clean!";
         else {
             System.out.println(this.clothes.getSize());
-            return "You have " + this.getHistory().size() + " order";
+            return "You have " + DataBaseFB.getHistoryAmount(this.getName()) + " order";
         }
     }
 
