@@ -1,3 +1,5 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +15,7 @@ public class Home_worker {
     private JLabel Hi;
 
 
-    public Home_worker(JFrame frame, Worker worker) throws FirebaseException, UnsupportedEncodingException {
+    public Home_worker(JFrame frame, Worker worker) throws FirebaseException, UnsupportedEncodingException, FirebaseException {
         Hi.setText("Hi: " + DataBaseFB.getWorkerName(worker.getName()));
         Home_Button.addActionListener(new ActionListener() {
             @Override
