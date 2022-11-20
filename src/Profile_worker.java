@@ -1,4 +1,5 @@
 import net.thegreshams.firebase4j.error.FirebaseException;
+import org.apache.http.client.params.ClientPNames;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,16 @@ public class Profile_worker {
 
     public Profile_worker(JFrame frame, Worker worker){
         NamePanel.setText("Name: " + worker.getName());
-        ContactPanel.setText("Contact: "+ worker.getPhone());
+        String workerPhone = "";
+        if(worker.getPhone() != null){
+            workerPhone = worker.getPhone();
+        }
+        else {
+
+            worker.setPhone("None");
+        }
+        ContactPanel.setText("Contact: " + workerPhone);
+
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,6 +55,12 @@ public class Profile_worker {
                 JOptionPane.showMessageDialog(null,"Coming soon","Message",JOptionPane.PLAIN_MESSAGE);
                 frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
                 frame.revalidate();
+            }
+        });
+        Edit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
