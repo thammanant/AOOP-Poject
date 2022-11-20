@@ -13,6 +13,7 @@ import java.util.*;
 public class DataBaseFB{
     private static final String url = "https://washapp-1fe9f-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
+
     static Firebase firebase;
     private static Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
     private static Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
@@ -149,6 +150,7 @@ public class DataBaseFB{
     //get worker name
     public static String getWorkerName(String username) throws  FirebaseException,UnsupportedEncodingException{
         response = firebase.get(username);
+        dataMap = new LinkedHashMap<>();
         dataMap = response.getBody();
         return (String) dataMap.get("Username");
     }

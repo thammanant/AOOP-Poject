@@ -2,18 +2,14 @@ import AbstactClass.User;
 
 public class Worker extends User {
 
-    private String email;
-    private String password;
-
     public Worker(String name, String phone) {
         this.name = name;
         this.phone = phone;
     }
-    public Worker(String email) {
-        this.email = email;
+    public Worker(String name){
+        this.name = name;
     }
-    public Worker() {
-    }
+    public Worker() {}
 
     @Override
     public String printAll() {

@@ -109,7 +109,7 @@ public class Login extends LoginNRegister {
                 }
                 else if (DataBaseFB.checkType(email).equals("Worker")){
                     //set panel
-                    Worker worker = new Worker();
+                    Worker worker = new Worker(DataBaseFB.getWorkerName(email));
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
                     frame.revalidate();
                 }
