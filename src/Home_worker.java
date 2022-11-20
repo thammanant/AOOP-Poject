@@ -18,6 +18,7 @@ public class Home_worker {
     public Home_worker(JFrame frame, Worker worker) throws FirebaseException, UnsupportedEncodingException, FirebaseException {
         Color colour18 = new Color(39, 59, 105);
         Home_worker.setBackground(colour18);
+        System.out.println(worker.getName());
         Hi.setText("Hi: " + DataBaseFB.getWorkerName(worker.getName()));
         Home_Button.addActionListener(new ActionListener() {
             @Override
@@ -30,6 +31,7 @@ public class Home_worker {
                 frame.revalidate();
             }
         });
+
 
         OtherButton.addActionListener(new ActionListener() {
             @Override

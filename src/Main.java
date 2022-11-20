@@ -127,7 +127,8 @@ public class Main {
         //set frame look and feel
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
 
@@ -136,6 +137,7 @@ public class Main {
         Login login = new Login(frame, customer, new Worker());
         frame.getContentPane().add(login.getLoginPanel());
 
-
     }
 }
+
+

@@ -15,11 +15,12 @@ public class History {
     private JComboBox comboBox1;
     private JButton button1;
 
-    public History(JFrame frame, Customer customer)
-    {
-//        panel2.add(new order_and_status(frame,customer).get_basket_button());
+    public History(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour18 = new Color(39, 59, 105);
         HistoryPanel.setBackground(colour18);
+        int a = DataBaseFB.getHistoryAmount(customer.getName());
+
+        HistoryText.setText(customer.printAll());
         Exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
