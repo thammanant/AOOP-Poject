@@ -16,8 +16,8 @@ public class Report {
     private JButton Back_button;
 
     public Report(JFrame frame, Customer customer){
-        Color colour5 = new Color(189, 250, 253);
-        Report_panel.setBackground(colour5);
+        Color colour18 = new Color(39, 59, 105);
+        Report_panel.setBackground(colour18);
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
