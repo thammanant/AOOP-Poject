@@ -252,6 +252,11 @@ public class Address {
                         throw new RuntimeException(ex);
                     }
                     customer.addHistory(customer.getClothes());
+                    try {
+                        DataBaseFB.addHistory(customer.getName(),customer.getClothes(),customer);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     JOptionPane.showMessageDialog(null,"Your order have been sent","Message",JOptionPane.PLAIN_MESSAGE);
                     try {
                         frame.setContentPane(new Home(frame,customer).getHomePanel());
