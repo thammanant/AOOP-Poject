@@ -20,7 +20,7 @@ public class Home {
     public Home(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour18 = new Color(39, 59, 105); //main background
         HomePanel.setBackground(colour18);
-        Hi_user.setText("Hi " + customer.getName());
+        Hi_user.setText("Hi " + DataBaseFB.getCustomerName(customer.getName()));
         orderr.setText(customer.displayOrder());
 
         // set new order button
