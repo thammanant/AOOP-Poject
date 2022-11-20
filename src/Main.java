@@ -130,9 +130,11 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
-        Login test = new Login(frame,new Customer(),new Worker());
-        frame.getContentPane().add(test.getLoginPanel());
+//        Login test = new Login(frame,new Customer(),new Worker());
+//        frame.getContentPane().add(test.getLoginPanel());
 
+        History test = new History(frame, new Customer());
+        frame.getContentPane().add(test.getHistoryPanel());
 
 
 //        Total test = new Total(frame,new Customer());

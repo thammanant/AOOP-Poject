@@ -11,9 +11,13 @@ public class History {
     private JButton Exit_button;
     private JPanel HistoryPanel;
     private JButton Back_button;
+    private JPanel panel2;
+    private JComboBox comboBox1;
+    private JButton button1;
 
     public History(JFrame frame, Customer customer)
     {
+//        panel2.add(new order_and_status(frame,customer).get_basket_button());
         Color colour18 = new Color(39, 59, 105);
         HistoryPanel.setBackground(colour18);
         Exit_button.addActionListener(new ActionListener() {
