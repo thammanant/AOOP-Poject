@@ -14,7 +14,7 @@
           <grid row="6" column="2" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1524496"/>
+          <background color="-789001"/>
         </properties>
         <border type="none"/>
         <children>
@@ -100,6 +100,7 @@
         </constraints>
         <properties>
           <font name="Source Code Pro" size="24" style="1"/>
+          <foreground color="-789001"/>
           <icon value="Picture/waving-hand.png"/>
           <iconTextGap value="10"/>
           <text value="Hi, User1"/>
@@ -125,7 +126,7 @@
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-2175756"/>
+          <background color="-3801363"/>
           <focusPainted value="true"/>
           <focusable value="true"/>
           <font name="Source Code Pro" size="16" style="1"/>

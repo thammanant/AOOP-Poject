@@ -107,8 +107,10 @@
           <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <borderPainted value="true"/>
-          <contentAreaFilled value="true"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="11"/>
           <icon value="Picture/pencil24X24.png"/>

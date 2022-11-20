@@ -27,7 +27,8 @@ public class Other_Worker {
         WorkerReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                frame.setContentPane(new Report(frame,worker).get_Report_panel());
+                frame.setContentPane(new Report_Worker(frame,worker).get_Report_Worker());
+                frame.revalidate();
             }
         });
         //set worker home button

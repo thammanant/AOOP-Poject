@@ -22,8 +22,10 @@ public class Login extends LoginNRegister {
 
 
     public Login(JFrame frame, Customer customer,Worker worker) {
+
+//        LoginButton.setBorder(new RoundBo);
         //change panel theme
-        LoginPanel.setBackground(colour3);
+        LoginPanel.setBackground(colour18);
 
         //set text field
         emailTextField.setText(userTxt);
@@ -122,4 +124,5 @@ public class Login extends LoginNRegister {
     public JPanel getLoginPanel() {
         return LoginPanel;
     }
+
 }
