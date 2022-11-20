@@ -144,9 +144,6 @@
               <foreground color="-16777216"/>
               <model>
                 <item value="Select your order:"/>
-                <item value="1"/>
-                <item value="2"/>
-                <item value="3"/>
               </model>
               <name value="Select your order"/>
             </properties>

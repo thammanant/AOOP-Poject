@@ -18,9 +18,8 @@ public class History {
     public History(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour18 = new Color(39, 59, 105);
         HistoryPanel.setBackground(colour18);
-        int a = DataBaseFB.getHistoryAmount(customer.getName());
-
-        HistoryText.setText(customer.printAll());
+        String boxList[] = new String[DataBaseFB.getHistoryAmount(customer.getName())];
+        comboBox1.addItem(boxList);
         Exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
