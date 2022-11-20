@@ -1,3 +1,4 @@
+import com.sun.source.tree.WhileLoopTree;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import org.apache.http.client.params.ClientPNames;
 
@@ -63,11 +64,13 @@ public class Profile_worker {
                 String phone = worker.getPhone();
                 String input = JOptionPane.showInputDialog(null,"Please enter your phone");
                 if(phone.compareTo(input)!=0){
-                    JOptionPane.showMessageDialog(null,"Success!");
+                    JOptionPane.showMessageDialog(null,"Done!");
                     worker.setPhone(input);
+                    frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                    frame.revalidate();
                 }
                 else {
-                    JOptionPane.showMessageDialog(null,"Try again!");
+                    JOptionPane.showMessageDialog(null,"Phone number has already been registered!");
                 }
             }
         });
