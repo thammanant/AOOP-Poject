@@ -60,7 +60,15 @@ public class Profile_worker {
         Edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String phone = worker.getPhone();
+                String input = JOptionPane.showInputDialog(null,"Please enter your phone");
+                if(phone.compareTo(input)!=0){
+                    JOptionPane.showMessageDialog(null,"Success!");
+                    worker.setPhone(input);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Try again!");
+                }
             }
         });
     }
