@@ -161,6 +161,7 @@ public class DataBaseFB{
     }
 
     //add clothesAmount to history
+    //ClothesAmount temp
     public static void addHistory(String username, ClothesAmount temp, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
@@ -171,18 +172,21 @@ public class DataBaseFB{
         if(dataMap2 == null) {
             return;
         }
-        dataMap2.put("History", DataBaseFB.makeVec(temp));
+        dataMap3 = new LinkedHashMap<String, Object>();
+        int arr[] = new int[15];
+        int sum = 0;
+        for(int i = 0; i < customer.getClothes().getSize(); i++) {
+            arr[i] = temp.printAmount(i);
+            sum += arr[i];
+        }
+        arr[14] = sum;
+        dataMap3.put("ClothesAmount" + customer.getHistory().size(), arr);
+        dataMap2.put("History", dataMap3);
         dataMap.put("Data", dataMap2);
         dataMap.put("Username", customer.getName());
         dataMap.put("Password", customer.getPassword());
         response = firebase.put( username, dataMap );
+
     }
 
-    public static int[] makeVec(ClothesAmount temp){
-        int[] arr = new int[14];
-        for (int i = 0; i < temp.getSize(); i++) {
-            arr[i] = temp.printAmount(i);
-        }
-        return arr;
-    }
 }

@@ -7,7 +7,6 @@ public abstract class User {
     protected String phone;
     protected String password;
     protected String type;
-    protected String ID;
 
     public String getName() {
         return name;
@@ -32,11 +31,4 @@ public abstract class User {
     }
 
     public abstract String printAll();
-
-    public String getID() {
-        Random rand = new Random();
-        int n = rand.nextInt(1000000);
-        this.ID = String.valueOf(n);
-        return this.ID;
-    }
 }

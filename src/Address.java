@@ -251,8 +251,9 @@ public class Address {
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
-                    customer.addHistory(customer.getClothes());
                     try {
+                        customer.addHistory(customer.getClothes());
+                        customer.setArr(customer.getClothes());
                         DataBaseFB.addHistory(customer.getName(),customer.getClothes(),customer);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);

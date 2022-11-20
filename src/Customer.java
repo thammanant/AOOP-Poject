@@ -15,6 +15,13 @@ public class Customer extends User {
     private ClothesAmount clothes;
     private String status = "Waiting";
     private Vector<ClothesAmount> history = new Vector<ClothesAmount>();
+    private int[] arr = new int[100];
+
+    public void setArr(ClothesAmount clothes) {
+        for (int i = 0; i < clothes.getSize(); i++) {
+            arr[i] = clothes.getAmount(i);
+        }
+    }
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -72,13 +79,11 @@ public class Customer extends User {
         return this.clothes.printAll();
     }
     public String printAmount(int i){
-        String a = Integer.toString(this.clothes.printAmount(i));
-        return a;
+        return Integer.toString(this.clothes.printAmount(i));
     }
     //print amount total
     public String printtotal(){
-        String t =Integer.toString(this.clothes.printTotal());
-        return t;
+        return Integer.toString(this.clothes.printTotal());
     }
 
     //check whether there is order or not
