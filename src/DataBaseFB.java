@@ -143,7 +143,7 @@ public class DataBaseFB{
         return (String) dataMap3.get("address");
     }
     //get customer phone
-    public static String getCustomerPhone(String username) throws FirebaseException, UnsupportedEncodingException {
+    public static String getCustomerPhone(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException  {
         response = firebase.get( username );
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");

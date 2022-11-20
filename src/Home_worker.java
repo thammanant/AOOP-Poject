@@ -1,6 +1,10 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.UnsupportedEncodingException;
+import java.net.DatagramSocket;
 
 public class Home_worker {
     private JPanel Home_worker;
@@ -10,12 +14,16 @@ public class Home_worker {
     private JLabel Hi;
 
 
-    public Home_worker(JFrame frame, Worker worker){
-        Hi.setText("Hi: " + worker.getName());
+    public Home_worker(JFrame frame, Worker worker) throws FirebaseException, UnsupportedEncodingException {
+        Hi.setText("Hi: " + DataBaseFB.getWorkerName(worker.getName()));
         Home_Button.addActionListener(new ActionListener() {
             @Override
            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Home_worker(frame,worker).get_Home_worker_panel()));
+                try {
+                    frame.setContentPane((new Home_worker(frame,worker).get_Home_worker_panel()));
+                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });

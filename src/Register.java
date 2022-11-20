@@ -132,8 +132,8 @@ public class Register extends LoginNRegister{
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
-                    worker.setName(email);
-                    worker.setPhone("None");
+                    Worker worker = new Worker(email);
+                    worker.setPassword(password);
 
                     try {
                         DataBaseFB.updateWorkerData(worker.getName(),worker);
@@ -147,14 +147,6 @@ public class Register extends LoginNRegister{
                     }
                     try {
                         DataBaseFB.addNewUser(email, password, type);
-                        customer.setName(email);
-                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
-                        Worker worker = new Worker(email);
-                        worker.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
