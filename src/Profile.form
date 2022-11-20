@@ -5,9 +5,7 @@
     <constraints>
       <xy x="164" y="76" width="676" height="501"/>
     </constraints>
-    <properties>
-      <background color="-4326659"/>
-    </properties>
+    <properties/>
     <border type="none"/>
     <children>
       <grid id="17fc3" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -15,9 +13,7 @@
         <constraints>
           <grid row="0" column="2" row-span="4" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <background color="-4326659"/>
-        </properties>
+        <properties/>
         <border type="none"/>
         <children>
           <vspacer id="6d29a">
@@ -36,7 +32,7 @@
             </constraints>
             <properties>
               <font name="Source Code Pro" size="32"/>
-              <foreground color="-16777216"/>
+              <foreground color="-789001"/>
               <text value="Name: User1"/>
             </properties>
           </component>
@@ -51,7 +47,7 @@
             </constraints>
             <properties>
               <font name="Source Code Pro" size="32"/>
-              <foreground color="-16777216"/>
+              <foreground color="-789001"/>
               <text value="Contact: 000-000-0000"/>
             </properties>
           </component>
@@ -85,7 +81,7 @@
             <properties>
               <alignmentX value="0.0"/>
               <font size="36"/>
-              <icon value="Picture/user_profile_96x96.png"/>
+              <icon value="Picture/user_1_96x96.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -130,7 +126,7 @@
           <contentAreaFilled value="false"/>
           <focusPainted value="false"/>
           <focusable value="false"/>
-          <icon value="Picture/left-arrow_48x48.png"/>
+          <icon value="Picture/previous_48x48.png"/>
           <text value=""/>
         </properties>
       </component>

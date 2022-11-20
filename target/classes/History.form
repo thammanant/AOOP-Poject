@@ -27,7 +27,7 @@
           <contentAreaFilled value="false"/>
           <focusPainted value="false"/>
           <focusable value="false"/>
-          <icon value="Picture/left-arrow_48x48.png"/>
+          <icon value="Picture/previous_48x48.png"/>
           <text value=""/>
         </properties>
       </component>
