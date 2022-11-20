@@ -61,5 +61,9 @@ public class ClothesAmount {
         return this.size;
     }
 
+    public ClothesType getClothes(int i) {
+        return this.clothes[i];
+    }
+
 }
 

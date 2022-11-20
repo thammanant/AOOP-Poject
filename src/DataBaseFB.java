@@ -8,6 +8,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -19,6 +20,7 @@ public class DataBaseFB{
     private static Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
     private static Map<String, Object> dataMap2 = new LinkedHashMap<String, Object>();
     private static Map<String, Object> dataMap3 = new LinkedHashMap<String, Object>();
+    private static Map<String, Object> dataMap4 = new LinkedHashMap<String, Object>();
 
     static {
         try {
@@ -42,8 +44,6 @@ public class DataBaseFB{
         if(type.equals("Customer")) {
             dataMap2.put("Customer", new Customer());
             dataMap2.put("Type", "Customer");
-            Vector<ClothesAmount> temp = new Vector<>();
-            dataMap2.put("History",temp);
         }
         else if(type.equals("Worker")) {
             dataMap2.put("Worker", new Worker());
@@ -161,7 +161,7 @@ public class DataBaseFB{
     }
 
     //add clothesAmount to history
-    public static void addHistory(String username, ClothesAmount clothesAmount, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    public static void addHistory(String username, ClothesAmount temp, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
         if(dataMap == null) {
@@ -171,11 +171,18 @@ public class DataBaseFB{
         if(dataMap2 == null) {
             return;
         }
-        Vector<ClothesAmount> temp = (Vector<ClothesAmount>) dataMap2.get("History");
-        temp.add(clothesAmount);
-        dataMap2.put("History", temp);
+        dataMap2.put("History", DataBaseFB.makeVec(temp));
         dataMap.put("Data", dataMap2);
+        dataMap.put("Username", customer.getName());
         dataMap.put("Password", customer.getPassword());
         response = firebase.put( username, dataMap );
+    }
+
+    public static int[] makeVec(ClothesAmount temp){
+        int[] arr = new int[14];
+        for (int i = 0; i < temp.getSize(); i++) {
+            arr[i] = temp.printAmount(i);
+        }
+        return arr;
     }
 }
