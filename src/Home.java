@@ -18,8 +18,8 @@ public class Home {
     private JButton Check_your_order;
 
     public Home(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
-        Color colour5 = new Color(189, 250, 253);
-        HomePanel.setBackground(colour5);
+        Color colour18 = new Color(39, 59, 105); //main background
+        HomePanel.setBackground(colour18);
         Hi_user.setText("Hi " + customer.getName());
         orderr.setText(customer.displayOrder());
 

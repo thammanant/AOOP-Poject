@@ -126,15 +126,15 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //set frame look and feel
         try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme");
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
-//        Login test = new Login(frame,new Customer(),new Worker());
-//        frame.getContentPane().add(test.getLoginPanel());
+        Login test = new Login(frame,new Customer(),new Worker());
+        frame.getContentPane().add(test.getLoginPanel());
 
-        Profile_worker p = new Profile_worker(frame,new Worker());
-        frame.getContentPane().add(p.get_profile_worker());
+//        Profile_worker p = new Profile_worker(frame,new Worker());
+//        frame.getContentPane().add(p.get_profile_worker());
 
 
 //       Home_worker test = new Home_worker(frame,new Worker());
