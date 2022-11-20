@@ -8,13 +8,17 @@ import org.apache.log4j.helpers.CountingQuietWriter;
 import javax.swing.*;
 import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
     private String status = "Waiting";
-    private Vector<ClothesAmount> history = new Vector<ClothesAmount>();
+    private ArrayList<ClothesAmount> history = new ArrayList<>();
+
+    private ArrayList<int[]> test = new ArrayList<>();
+
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -32,7 +36,7 @@ public class Customer extends User {
         this.clothes = new ClothesAmount();
     }
     public void addHistory(ClothesAmount temp){this.history.add(temp);}
-    public Vector<ClothesAmount> getHistory(){return this.history;}
+    public ArrayList<ClothesAmount> getHistory(){return this.history;}
 
     public ClothesAmount getClothes() {
         return this.clothes;

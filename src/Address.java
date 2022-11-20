@@ -247,13 +247,9 @@ public class Address {
                         customer.setPhone(phone);
                         String temp = address + "," + apartment + "," + city + "," + state + "," + postal;
                         customer.setAddress(temp);
-                        DataBaseFB.updateCustomerData(customer.getName(),customer);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
                         customer.addHistory(customer.getClothes());
                         DataBaseFB.addHistory(customer.getName(),customer.getClothes(),customer);
+                        DataBaseFB.updateCustomerData(customer.getName(),customer);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
