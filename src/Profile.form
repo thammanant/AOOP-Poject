@@ -5,7 +5,9 @@
     <constraints>
       <xy x="164" y="76" width="676" height="501"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-14206103"/>
+    </properties>
     <border type="none"/>
     <children>
       <grid id="17fc3" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -13,7 +15,9 @@
         <constraints>
           <grid row="0" column="2" row-span="4" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-14206103"/>
+        </properties>
         <border type="none"/>
         <children>
           <vspacer id="6d29a">
@@ -60,7 +64,7 @@
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <icon value="Picture/bubble-chat96x96.png"/>
+              <icon value="Picture/bubble-chat_white.png"/>
               <text value=""/>
             </properties>
           </component>
