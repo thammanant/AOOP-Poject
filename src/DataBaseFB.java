@@ -153,6 +153,24 @@ public class DataBaseFB{
         return (String) dataMap.get("Username");
     }
 
+    //get worker address
+    public static String getWorkerAddress(String username) throws FirebaseException, UnsupportedEncodingException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Worker");
+        return (String) dataMap3.get("address");
+    }
+
+    //get worker phone
+    public static String getWorkerPhone(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException  {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        dataMap3 = (Map<String, Object>) dataMap2.get("Worker");
+        return (String) dataMap3.get("phone");
+    }
+
     //add clothesAmount to history
     public static void addHistory(String username, ClothesAmount temp, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
