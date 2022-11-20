@@ -8,10 +8,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 
 public class DataBaseFB{
     private static final String url = "https://washapp-1fe9f-default-rtdb.asia-southeast1.firebasedatabase.app/";
@@ -36,7 +33,6 @@ public class DataBaseFB{
 
     // create a new user and add to database
     public static void addNewUser(String username, String password, String type) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        Map<String, Object> dataMap = new LinkedHashMap<String, Object>();
         dataMap = new LinkedHashMap<String, Object>();
         dataMap.put( "Username", username );
         dataMap.put( "Password", password);
@@ -156,16 +152,8 @@ public class DataBaseFB{
         dataMap = response.getBody();
         return (String) dataMap.get("Username");
     }
-    //get history
-    public static Vector<ClothesAmount> getHistory(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        response = firebase.get( username );
-        dataMap = response.getBody();
-        dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        return (Vector<ClothesAmount>) dataMap2.get("History");
-    }
 
     //add clothesAmount to history
-    //ClothesAmount temp
     public static void addHistory(String username, ClothesAmount temp, Customer customer) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
@@ -176,7 +164,6 @@ public class DataBaseFB{
         if(dataMap2 == null) {
             return;
         }
-        dataMap3 = new LinkedHashMap<String, Object>();
         int arr[] = new int[15];
         int sum = 0;
         for(int i = 0; i < customer.getClothes().getSize(); i++) {
@@ -184,8 +171,8 @@ public class DataBaseFB{
             sum += arr[i];
         }
         arr[14] = sum;
-        dataMap3.put("ClothesAmount" + customer.getHistory().size(), arr);
-        dataMap2.put("History", dataMap3);
+
+        dataMap2.put("Order" + customer.getHistory().size(), arr);
         dataMap.put("Data", dataMap2);
         dataMap.put("Username", customer.getName());
         dataMap.put("Password", customer.getPassword());
@@ -193,4 +180,18 @@ public class DataBaseFB{
 
     }
 
+    //get history
+    public static int[] getHistory(String username, int index) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return null;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
+        int[] arr = (int[]) dataMap2.get("Order" + index);
+        return arr;
+    }
 }
