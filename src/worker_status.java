@@ -10,6 +10,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class worker_status {
@@ -30,50 +31,35 @@ public class worker_status {
                 comboBox1.addItem(arr[0][i]);
             }
         }
-        final String[] c = {Objects.requireNonNull(comboBox1.getSelectedItem()).toString()};
-//        if(c =="Select customer:"){
-//            combobox2.setVisible(false);
-//        }
-//        else{
-//            combobox2.setVisible(true);
-//               c= Objects.requireNonNull(comboBox1.getSelectedItem()).toString();
-//               int num = DataBaseFB.getHistoryAmount(c);
-//                String[] boxList = new String[num];
-//                for(int i=0; i<num; i++) {
-//                    boxList[i] = String.valueOf(i + 1);
-//                    //create array
-//                    arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(c, i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(c, i + 1)).size(), String[].class);
-//                    //check status
-//                    if(arr[15].equals("-2")||arr[15].equals("-1")){
-//                        combobox2.addItem(i+1);
-//                    }
-//                }
-//        }
         comboBox1.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String c = Objects.requireNonNull(comboBox1.getSelectedItem()).toString();
-                int num = 0;
+                int num;
+                List<String> history;
+                String a;
                 try {
                     num = DataBaseFB.getHistoryAmount(c);
                 } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                String[] boxList = new String[num];
-                String [] arr;
-                for(int i=0; i<num; i++) {
-                    boxList[i] = String.valueOf(i + 1);
-                    //create array
-                    try {
-                        arr = (String[]) Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(c, i)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(c, i )).size());
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
+                combobox2.removeAllItems();
+                try {
+                    history = DataBaseFB.getHistory(c, num);
+                    assert history != null;
+                } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                a = history.get(15);
+                for(int i = 0; i< num; i++){
+                    if(Objects.equals(a, "-1")){
+                        combobox2.addItem("Order "+(i+1));
                     }
-                    //check status
-                    if(arr[15].equals("-2")|| arr[15].equals("-1")){
-                        combobox2.addItem(i+1);
+                    if(Objects.equals(a, "-2")){
+                        combobox2.addItem("Order "+(i+1));
                     }
                 }
+
             }
         });
 //
