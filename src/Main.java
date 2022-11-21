@@ -127,22 +127,17 @@ public class Main {
         //set frame look and feel
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
-//        Login test = new Login(frame,new Customer(),new Worker());
-//        frame.getContentPane().add(test.getLoginPanel());
 
-        History test = new History(frame, new Customer());
-        frame.getContentPane().add(test.getHistoryPanel());
-
-
-//        Total test = new Total(frame,new Customer());
-//        frame.getContentPane().add(test.getTotalPanel());
-
-
-
-
+        Customer customer = new Customer();
+        customer.setPhone("None");
+        Login login = new Login(frame, customer, new Worker());
+        frame.getContentPane().add(login.getLoginPanel());
 
     }
 }
+
+

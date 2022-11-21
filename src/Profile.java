@@ -18,7 +18,14 @@ public class Profile {
 
     public Profile(JFrame frame, Customer customer) {
         Name.setText("Name: " + customer.getName());
-        Phone.setText("Contact: " +customer.getPhone());
+        String phone = "";
+        if(customer.getPhone() != null){
+            phone = customer.getPhone();
+        }
+        else{
+            phone = "None";
+        }
+        Phone.setText("Contact: " + phone);
         exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

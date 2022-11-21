@@ -113,8 +113,8 @@ public class Register extends LoginNRegister{
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
-                    customer.setName(email);
-                    customer.setPhone("None");
+                    Customer customer = new Customer(email);
+                    customer.setPassword(password);
                     customer.resetClothes();
                     try {
                         DataBaseFB.updateCustomerData(customer.getName(),customer);
@@ -122,41 +122,21 @@ public class Register extends LoginNRegister{
                         throw new RuntimeException(ex);
                     }
                     try {
-                        DataBaseFB.updateCustomerData(email,customer);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    //database
-                    try {
                         DataBaseFB.addNewUser(email, password, type);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
-                    worker.setName(email);
-                    worker.setPhone("None");
-
+                    Worker worker = new Worker(email);
+                    worker.setPassword(password);
                     try {
                         DataBaseFB.updateWorkerData(worker.getName(),worker);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        DataBaseFB.updateWorkerData(email,worker);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
                         DataBaseFB.addNewUser(email, password, type);
-                        customer.setName(email);
-                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
-                        Worker worker = new Worker(email);
-                        worker.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }

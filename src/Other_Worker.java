@@ -1,7 +1,10 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.UnsupportedEncodingException;
 
 public class Other_Worker {
     private JPanel WorkerOtherPanel;
@@ -34,7 +37,11 @@ public class Other_Worker {
         WorkerHomeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
+                try {
+                    frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
+                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });
@@ -42,7 +49,11 @@ public class Other_Worker {
         WorkerProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                try {
+                    frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });

@@ -3,16 +3,22 @@ import Resources.ClothesAmount;
 import Resources.ClothesType;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
+import org.apache.log4j.helpers.CountingQuietWriter;
 
 import javax.swing.*;
 import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Customer extends User {
     private String address;
     private ClothesAmount clothes;
     private String status = "Waiting";
+    private ArrayList<ClothesAmount> history = new ArrayList<>();
+
+    private ArrayList<int[]> test = new ArrayList<>();
+
     public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -20,11 +26,19 @@ public class Customer extends User {
         this.clothes = new ClothesAmount();
     }
 
+    public Customer(String name) {
+        this.name = name;
+        this.address = "None";
+        this.phone = "None";
+        this.clothes = new ClothesAmount();
+    }
     public Customer() {
         this.clothes = new ClothesAmount();
     }
+    public void addHistory(ClothesAmount temp){this.history.add(temp);}
+    public ArrayList<ClothesAmount> getHistory(){return this.history;}
 
-    private ClothesAmount getClothes() {
+    public ClothesAmount getClothes() {
         return this.clothes;
     }
     public String getAddress() {
@@ -63,28 +77,26 @@ public class Customer extends User {
         return this.clothes.printAll();
     }
     public String printAmount(int i){
-        String a = Integer.toString(this.clothes.printAmount(i));
-        return a;
+        return Integer.toString(this.clothes.printAmount(i));
     }
     //print amount total
     public String printtotal(){
-        String t =Integer.toString(this.clothes.printTotal());
-        return t;
+        return Integer.toString(this.clothes.printTotal());
     }
 
     //check whether there is order or not
-    public boolean check(){
-        return this.getClothes().getSize() != 0;
+    public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
+        return DataBaseFB.getHistoryAmount(this.getName())!= 0;
     }
 
 
     //display how many order using database
-    public String displayOrder() {
-        if(this.clothes == null){
+    public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
+        if(DataBaseFB.getHistoryAmount(this.getName()) == 0)
             return "All Clean!";
-        }
         else {
-            return "You have " + this.clothes.getSize() + "order";
+            System.out.println(this.clothes.getSize());
+            return "You have " + DataBaseFB.getHistoryAmount(this.getName()) + " order";
         }
     }
 
@@ -93,22 +105,12 @@ public class Customer extends User {
             JOptionPane.showMessageDialog(null, "You have no order now!");
         }
 
-
-
-
     //function add all clothes
-    public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12){
-        addClothes(ClothesType.CottonWhite,am1);
-        addClothes(ClothesType.CottonColoured,am2);
-        addClothes(ClothesType.MixedWhite,am3);
-        addClothes(ClothesType.MixedColoured,am4);
-        addClothes(ClothesType.DelicatesWhite,am5);
-        addClothes(ClothesType.DelicatesColoured,am6);
-        addClothes(ClothesType.WoolWhite,am7);
-        addClothes(ClothesType.WoolColoured,am8);
-        addClothes(ClothesType.BeddingWhite,am9);
-        addClothes(ClothesType.BeddingColoured,am10);
-        addClothes(ClothesType.Baby_wearWhite,am11);
-        addClothes(ClothesType.Baby_wearColoured,am12);
+    public void addAmountToClothes (int am1, int am2, int am3, int am4, int am5, int am6, int am7, int am8, int am9, int am10, int am11, int am12, int am13,int am14){
+        int arr[]= {am1,am2,am3,am4,am5,am6,am7,am8,am9,am10,am11,am12,am13,am14};
+        ClothesType c[] ={ClothesType.CottonWhite,ClothesType.CottonColoured,ClothesType.MixedWhite,ClothesType.MixedColoured,ClothesType.DelicatesWhite,ClothesType.DelicatesColoured,ClothesType.WoolWhite,ClothesType.WoolColoured,ClothesType.BeddingWhite,ClothesType.BeddingColoured,ClothesType.Baby_wearWhite,ClothesType.Baby_wearColoured,ClothesType.LeatherWhite,ClothesType.LeatherColoured};
+        for(int i=0 ; i< arr.length ; i++){
+                addClothes(c[i],arr[i]);
+        }
     }
 }
