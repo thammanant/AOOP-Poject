@@ -26,8 +26,8 @@ public class History {
             boxList[i] = String.valueOf(i+1);
             comboBox1.addItem(boxList[i]);
         }
-        System.out.println("\n");
-        System.out.println(Arrays.toString(boxList));
+//        System.out.println("\n");
+//        System.out.println(Arrays.toString(boxList));
 
         Exit_button.addActionListener(new ActionListener() {
             @Override

@@ -231,8 +231,8 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
 
     }
 
-    //get history
-    public static int[] getHistory(String username, int index) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    public static String getHistory(String username, int index) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException
+    {
         response = firebase.get( username );
         dataMap = response.getBody();
         if(dataMap == null) {
@@ -242,7 +242,7 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         if(dataMap2 == null) {
             return null;
         }
-        return (int[]) dataMap2.get("Order" + index);
+        return dataMap2.get("Order" + index).toString();
     }
 
     //get history amount
