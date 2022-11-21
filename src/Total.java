@@ -48,6 +48,11 @@ public class Total {
     private JButton editButton;
     private JButton confirmButton;
     private JPanel ButtonPanel;
+    private JLabel NUM13;
+    private JLabel Num13;
+    private JLabel Num14;
+    private JLabel Amount13;
+    private JLabel Amount14;
 
 
     public Total(JFrame frame, Customer customer){
@@ -67,6 +72,8 @@ public class Total {
         Amount10.setText(customer.printAmount(9));
         Amount11.setText(customer.printAmount(10));
         Amount12.setText(customer.printAmount(11));
+        Amount13.setText(customer.printAmount(12));
+        Amount14.setText(customer.printAmount(13));
         AmountTotal.setText(customer.printtotal());
         // set edit button
         editButton.addActionListener(new ActionListener() {

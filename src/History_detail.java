@@ -1,4 +1,11 @@
+import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class History_detail {
     private JLabel Num1;
@@ -44,8 +51,20 @@ public class History_detail {
     private JButton okButton;
     private JPanel history_detailpanel;
 
-    public History_detail(JFrame frame){
+    public History_detail(JFrame frame, Customer customer , String index_order) throws JacksonUtilityException, FirebaseException, IOException {
+        int i = Integer.parseInt(index_order);
 
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    frame.setContentPane(new Home(frame,customer).getHomePanel());
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                frame.revalidate();
+            }
+        });
     }
     public JPanel getHistory_detailpanel(){
         return history_detailpanel;

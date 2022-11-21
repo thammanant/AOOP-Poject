@@ -3,6 +3,7 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -101,12 +102,14 @@ public class Login extends LoginNRegister {
                 //check if user is customer or worker
                 if(DataBaseFB.checkType(email).equals("Customer")){
                     //set panel
-                    frame.setContentPane(new Home(frame, customer).getHomePanel());
+                    Customer customer1 = new Customer(DataBaseFB.getCustomerName(email), DataBaseFB.getCustomerAddress(email), DataBaseFB.getCustomerPhone(email));
+                    customer1.setPassword(password);
+                    frame.setContentPane(new Home(frame, customer1).getHomePanel());
                     frame.revalidate();
                 }
                 else if (DataBaseFB.checkType(email).equals("Worker")){
                     //set panel
-                    Worker worker = new Worker();
+                    Worker worker = new Worker(DataBaseFB.getWorkerName(email));
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
                     frame.revalidate();
                 }
@@ -118,11 +121,12 @@ public class Login extends LoginNRegister {
                 JOptionPane.showMessageDialog(null, invalidUser);
             }
         }
+
+
     }
 
 
     public JPanel getLoginPanel() {
         return LoginPanel;
     }
-
 }

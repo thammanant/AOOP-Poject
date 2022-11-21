@@ -20,13 +20,14 @@ public class Home {
     public Home(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour18 = new Color(39, 59, 105); //main background
         HomePanel.setBackground(colour18);
-        Hi_user.setText("Hi " + customer.getName());
+        Hi_user.setText("Hi " + DataBaseFB.getCustomerName(customer.getName()));
         orderr.setText(customer.displayOrder());
 
         // set new order button
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                customer.resetClothes();
                 frame.setContentPane((new Order(frame, customer).getOrderPanel()));
                 frame.revalidate();
             }
@@ -56,11 +57,15 @@ public class Home {
         Check_your_order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(customer.check()){
-                    frame.setContentPane((new User_status(frame,customer).getUser_StatusPanel()));
-                    frame.revalidate();}
-                else
-                    customer.Popup_order();
+                try {
+                    if(customer.check()){
+                        frame.setContentPane((new User_status(frame,customer).getUser_StatusPanel()));
+                        frame.revalidate();}
+                    else
+                        customer.Popup_order();
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

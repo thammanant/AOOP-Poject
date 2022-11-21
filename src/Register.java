@@ -3,6 +3,8 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -111,8 +113,8 @@ public class Register extends LoginNRegister{
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
-                    customer.setName(email);
-                    customer.setPhone("None");
+                    Customer customer = new Customer(email);
+                    customer.setPassword(password);
                     customer.resetClothes();
                     try {
                         DataBaseFB.updateCustomerData(customer.getName(),customer);
@@ -120,41 +122,21 @@ public class Register extends LoginNRegister{
                         throw new RuntimeException(ex);
                     }
                     try {
-                        DataBaseFB.updateCustomerData(email,customer);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    //database
-                    try {
                         DataBaseFB.addNewUser(email, password, type);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (Worker.isSelected()) {
                     type = "Worker";
-                    worker.setName(email);
-                    worker.setPhone("None");
-
+                    Worker worker = new Worker(email);
+                    worker.setPassword(password);
                     try {
                         DataBaseFB.updateWorkerData(worker.getName(),worker);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        DataBaseFB.updateWorkerData(email,worker);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
                         DataBaseFB.addNewUser(email, password, type);
-                        customer.setName(email);
-                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
-                        Worker worker = new Worker(email);
-                        worker.setName(email);
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -174,10 +156,44 @@ public class Register extends LoginNRegister{
                 frame.revalidate();
             }
         });
+
     }
 
     //getter
     public JPanel getRegisterPanel() {
         return RegisterPanel;
+    }
+
+
+
+
+
+//    registerButton.setBounds(x_pos, y_pos, 30, 25);
+//    registerButton.setBorder(new RoundedBorder(10)); //10 is the radius
+//    registerButton.setForeground(Color.BLUE);
+
+    private static class RoundedBorder implements Border {
+
+        private int radius;
+
+
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+
+
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+
+
+        public boolean isBorderOpaque() {
+            return true;
+        }
+
+
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+        }
     }
 }
