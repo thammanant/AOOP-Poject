@@ -48,6 +48,7 @@ public class Total {
     private JButton editButton;
     private JButton confirmButton;
     private JPanel ButtonPanel;
+    private JLabel NUM13;
     private JLabel Num13;
     private JLabel Num14;
     private JLabel Amount13;

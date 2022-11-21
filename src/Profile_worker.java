@@ -19,8 +19,8 @@ public class Profile_worker {
     private JLabel ContactPanel;
 
 
-    public Profile_worker(JFrame frame, Worker worker){
-        NamePanel.setText("Name: " + worker.getName());
+    public Profile_worker(JFrame frame, Worker worker) throws FirebaseException, UnsupportedEncodingException {
+        NamePanel.setText("Name: " + DataBaseFB.getWorkerName(worker.getName()));
         String workerPhone = "";
         if(worker.getPhone() != null){
             workerPhone = worker.getPhone();
@@ -54,7 +54,11 @@ public class Profile_worker {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null,"Coming soon","Message",JOptionPane.PLAIN_MESSAGE);
-                frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                try {
+                    frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });
@@ -66,7 +70,11 @@ public class Profile_worker {
                 if(phone.compareTo(input)!=0){
                     JOptionPane.showMessageDialog(null,"Done!");
                     worker.setPhone(input);
-                    frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                    try {
+                        frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                    } catch (FirebaseException | UnsupportedEncodingException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     frame.revalidate();
                 }
                 else {

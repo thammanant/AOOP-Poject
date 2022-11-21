@@ -49,7 +49,11 @@ public class Other_Worker {
         WorkerProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                try {
+                    frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
+                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });

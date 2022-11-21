@@ -85,8 +85,8 @@ public class Customer extends User {
     }
 
     //check whether there is order or not
-    public boolean check(){
-        return this.getClothes().getSize() != 0;
+    public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
+        return DataBaseFB.getHistoryAmount(this.getName())!= 0;
     }
 
 

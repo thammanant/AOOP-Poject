@@ -39,7 +39,11 @@ public class Other {
         History_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new History(frame,customer).getHistoryPanel()));
+                try {
+                    frame.setContentPane((new History(frame,customer).getHistoryPanel()));
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });
