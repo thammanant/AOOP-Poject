@@ -53,10 +53,10 @@ public class worker_status {
                 a = history.get(15);
                 for(int i = 0; i< num; i++){
                     if(Objects.equals(a, "-1")){
-                        combobox2.addItem("Order "+(i+1));
+                        combobox2.addItem(i+1);
                     }
                     if(Objects.equals(a, "-2")){
-                        combobox2.addItem("Order "+(i+1));
+                        combobox2.addItem(i+1);
                     }
                 }
 
@@ -85,7 +85,22 @@ public class worker_status {
         confirm_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String n =comboBox1.getSelectedItem().toString();
+                String i = combobox2.getSelectedItem().toString();
+                if(comboBox1.getSelectedItem().toString() == "Select customer:"){
+                    JOptionPane.showMessageDialog(null, "Please select a customer");
+                }
+                else if(combobox2.getSelectedItem().toString() == "Select order:"){
+                    JOptionPane.showMessageDialog(null, "Please select an order");
+                }
+                else {
+                    try {
+                        frame.setContentPane(new History_detail_worker(frame, worker,n, i).get_history_detail_worker());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    frame.revalidate();
+                }
             }
         });
     }

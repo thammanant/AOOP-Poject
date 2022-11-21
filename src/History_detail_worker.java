@@ -14,7 +14,7 @@ public class History_detail_worker {
     private JLabel Num2;
     private JLabel CottonCol;
     private JLabel Amount1;
-    private JLabel Amount3;
+    private JLabel Amount2;
     private JLabel Num3;
     private JLabel Num4;
     private JLabel Num5;
@@ -53,9 +53,34 @@ public class History_detail_worker {
     private JButton Edit;
     private JLabel sta;
     private JLabel customer_ph;
-    private JLabel name;
+    private JLabel name_customer;
+    private JLabel Amount3;
+    private JLabel Address;
 
-    public History_detail_worker(JFrame frame, Worker worker,String index_order){
+    public History_detail_worker(JFrame frame, Worker worker,String name,String index_order) throws JacksonUtilityException, FirebaseException, IOException {
+        int order_number = Integer.parseInt(index_order);
+        int size = DataBaseFB.getHistory(name,order_number).size();
+        String[] temp = new String[size];
+        for (int i=0; i<size; i++){
+            temp[i] = DataBaseFB.getHistory(name,order_number).get(i);
+        }
+        System.out.println(temp.toString());
+        JLabel [] amount = {Amount1,Amount2,Amount3,Amount4,Amount5,Amount6,Amount7,Amount8,Amount9,Amount10,Amount11,Amount12,Amount13,Amount14,AmountTotal,sta};
+        if(temp[15]=="-2"){
+            sta.setText("Processing");
+        }
+        if(temp[15]=="-1"){
+            sta.setText("Waiting");
+        }
+        for(int j=0;j< 15;j++){
+            amount[j].setText(temp[j]);
+        }
+        String phone = DataBaseFB.getCustomerPhone(name);
+        customer_ph.setText(phone);
+        Address.setText(DataBaseFB.getCustomerAddress(name));
+        String n = DataBaseFB.getCustomerName(name);
+        name_customer.setText(n);
+        sta.setText(temp[15]);
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +99,11 @@ public class History_detail_worker {
                 if(sta.getText().compareTo(input)!=0){
                     JOptionPane.showMessageDialog(null,"Status changed");
                     sta.setText(input);
-                    frame.setContentPane(new History_detail_worker(frame,worker,index_order).get_history_detail_worker());
+                    try {
+                        frame.setContentPane(new History_detail_worker(frame,worker,name,index_order).get_history_detail_worker());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null,"Status has already been registered!");
                 }

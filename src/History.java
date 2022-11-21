@@ -32,9 +32,6 @@ public class History {
             if(arr[15].equals("-3")) {
                 comboBox1.addItem(i+1);
             }
-            else{
-                JOptionPane.showMessageDialog(null, "No order to show");
-            }
         }
 
         Exit_button.addActionListener(new ActionListener() {

@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Other {
     private JPanel OtherPanel;
@@ -39,12 +41,30 @@ public class Other {
         History_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean next = false;
                 try {
-                    frame.setContentPane((new History(frame,customer).getHistoryPanel()));
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    int num = DataBaseFB.getHistoryAmount(customer.getName());
+                    String[] arr;
+                    for(int i=0; i<num; i++) {
+                        //create array
+                        arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).size(), String[].class);
+                        //check status
+                        if(arr[i].equals("-1") || arr[i].equals("-2")) {
+                            next = true;
+                        } else if (DataBaseFB.getHistoryAmount(customer.getName()) == 0) {
+                            next = true;
+                        }
+                    }
+                    if(!next) {
+                        JOptionPane.showMessageDialog(null, "No order to show");
+                    }
+                    else {
+                        frame.setContentPane(new History(frame, customer).getHistoryPanel());
+                        frame.revalidate();
+                    }
+                } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                frame.revalidate();
             }
         });
 
