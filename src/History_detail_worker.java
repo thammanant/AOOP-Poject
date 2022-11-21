@@ -45,6 +45,8 @@ public class History_detail_worker {
     private JLabel Total;
     private JButton okButton;
     private JButton Edit;
+    private JLabel sta;
+    private JLabel customer_ph;
 
     public History_detail_worker(JFrame frame, Worker worker){
 
