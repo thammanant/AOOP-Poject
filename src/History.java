@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class History {
     private JButton Exit_button;
@@ -21,27 +22,20 @@ public class History {
         Color colour18 = new Color(39, 59, 105);
         HistoryPanel.setBackground(colour18);
         int num = DataBaseFB.getHistoryAmount(customer.getName());
-        String boxList[] = new String[num];
+        String[] boxList = new String[num];
+        String[] arr;
         for(int i=0; i<num; i++) {
             boxList[i] = String.valueOf(i + 1);
-            int order_num = i+1;
-            int size =DataBaseFB.getHistory(customer.getName(),order_num).size();
-            //create arra
-            String arr[] = new String[size];
-            for(int j=0 ; j<size ; j++){
-                arr[j] = DataBaseFB.getHistory(customer.getName(),order_num).get(j);
-            }
+            //create array
+            arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).size(), String[].class);
             //check status
-            if(arr[15] == "-3"){
-                comboBox1.addItem(order_num);
+            if(arr[15].equals("-3")) {
+                comboBox1.addItem(i+1);
             }
             else{
                 JOptionPane.showMessageDialog(null, "No order to show");
             }
         }
-
-//        System.out.println("\n");
-//        System.out.println(Arrays.toString(boxList));
 
         Exit_button.addActionListener(new ActionListener() {
             @Override

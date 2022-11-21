@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class History_detail {
     private JLabel Num1;
@@ -57,15 +58,24 @@ public class History_detail {
     private JLabel sta;
 
     public History_detail(JFrame frame, Customer customer , String index_order) throws JacksonUtilityException, FirebaseException, IOException {
-        int i = Integer.parseInt(index_order);
-        int temp = DataBaseFB.getHistory(customer.getName(), i).size();
-        String temp2[] = new String[temp];
-        for(int j=0 ; i<temp ; i++){
-            temp2[i] = DataBaseFB.getHistory(customer.getName(), i).get(i);
+        int order = Integer.parseInt(index_order);
+        int temp = Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), order)).size();
+        String[] temp2 = new String[temp];
+        for(int j=0 ; j<temp ; j++){
+            temp2[j] = Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), order)).get(j);
         }
         JLabel c[] = {Amount1,Amount2,Amount3,Amount4,Amount5,Amount6,Amount7,Amount8,Amount9,Amount10,Amount11,Amount12,Amount13,Amount14,AmountTotal,sta};
-        for (int k=0 ; k <c.length ; k++){
-            c[k].setText(temp2[k]);
+        if(temp2[15].equals("-2")){
+            sta.setText("Processing");
+        }
+        else if(temp2[15].equals("-1")){
+            sta.setText("Waiting");
+        }
+        else{
+            sta.setText("Delivered");
+        }
+        for(int i=0 ; i<14 ; i++){
+            c[i].setText(temp2[i]);
         }
 
 
