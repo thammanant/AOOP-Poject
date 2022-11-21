@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -27,6 +28,7 @@ public class History {
         }
         System.out.println("\n");
         System.out.println(Arrays.toString(boxList));
+
         Exit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,7 +51,12 @@ public class History {
         confirm_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new History_detail(frame,1).getHistory_detailpanel());
+                String i = comboBox1.getSelectedItem().toString();
+                try {
+                    frame.setContentPane(new History_detail(frame,customer,i).getHistory_detailpanel());
+                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 frame.revalidate();
             }
         });
