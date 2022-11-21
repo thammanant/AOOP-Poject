@@ -122,7 +122,7 @@ public class Main {
 
         JFrame frame = new JFrame("WashApp");
         frame.setVisible(true);
-        frame.setSize(500, 500);
+        frame.setSize(800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //set frame look and feel
         try {
@@ -138,8 +138,8 @@ public class Main {
 //        worker_status test = new worker_status(frame,new Worker());
 //        frame.getContentPane().add(test.getworker_status());
 
-        Login login = new Login(frame, customer, new Worker());
-        frame.getContentPane().add(login.getLoginPanel());
+        History_detail_worker login = new History_detail_worker(frame, new Worker(), "1");
+        frame.getContentPane().add(login.get_history_detail_worker());
 
     }
 }

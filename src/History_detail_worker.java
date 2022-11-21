@@ -47,6 +47,7 @@ public class History_detail_worker {
     private JButton Edit;
     private JLabel sta;
     private JLabel customer_ph;
+    private JLabel name;
 
     public History_detail_worker(JFrame frame, Worker worker,String index_order){
 
