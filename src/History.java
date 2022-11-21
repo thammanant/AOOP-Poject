@@ -22,10 +22,24 @@ public class History {
         HistoryPanel.setBackground(colour18);
         int num = DataBaseFB.getHistoryAmount(customer.getName());
         String boxList[] = new String[num];
-        for(int i=0; i<num; i++){
-            boxList[i] = String.valueOf(i+1);
-            comboBox1.addItem(boxList[i]);
+        for(int i=0; i<num; i++) {
+            boxList[i] = String.valueOf(i + 1);
+            int order_num = i+1;
+            int size =DataBaseFB.getHistory(customer.getName(),order_num).size();
+            //create arra
+            String arr[] = new String[size];
+            for(int j=0 ; j<size ; j++){
+                arr[j] = DataBaseFB.getHistory(customer.getName(),order_num).get(j);
+            }
+            //check status
+            if(arr[15] == "-3"){
+                comboBox1.addItem(order_num);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "No order to show");
+            }
         }
+
 //        System.out.println("\n");
 //        System.out.println(Arrays.toString(boxList));
 
@@ -52,12 +66,17 @@ public class History {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String i = comboBox1.getSelectedItem().toString();
-                try {
-                    frame.setContentPane(new History_detail(frame,customer,i).getHistory_detailpanel());
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                    throw new RuntimeException(ex);
+                if(i.equals(("Select your order:"))){
+                    JOptionPane.showMessageDialog(null, "Select your order:");
                 }
-                frame.revalidate();
+                else{
+                    try {
+                        frame.setContentPane(new History_detail(frame,customer,i).getHistory_detailpanel());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    frame.revalidate();
+                }
             }
         });
     }

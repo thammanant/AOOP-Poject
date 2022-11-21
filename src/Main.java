@@ -135,11 +135,11 @@ public class Main {
         Customer customer = new Customer();
         customer.setPhone("None");
 
-        worker_status test = new worker_status(frame,new Worker());
-        frame.getContentPane().add(test.getworker_status());
+//        worker_status test = new worker_status(frame,new Worker());
+//        frame.getContentPane().add(test.getworker_status());
 
-//        Login login = new Login(frame, customer, new Worker());
-//        frame.getContentPane().add(login.getLoginPanel());
+        Login login = new Login(frame, customer, new Worker());
+        frame.getContentPane().add(login.getLoginPanel());
 
     }
 }

@@ -54,46 +54,21 @@ public class History_detail {
     private JButton okButton;
     private JPanel history_detailpanel;
     private JLabel Amount3;
+    private JLabel sta;
 
     public History_detail(JFrame frame, Customer customer , String index_order) throws JacksonUtilityException, FirebaseException, IOException {
         int i = Integer.parseInt(index_order);
-
-        String temp = DataBaseFB.getHistory(customer.getName(), i);
-        // remove [] and split by ,
-        assert temp != null;
-        temp = temp.substring(1, temp.length() - 1);
-        String[] temp2 = temp.split(",");
-        // remove space
-        List<String> arrayOfHistory = new ArrayList<>();
-        for (String s : temp2) {
-            arrayOfHistory.add(s.trim());
+        int temp = DataBaseFB.getHistory(customer.getName(), i).size();
+        String temp2[] = new String[temp];
+        for(int j=0 ; i<temp ; i++){
+            temp2[i] = DataBaseFB.getHistory(customer.getName(), i).get(i);
+        }
+        JLabel c[] = {Amount1,Amount2,Amount3,Amount4,Amount5,Amount6,Amount7,Amount8,Amount9,Amount10,Amount11,Amount12,Amount13,Amount14,AmountTotal,sta};
+        for (int k=0 ; k <c.length ; k++){
+            c[k].setText(temp2[k]);
         }
 
 
-
-
-
-
-//        ArrayList temp = DataBaseFB.getHistory(customer.getName(),i-1);
-//        String[] temp2 = new String[]{};
-//        for (int j = 0; j< temp.size(); j++) {
-//            temp2[j] = String.valueOf(temp[j]);
-//        }
-//        Amount1.setText(temp2[0]);
-//        Amount2.setText(temp2[1]);
-//        Amount3.setText(temp2[2]);
-//        Amount4.setText(temp2[3]);
-//        Amount5.setText(temp2[4]);
-//        Amount6.setText(temp2[5]);
-//        Amount7.setText(temp2[6]);
-//        Amount8.setText(temp2[7]);
-//        Amount9.setText(temp2[8]);
-//        Amount10.setText(temp2[9]);
-//        Amount11.setText(temp2[10]);
-//        Amount12.setText(temp2[11]);
-//        Amount13.setText(temp2[12]);
-//        Amount14.setText(temp2[13]);
-//        AmountTotal.setText(temp2[14]);
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
