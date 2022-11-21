@@ -23,11 +23,17 @@ public class Worker extends User {
         return result;
     }
     //check order of customer
-    public void checkOrder() throws JacksonUtilityException, FirebaseException, IOException {
+    public String checkOrder() throws JacksonUtilityException, FirebaseException, IOException {
         String cus[] = new String[DataBaseFB.findAllCustomerUsernames().size()];
         for(int i =0 ; i< DataBaseFB.findAllCustomerUsernames().size();i++){
             cus[i] = DataBaseFB.findAllCustomerUsernames().get(i);
         }
-
+        if(DataBaseFB.getHistoryAmount(cus[0])!= 0){
+            return "There is order";
+        }
+        else{
+            return "There is no order";
+        }
     }
+
 }
