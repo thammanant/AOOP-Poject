@@ -1,9 +1,11 @@
 import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class Other_Worker {
@@ -39,7 +41,7 @@ public class Other_Worker {
             public void actionPerformed(ActionEvent e) {
                 try {
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
-                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                     throw new RuntimeException(ex);
                 }
                 frame.revalidate();

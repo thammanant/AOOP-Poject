@@ -21,7 +21,7 @@ public class Report_Worker {
             public void actionPerformed(ActionEvent e) {
                 try {
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
-                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
                 frame.revalidate();
@@ -45,7 +45,7 @@ public class Report_Worker {
                     //change panel
                     try {
                         frame.setContentPane(new Home_worker(frame, worker).get_Home_worker_panel());
-                    } catch (FirebaseException | IOException ex) {
+                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
                     frame.revalidate();

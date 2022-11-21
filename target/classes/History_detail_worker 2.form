@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="History_detail_worker">
+  <grid id="27dc6" binding="History_detail_worker" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="849" height="645"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="f7c63" binding="history_detailpanel" layout-manager="GridLayoutManager" row-count="26" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-14206103"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="1e9ee" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="18" style="1"/>
+              <foreground color="-789001"/>
+              <text value="      Total"/>
+            </properties>
+          </component>
+          <component id="5e2a8" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="ClothsType"/>
+            </properties>
+          </component>
+          <component id="fd27d" class="javax.swing.JLabel" binding="Num1">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="1"/>
+            </properties>
+          </component>
+          <component id="87e50" class="javax.swing.JLabel" binding="CottonWh">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Cotton (White)"/>
+            </properties>
+          </component>
+          <component id="ae4bf" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="Amount"/>
+            </properties>
+          </component>
+          <component id="325d8" class="javax.swing.JLabel" binding="Num2">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="2"/>
+            </properties>
+          </component>
+          <component id="af037" class="javax.swing.JLabel" binding="CottonCol">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Cotton (Colour)"/>
+            </properties>
+          </component>
+          <component id="8a6b9" class="javax.swing.JLabel" binding="Amount1">
+            <constraints>
+              <grid row="4" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="9a481" class="javax.swing.JLabel" binding="Amount3">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-919561"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <vspacer id="685e3">
+            <constraints>
+              <grid row="25" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="d0e0a">
+            <constraints>
+              <grid row="24" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="2d341" class="javax.swing.JLabel" binding="Num3">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="3"/>
+            </properties>
+          </component>
+          <component id="38265" class="javax.swing.JLabel" binding="Num4">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="4"/>
+            </properties>
+          </component>
+          <component id="a3e71" class="javax.swing.JLabel" binding="Num5">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="5"/>
+            </properties>
+          </component>
+          <component id="ffa27" class="javax.swing.JLabel" binding="Num6">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="6"/>
+            </properties>
+          </component>
+          <component id="7e1f1" class="javax.swing.JLabel" binding="Num7">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="7"/>
+            </properties>
+          </component>
+          <component id="41edf" class="javax.swing.JLabel" binding="Num8">
+            <constraints>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="8"/>
+            </properties>
+          </component>
+          <component id="26d31" class="javax.swing.JLabel" binding="Num9">
+            <constraints>
+              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="9"/>
+            </properties>
+          </component>
+          <component id="d0298" class="javax.swing.JLabel" binding="Num10">
+            <constraints>
+              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="10"/>
+            </properties>
+          </component>
+          <component id="5f997" class="javax.swing.JLabel" binding="Num11">
+            <constraints>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="11"/>
+            </properties>
+          </component>
+          <component id="af8c" class="javax.swing.JLabel" binding="Num12">
+            <constraints>
+              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="12"/>
+            </properties>
+          </component>
+          <component id="5ae35" class="javax.swing.JLabel" binding="MixedWh">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Mixed (White)"/>
+            </properties>
+          </component>
+          <component id="be5f9" class="javax.swing.JLabel" binding="MixedCol">
+            <constraints>
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Mixed (Colour)"/>
+            </properties>
+          </component>
+          <component id="365f2" class="javax.swing.JLabel" binding="DelicatesWh">
+            <constraints>
+              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Delicates (White)"/>
+            </properties>
+          </component>
+          <component id="117c5" class="javax.swing.JLabel" binding="DelicatesCol">
+            <constraints>
+              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Delicates (Colour)"/>
+            </properties>
+          </component>
+          <component id="1183c" class="javax.swing.JLabel" binding="WoolWh">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Wool (White)"/>
+            </properties>
+          </component>
+          <component id="ae174" class="javax.swing.JLabel" binding="WoolCol">
+            <constraints>
+              <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Wool (Colour)"/>
+            </properties>
+          </component>
+          <component id="b50d0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Bedding (White)"/>
+            </properties>
+          </component>
+          <component id="e0a11" class="javax.swing.JLabel" binding="BabyWh">
+            <constraints>
+              <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Baby Wear (White)"/>
+            </properties>
+          </component>
+          <component id="553ec" class="javax.swing.JLabel" binding="BeddingCol">
+            <constraints>
+              <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Bedding (Colour)"/>
+            </properties>
+          </component>
+          <component id="dc2c" class="javax.swing.JLabel" binding="BabyCol">
+            <constraints>
+              <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Baby Were (Colour)"/>
+            </properties>
+          </component>
+          <component id="6a540" class="javax.swing.JLabel" binding="Num13">
+            <constraints>
+              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="13"/>
+            </properties>
+          </component>
+          <component id="1148b" class="javax.swing.JLabel" binding="Num14">
+            <constraints>
+              <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-789001"/>
+              <text value="14"/>
+            </properties>
+          </component>
+          <component id="acd40" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Leather (White)"/>
+            </properties>
+          </component>
+          <component id="e942e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="17" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Leather (Colour)"/>
+            </properties>
+          </component>
+          <component id="bedf3" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-919561"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="19e66" class="javax.swing.JLabel" binding="Amount4">
+            <constraints>
+              <grid row="7" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="fc226" class="javax.swing.JLabel" binding="Amount5">
+            <constraints>
+              <grid row="8" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="150b" class="javax.swing.JLabel" binding="Amount6">
+            <constraints>
+              <grid row="9" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="e03eb" class="javax.swing.JLabel" binding="Amount7">
+            <constraints>
+              <grid row="10" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-919561"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="880a9" class="javax.swing.JLabel" binding="Amount8">
+            <constraints>
+              <grid row="11" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="c3589" class="javax.swing.JLabel" binding="Amount9">
+            <constraints>
+              <grid row="12" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="4a43b" class="javax.swing.JLabel" binding="Amount10">
+            <constraints>
+              <grid row="13" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="ae69f" class="javax.swing.JLabel" binding="Amount11">
+            <constraints>
+              <grid row="14" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="30842" class="javax.swing.JLabel" binding="Amount12">
+            <constraints>
+              <grid row="15" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="591d6" class="javax.swing.JLabel" binding="Amount13">
+            <constraints>
+              <grid row="16" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="b36c" class="javax.swing.JLabel" binding="Amount14">
+            <constraints>
+              <grid row="17" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <grid id="21ab0" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="19" column="2" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16726304"/>
+              <opaque value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="dd393" class="javax.swing.JLabel" binding="AmountTotal">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Source Code Pro" size="14" style="1"/>
+                  <foreground color="-789001"/>
+                  <text value="0"/>
+                </properties>
+              </component>
+              <component id="e0a26" class="javax.swing.JLabel" binding="Total">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Source Code Pro" size="14" style="1"/>
+                  <foreground color="-789001"/>
+                  <text value="Total"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <hspacer id="34cd5">
+            <constraints>
+              <grid row="2" column="5" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="c704e">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="2197">
+            <constraints>
+              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <vspacer id="28d26">
+            <constraints>
+              <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="6d1b5">
+            <constraints>
+              <grid row="18" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="e166b">
+            <constraints>
+              <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="ccc3">
+            <constraints>
+              <grid row="19" column="7" row-span="6" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="560e5" class="javax.swing.JButton" binding="okButton" default-binding="true">
+            <constraints>
+              <grid row="23" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-3801363"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <font name="Source Code Pro" size="14" style="1"/>
+              <foreground color="-15062446"/>
+              <text value="ok"/>
+            </properties>
+          </component>
+          <vspacer id="bc71c">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="763e4">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="f4fbc">
+            <constraints>
+              <grid row="21" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="34297">
+            <constraints>
+              <grid row="22" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="bd11a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="21" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value="Status:"/>
+            </properties>
+          </component>
+          <component id="c3b9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Source Code Pro" size="12"/>
+              <foreground color="-789001"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="cd60c" class="javax.swing.JButton" binding="Edit">
+            <constraints>
+              <grid row="21" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="11"/>
+              <icon value="Picture/pencil24X24.png"/>
+              <label value=""/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
