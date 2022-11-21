@@ -253,6 +253,29 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         }
         return arrayOfHistory;
     }
+    //get history status
+    public static int getHistoryStatus(String username, int index) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException
+    {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return -1;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return -1;
+        }
+        String temp = dataMap2.get("Order" + index).toString();
+        assert temp != null;
+        temp = temp.substring(1, temp.length() - 1);
+        String[] temp2 = temp.split(",");
+        // remove space
+        List<String> arrayOfHistory = new ArrayList<>();
+        for (String s : temp2) {
+            arrayOfHistory.add(s.trim());
+        }
+        return Integer.parseInt(arrayOfHistory.get(15));
+    }
 
     //get history amount
     public static int getHistoryAmount(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
