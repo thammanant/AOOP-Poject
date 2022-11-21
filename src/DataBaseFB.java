@@ -187,13 +187,14 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         if(dataMap2 == null) {
             return;
         }
-        int[] arr = new int[15];
+        int[] arr = new int[16];
         int sum = 0;
         for(int i = 0; i < customer.getClothes().getSize(); i++) {
             arr[i] = temp.printAmount(i);
             sum += arr[i];
         }
         arr[14] = sum;
+        arr[15] = -1;
 
         dataMap2.put("Order" + customer.getHistory().size(), arr);
         dataMap.put("Data", dataMap2);
@@ -202,9 +203,36 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         response = firebase.put( username, dataMap );
 
     }
+    //set arr[15] = -2
+    public static void setHistoryStatus(String username, int index, Customer customer, int x) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
+        int[] arr = new int[16];
+        int sum = 0;
+        for(int i = 0; i < customer.getClothes().getSize(); i++) {
+            arr[i] = customer.getHistory().get(index).printAmount(i);
+            sum += arr[i];
+        }
+        arr[14] = sum;
+        arr[15] = x;
 
-    //get history
-    public static int[] getHistory(String username, int index) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        dataMap2.put("Order" + index, arr);
+        dataMap.put("Data", dataMap2);
+        dataMap.put("Username", customer.getName());
+        dataMap.put("Password", customer.getPassword());
+        response = firebase.put( username, dataMap );
+
+    }
+
+    public static String getHistory(String username, int index) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException
+    {
         response = firebase.get( username );
         dataMap = response.getBody();
         if(dataMap == null) {
@@ -214,7 +242,7 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         if(dataMap2 == null) {
             return null;
         }
-        return (int[]) dataMap2.get("Order" + index);
+        return dataMap2.get("Order" + index).toString();
     }
 
     //get history amount
@@ -229,5 +257,23 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
             return 0;
         }
         return dataMap2.size() - 2;
+    }
+
+    //set customer status
+    public static void setCustomerStatus(String username, String status) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+        response = firebase.get( username );
+        dataMap = response.getBody();
+        if(dataMap == null) {
+            return;
+        }
+        dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return;
+        }
+        dataMap2.put("Status", status);
+        dataMap.put("Data", dataMap2);
+        dataMap.put("Username", username);
+        dataMap.put("Password", dataMap.get("Password"));
+        response = firebase.put( username, dataMap );
     }
 }
