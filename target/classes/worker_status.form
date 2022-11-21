@@ -13,7 +13,9 @@
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-789001"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="582ec" class="javax.swing.JButton" binding="OtherButton">
