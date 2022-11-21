@@ -65,8 +65,9 @@ public class ClothesAmount {
         return this.clothes[i];
     }
 
-    public int getAmount(int i) {
-        return this.amount[i];
+    //set amount
+    public void setAmount(int i, int amount) {
+        this.amount[i] = amount;
     }
 }
 

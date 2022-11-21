@@ -134,8 +134,12 @@ public class Main {
 
         Customer customer = new Customer();
         customer.setPhone("None");
-        User_status login = new User_status(frame, customer);
-        frame.getContentPane().add(login.getUser_StatusPanel());
+
+//        worker_status test = new worker_status(frame,new Worker());
+//        frame.getContentPane().add(test.getworker_status());
+
+        Login login = new Login(frame, customer, new Worker());
+        frame.getContentPane().add(login.getLoginPanel());
 
     }
 }

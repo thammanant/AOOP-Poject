@@ -140,10 +140,10 @@
         <properties>
           <font name="Source Code Pro" size="24" style="1"/>
           <foreground color="-789001"/>
-          <text value="YIng order"/>
+          <text value="Your order"/>
         </properties>
       </component>
-      <component id="62646" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="62646" class="javax.swing.JComboBox" binding="Order">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

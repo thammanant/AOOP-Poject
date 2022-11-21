@@ -1,11 +1,13 @@
 import com.sun.source.tree.WhileLoopTree;
 import net.thegreshams.firebase4j.error.FirebaseException;
+import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import org.apache.http.client.params.ClientPNames;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class Profile_worker {
@@ -36,7 +38,7 @@ public class Profile_worker {
             public void actionPerformed(ActionEvent e) {
                 try {
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());
-                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
                 frame.revalidate();
