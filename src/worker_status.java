@@ -16,6 +16,7 @@ public class worker_status {
     private JPanel worker_statuspanel;
     private JComboBox comboBox1;
     private JButton confirm_button;
+    private JComboBox combobox2;
 
     public worker_status(JFrame frame,Worker worker) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour18 = new Color(39, 59, 105);
