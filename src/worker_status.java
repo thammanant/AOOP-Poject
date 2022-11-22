@@ -19,6 +19,7 @@ public class worker_status {
         Color colour18 = new Color(39, 59, 105);
         worker_statusPanel.setBackground(colour18);
         final String[][] arr = new String[1][1];
+        comboBox1.requestFocus();
         arr[0] = Arrays.copyOf(DataBaseFB.findAllCustomerUsernames().toArray(), DataBaseFB.findAllCustomerUsernames().size(), String[].class);
         for(int i = 0; i< arr[0].length; i++){
             if(DataBaseFB.getHistoryAmount(arr[0][i])>0 && !(Objects.requireNonNull(DataBaseFB.getHistory(arr[0][i], DataBaseFB.getHistoryAmount(arr[0][i]))).get(15).equals("-3"))){
