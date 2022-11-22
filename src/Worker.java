@@ -35,7 +35,7 @@ public class Worker extends User {
         for(int j=0; j< cus.length;j++){
             int s = DataBaseFB.getHistoryAmount(cus[j]);        //find amount of order of customer
             for(int k=0 ; k < s ; k++) {
-                if (Objects.requireNonNull(DataBaseFB.getHistory(cus[j], j + 1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(cus[j], j + 1)).get(15).equals("-1")) {
+                if (Objects.requireNonNull(DataBaseFB.getHistory(cus[j], k + 1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(cus[j], k + 1)).get(15).equals("-1")) {
                     num++;
                 }
             }
