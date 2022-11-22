@@ -62,7 +62,6 @@ public class DataBaseFB{
         }
         return pass.equals(password);
     }
-
     //check if user is customer or worker
     public static String checkType(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         //get type in data map
