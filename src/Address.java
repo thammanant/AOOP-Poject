@@ -219,6 +219,8 @@ public class Address {
                 Status.setText(emptyPhone);
             } else if (phone_check_int) {
                 Status.setText("Phone must be number.");
+            } else if(phone.length()!=10){
+                    Status.setText("Phone must be 10 digits.");
             } else if (postcode_check_int) {
                 Status.setText("Postal code must number.");
             } else if (address.isEmpty() || address.equals(AddressTxt)) {
