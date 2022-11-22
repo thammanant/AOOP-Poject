@@ -59,7 +59,6 @@ public class worker_status {
                         combobox2.addItem(i+1);
                     }
                 }
-
             }
         });
 //

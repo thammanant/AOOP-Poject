@@ -89,8 +89,8 @@ public class Customer extends User {
     public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
         int arr = DataBaseFB.getHistoryAmount(this.getName());
         boolean temp = true;
-        if(arr==1){
-            if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
+        if(arr>0){
+            if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), 1)).get(15).equals("-3")){
                 temp = false;
             }
         }
@@ -107,7 +107,7 @@ public class Customer extends User {
         int arr = DataBaseFB.getHistoryAmount(this.getName());
         String temp = "";
         if(arr==1){
-            if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
+            if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), 1)).get(15).equals("-3")){
                 temp = "You have no order";
             }
             else{
@@ -119,6 +119,11 @@ public class Customer extends User {
         }
         if(arr>1){
             temp = "You have "+arr+" orders";
+            for(int i = 0; i < arr; i ++){
+                if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-3")){
+                    temp = "You have "+(arr-1)+" orders";
+                }
+            }
         }
         return temp;
 

@@ -19,9 +19,7 @@ public class User_status {
     public User_status(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         int num = DataBaseFB.getHistoryAmount(customer.getName());
         String[] boxList = new String[num];
-        String arr[] = new String[16];
-        int c= 0;
-        String check ="";
+        String[] arr;
         for(int i=0; i<num; i++) {
             boxList[i] = String.valueOf(i + 1);
             //create array
@@ -29,9 +27,6 @@ public class User_status {
             //check status
             if(arr[15].equals("-2") || arr[15].equals("-1")) {
                 Order.addItem(i+1);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "No order to show");
             }
         }
         NewOrderButton.addActionListener(new ActionListener() {
