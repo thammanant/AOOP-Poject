@@ -122,7 +122,7 @@ public class History_detail_worker {
                         throw new RuntimeException(ex);
                     }
                 }else{
-                    JOptionPane.showMessageDialog(null,"Status has already been registered!");
+                    JOptionPane.showMessageDialog(null,"Please enter Processing or Delivered only!");
                 }
             }
         });
