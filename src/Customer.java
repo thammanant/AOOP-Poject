@@ -86,21 +86,22 @@ public class Customer extends User {
     }
 
     //check whether there is order or not
-    public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
+    public String check() throws JacksonUtilityException, FirebaseException, IOException {
         //keep status of every order
         String[] arr = new String[DataBaseFB.getHistoryAmount(this.getName())];
+        String c= "";
         for(int i=0; i<arr.length; i++){
             arr[i] = DataBaseFB.getHistory(this.getName(), i+1).get(15);
         }
         //check whether there is order or not
         for(int i=0; i<arr.length; i++){
             if(arr[i].equals("-1")|| arr[i].equals("-2")){
-                return true;
+                c= "1";
+            } else if (arr[i].equals("-3")) {
+                c="0";
             }
         }
-        return false;
-
-
+        return c;
     }
 
 

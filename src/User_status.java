@@ -30,9 +30,6 @@ public class User_status {
             if(arr[15].equals("-2") || arr[15].equals("-1")) {
                 Order.addItem(i+1);
             }
-            else{
-                JOptionPane.showMessageDialog(null, "No order to show");
-            }
         }
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
