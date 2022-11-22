@@ -28,21 +28,23 @@ public class Worker extends User {
     public String checkOrder() throws JacksonUtilityException, FirebaseException, IOException {
         String cus[] = new String[DataBaseFB.findAllCustomerUsernames().size()];        //find all customer
         String res = "";//result
+        int num = 0;
         for(int i =0 ; i< DataBaseFB.findAllCustomerUsernames().size();i++){        //transfer all customer to array cus
             cus[i] = DataBaseFB.findAllCustomerUsernames().get(i);
         }
         for(int j=0; j< cus.length;j++){
             int s = DataBaseFB.getHistoryAmount(cus[j]);        //find amount of order of customer
             for(int k=0 ; k < s ; k++) {
-                if (Objects.requireNonNull(DataBaseFB.getHistory(cus[j], j + 1)).get(15).equals("-3")) {
-                    res = "You don't have order now";
-                    return res;
-                }
-                else {
-                    res = "You have order now";
-                    return res;
+                if (Objects.requireNonNull(DataBaseFB.getHistory(cus[j], j + 1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(cus[j], j + 1)).get(15).equals("-1")) {
+                    num++;
                 }
             }
+        }
+        if(num == 0){
+            res = "You don't have order";
+        }
+        else{
+            res = "There are "+num+" order";
         }
         return res;
     }
