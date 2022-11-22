@@ -1,9 +1,5 @@
-import Resources.ClothesAmount;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Total {
     private JPanel TotalPanel;
@@ -74,23 +70,17 @@ public class Total {
         Amount12.setText(customer.printAmount(11));
         Amount13.setText(customer.printAmount(12));
         Amount14.setText(customer.printAmount(13));
-        AmountTotal.setText(customer.printtotal());
+        AmountTotal.setText(customer.printTotal());
         // set edit button
-        editButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                customer.resetClothes();
-                frame.setContentPane(new Order(frame, customer).getOrderPanel());
-                frame.revalidate();
-            }
+        editButton.addActionListener(e -> {
+            customer.resetClothes();
+            frame.setContentPane(new Order(frame, customer).getOrderPanel());
+            frame.revalidate();
         });
         // set confirm button
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Address(frame,customer).getAddressPanel());
-                frame.revalidate();
-            }
+        confirmButton.addActionListener(e -> {
+            frame.setContentPane(new Address(frame,customer).getAddressPanel());
+            frame.revalidate();
         });
 
     }

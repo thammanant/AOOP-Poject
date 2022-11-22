@@ -1,15 +1,8 @@
-import Resources.*;
-import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
-
 import javax.swing.*;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args) throws JacksonUtilityException, FirebaseException, IOException {
+    public static void main(String[] args) {
 
         JFrame frame = new JFrame("WashApp");
         frame.setVisible(true);
@@ -22,7 +15,6 @@ public class Main {
                  UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
-
 
         Customer customer = new Customer();
         customer.setPhone("None");

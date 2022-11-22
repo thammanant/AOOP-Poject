@@ -1,7 +1,5 @@
 package AbstactClass;
 
-import java.util.Random;
-
 public abstract class User {
     protected String name;
     protected String phone;
