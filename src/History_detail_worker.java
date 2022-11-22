@@ -99,7 +99,7 @@ public class History_detail_worker {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String input = JOptionPane.showInputDialog(null,"Enter new status(Processing,Delivered)");
-                if(input.equalsIgnoreCase("processing") || input.equalsIgnoreCase("delivered")){
+                if(input.toLowerCase().equals("processing") || input.toLowerCase().equals("delivered")){
                     JOptionPane.showMessageDialog(null,"Status changed");
                     sta.setText(input);
                     if(input.equalsIgnoreCase("processing")){
