@@ -37,6 +37,7 @@ public class User_status {
         NewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                customer.resetClothes();
                 frame.setContentPane((new Order(frame, customer).getOrderPanel()));
                 frame.revalidate();
             }

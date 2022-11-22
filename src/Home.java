@@ -58,10 +58,10 @@ public class Home {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(customer.check()==true){
+                    if(customer.check()){
                         frame.setContentPane(new User_status(frame,customer).getUser_StatusPanel());
                         frame.revalidate();
-                    }if(customer.check()==false){
+                    }else {
                         JOptionPane.showMessageDialog(null, "You don't have any order yet!");
                     }
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {

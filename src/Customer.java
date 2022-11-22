@@ -87,41 +87,37 @@ public class Customer extends User {
 
     //check whether there is order or not
     public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
-        int arr = DataBaseFB.getHistoryAmount(this.getName());
-        boolean temp = true;
-        if(arr==1){
-            if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
-                temp = false;
+        //keep status of every order
+        String[] arr = new String[DataBaseFB.getHistoryAmount(this.getName())];
+        for(int i=0; i<arr.length; i++){
+            arr[i] = DataBaseFB.getHistory(this.getName(), i+1).get(15);
+        }
+        //check whether there is order or not
+        for(int i=0; i<arr.length; i++){
+            if(arr[i].equals("-1")|| arr[i].equals("-2")){
+                return true;
             }
         }
-        if(arr==0){
-            temp = false;
-        }
-        return temp;
+        return false;
+
+
     }
 
 
 
     //display how many order using database
     public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
-        int arr = DataBaseFB.getHistoryAmount(this.getName());
-        String temp = "";
-        if(arr==1){
-            if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
-                temp = "You have no order";
+        //display current order
+        String[] arr = new String[DataBaseFB.getHistoryAmount(this.getName())];
+        for(int i=0; i<arr.length; i++){
+            if(DataBaseFB.getHistory(this.getName(), i+1).get(15).equals("-1")){
+                arr[i] = Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i + 1)).get(15);
             }
-            else{
-                temp = "You have "+arr+" order";
+            else if(DataBaseFB.getHistory(this.getName(), i+1).get(15).equals("-2")){
+                arr[i] = Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i + 1)).get(15);
             }
         }
-        if(arr==0){
-            temp = "You have no order";
-        }
-        if(arr>1){
-            temp = "You have "+arr+" orders";
-        }
-        return temp;
-
+        return "You have " + arr.length + " order(s)";
     }
 
     //popup that there is no order
