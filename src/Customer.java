@@ -129,11 +129,11 @@ public class Customer extends User {
         if(arr==0){
             temp = "You have no order";
         }
-        if(arr>1){
+        if(arr>0){
             temp = "You have "+arr+" orders";
             for(int i = 0; i < arr; i ++){
                 if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-1")){
-                    temp = "You have "+(arr-1)+" orders";
+                    temp = "You have "+(arr)+" orders";
                 }
             }
         }
