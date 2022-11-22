@@ -19,7 +19,6 @@ public class Register extends LoginNRegister{
     private JRadioButton Worker;
     private JButton Back_button;
     private String type;
-    private boolean sta = true;
 
     public Register(JFrame frame, Customer customer, Worker worker) {
         ButtonGroup Type = new ButtonGroup();
@@ -99,61 +98,54 @@ public class Register extends LoginNRegister{
                 String confirmPassword = confirmPasswordTextField.getText();
                 if (email.isEmpty() || email.equals(userTxt)) {
                     Status.setText(emptyUsername);
-                    sta = false;
                 } else if (password.isEmpty() || password.equals(passTxt)) {
                     Status.setText(emptyPasswd);
-                    sta = false;
                 } else if (!password.equals(confirmPassword)) {
                     Status.setText(passwdNotMatch);
-                    sta = false;
-                }else if (Customer.isSelected() || Worker.isSelected()){
+                } else {
                     try {
-                        if(DataBaseFB.checkUser(email)) {
+                        if (DataBaseFB.checkUser(email)) {
                             Status.setText("User already exists");
-                            sta = false;
+                        } else if (Customer.isSelected() || Worker.isSelected()){
+                            JOptionPane.showMessageDialog(null, "Register successfully!");
+                        if (Customer.isSelected()) {
+                            type = "Customer";
+                            Customer customer = new Customer(email);
+                            customer.setPassword(password);
+                            customer.resetClothes();
+                            try {
+                                DataBaseFB.updateCustomerData(customer.getName(),customer);
+                            } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                            try {
+                                DataBaseFB.addNewUser(email, password, type);
+                            } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        } else if (Worker.isSelected()) {
+                            type = "Worker";
+                            Worker worker = new Worker(email);
+                            worker.setPassword(password);
+                            try {
+                                DataBaseFB.updateWorkerData(worker.getName(),worker);
+                            } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                            try {
+                                DataBaseFB.addNewUser(email, password, type);
+                            } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                                throw new RuntimeException(ex);
+                            }
                         }
-                    } catch (FirebaseException ex) {
-                        throw new RuntimeException(ex);
-                    } catch (JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    JOptionPane.showMessageDialog(null, "Register successfully!");
-                if (Customer.isSelected()) {
-                    type = "Customer";
-                    Customer customer = new Customer(email);
-                    customer.setPassword(password);
-                    customer.resetClothes();
-                    try {
-                        DataBaseFB.updateCustomerData(customer.getName(),customer);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
+                        frame.setContentPane(new Login(frame, customer,worker).getLoginPanel());
+                        frame.revalidate();
+                        }else {
+                            Status.setText("Please select your type");
+                        }
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
-                } else if (Worker.isSelected()) {
-                    type = "Worker";
-                    Worker worker = new Worker(email);
-                    worker.setPassword(password);
-                    try {
-                        DataBaseFB.updateWorkerData(worker.getName(),worker);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
-                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-                frame.setContentPane(new Login(frame, customer,worker).getLoginPanel());
-                frame.revalidate();
-                }else {
-                    Status.setText("Please select your type");
                 }
             }
         });
@@ -171,38 +163,5 @@ public class Register extends LoginNRegister{
     //getter
     public JPanel getRegisterPanel() {
         return RegisterPanel;
-    }
-
-
-
-
-
-//    registerButton.setBounds(x_pos, y_pos, 30, 25);
-//    registerButton.setBorder(new RoundedBorder(10)); //10 is the radius
-//    registerButton.setForeground(Color.BLUE);
-
-    private static class RoundedBorder implements Border {
-
-        private int radius;
-
-
-        RoundedBorder(int radius) {
-            this.radius = radius;
-        }
-
-
-        public Insets getBorderInsets(Component c) {
-            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-        }
-
-
-        public boolean isBorderOpaque() {
-            return true;
-        }
-
-
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-        }
     }
 }
