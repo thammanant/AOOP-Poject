@@ -62,13 +62,6 @@ public class DataBaseFB{
         }
         return pass.equals(password);
     }
-    //check if username already exists
-    public static boolean checkUser(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        response = firebase.get( username );
-        dataMap = response.getBody();
-        return dataMap != null;
-    }
-
     //check if user is customer or worker
     public static String checkType(String username) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         //get type in data map

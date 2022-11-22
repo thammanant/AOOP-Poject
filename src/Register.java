@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class Register extends LoginNRegister{
     private JPanel RegisterPanel;
@@ -19,7 +21,6 @@ public class Register extends LoginNRegister{
     private JRadioButton Worker;
     private JButton Back_button;
     private String type;
-    private boolean sta = true;
 
     public Register(JFrame frame, Customer customer, Worker worker) {
         ButtonGroup Type = new ButtonGroup();
@@ -97,60 +98,55 @@ public class Register extends LoginNRegister{
                 String email = emailTextField.getText();
                 String password = passwordTextField.getText();
                 String confirmPassword = confirmPasswordTextField.getText();
+                List<String> list;
+                boolean same = false;
+                try {
+                    list = DataBaseFB.findAllCustomerUsernames();
+                } catch (FirebaseException | IOException | JacksonUtilityException ex) {
+                    throw new RuntimeException(ex);
+                }
+                for (String s : list) {
+                    if (email.equals(s)) {
+                        same = true;
+                        break;
+                    }
+                }
                 if (email.isEmpty() || email.equals(userTxt)) {
                     Status.setText(emptyUsername);
-                    sta = false;
                 } else if (password.isEmpty() || password.equals(passTxt)) {
                     Status.setText(emptyPasswd);
-                    sta = false;
                 } else if (!password.equals(confirmPassword)) {
                     Status.setText(passwdNotMatch);
-                    sta = false;
-                }else if (Customer.isSelected() || Worker.isSelected()){
-                    JOptionPane.showMessageDialog(null, "Register successfully!");
-                    try {
-                        if(DataBaseFB.checkUser(email)) {
-                            Status.setText("This email has been used!");
-                            sta = false;
-                        }
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
+                } else if (same) {
+                    Status.setText("Username already exists");
+                } else if (Customer.isSelected() || Worker.isSelected()) {
                     if (Customer.isSelected()) {
-                    type = "Customer";
-                    Customer customer = new Customer(email);
-                    customer.setPassword(password);
-                    customer.resetClothes();
-                    try {
-                        DataBaseFB.updateCustomerData(customer.getName(),customer);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
+                        type = "Customer";
+                        Customer customer = new Customer(email);
+                        customer.setPassword(password);
+                        customer.resetClothes();
+                        try {
+                            DataBaseFB.updateCustomerData(customer.getName(), customer);
+                            DataBaseFB.addNewUser(email, password, type);
+                        } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        JOptionPane.showMessageDialog(null, "Register successfully!");
+                    } else if (Worker.isSelected()) {
+                        type = "Worker";
+                        Worker worker = new Worker(email);
+                        worker.setPassword(password);
+                        try {
+                            DataBaseFB.updateWorkerData(worker.getName(), worker);
+                            DataBaseFB.addNewUser(email, password, type);
+                        } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        JOptionPane.showMessageDialog(null, "Register successfully!");
                     }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
-                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-                    else if (Worker.isSelected()) {
-                    type = "Worker";
-                    Worker worker = new Worker(email);
-                    worker.setPassword(password);
-                    try {
-                        DataBaseFB.updateWorkerData(worker.getName(),worker);
-                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        DataBaseFB.addNewUser(email, password, type);
-                    } catch (FirebaseException | IOException | JacksonUtilityException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-                frame.setContentPane(new Login(frame, customer,worker).getLoginPanel());
-                frame.revalidate();
-                }else {
+                    frame.setContentPane(new Login(frame, customer, worker).getLoginPanel());
+                    frame.revalidate();
+                } else {
                     Status.setText("Please select your type");
                 }
             }

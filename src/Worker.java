@@ -26,16 +26,16 @@ public class Worker extends User {
     }
     //check order of customer
     public String checkOrder() throws JacksonUtilityException, FirebaseException, IOException {
-        String cus[] = new String[DataBaseFB.findAllCustomerUsernames().size()];        //find all customer
+        String[] cus = new String[DataBaseFB.findAllCustomerUsernames().size()];        //find all customer
         String res = "";//result
         int num = 0;
         for(int i =0 ; i< DataBaseFB.findAllCustomerUsernames().size();i++){        //transfer all customer to array cus
             cus[i] = DataBaseFB.findAllCustomerUsernames().get(i);
         }
-        for(int j=0; j< cus.length;j++){
-            int s = DataBaseFB.getHistoryAmount(cus[j]);        //find amount of order of customer
-            for(int k=0 ; k < s ; k++) {
-                if (Objects.requireNonNull(DataBaseFB.getHistory(cus[j], k + 1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(cus[j], k + 1)).get(15).equals("-1")) {
+        for (String value : cus) {
+            int s = DataBaseFB.getHistoryAmount(value);        //find amount of order of customer
+            for (int k = 0; k < s; k++) {
+                if (Objects.requireNonNull(DataBaseFB.getHistory(value, k + 1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(value, k + 1)).get(15).equals("-1")) {
                     num++;
                 }
             }
