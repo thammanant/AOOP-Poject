@@ -2,6 +2,7 @@ import AbstactClass.User;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Worker extends User {
@@ -25,15 +26,19 @@ public class Worker extends User {
     //check order of customer
     public String checkOrder() throws JacksonUtilityException, FirebaseException, IOException {
         String cus[] = new String[DataBaseFB.findAllCustomerUsernames().size()];
+        String res = "";
         for(int i =0 ; i< DataBaseFB.findAllCustomerUsernames().size();i++){
             cus[i] = DataBaseFB.findAllCustomerUsernames().get(i);
         }
-        if(DataBaseFB.getHistoryAmount(cus[0])!= 0){
-            return "There is order";
+        for(int i=0; i< cus.length;i++){
+            if(DataBaseFB.getHistory(cus[i],i+1).get(15).equals("-3")){
+                res = "You don't have order now";
+            }
+            else{
+                res = "You have order now";
+            }
         }
-        else{
-            return "There is no order";
-        }
+        return res;
     }
 
 }

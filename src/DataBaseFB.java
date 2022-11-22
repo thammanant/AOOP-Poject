@@ -204,7 +204,7 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
 
     }
     //set arr[15] = -2
-    public static void setHistoryStatus(String username, int index, Customer customer, int x) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
+    public static void setHistoryStatus(String username, int index, int x) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
         response = firebase.get( username );
         dataMap = response.getBody();
         if(dataMap == null) {
@@ -216,8 +216,8 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         }
         int[] arr = new int[16];
         int sum = 0;
-        for(int i = 0; i < customer.getClothes().getSize(); i++) {
-            arr[i] = customer.getHistory().get(index).printAmount(i);
+        for(int i = 0; i < 14; i++) {
+            arr[i] = Integer.parseInt(Objects.requireNonNull(DataBaseFB.getHistory(username, index)).get(i));
             sum += arr[i];
         }
         arr[14] = sum;
@@ -225,8 +225,6 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
 
         dataMap2.put("Order" + index, arr);
         dataMap.put("Data", dataMap2);
-        dataMap.put("Username", customer.getName());
-        dataMap.put("Password", customer.getPassword());
         response = firebase.put( username, dataMap );
 
     }

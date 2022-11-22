@@ -49,7 +49,7 @@ public class Other {
                         //create array
                         arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).size(), String[].class);
                         //check status
-                        if(arr[i].equals("-1") || arr[i].equals("-2")) {
+                        if(arr[i].equals("-3")) {
                             next = true;
                         } else if (DataBaseFB.getHistoryAmount(customer.getName()) == 0) {
                             next = true;

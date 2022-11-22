@@ -86,8 +86,19 @@ public class Customer extends User {
 
     //check whether there is order or not
     public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
-        return DataBaseFB.getHistoryAmount(this.getName())!= 0;
+        int arr = DataBaseFB.getHistoryAmount(this.name);
+        boolean temp = true;
+        if(arr==1){
+            if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
+                temp = false;
+            }
+        }
+        if(arr<1){
+            temp = false;
+        }
+        return temp;
     }
+
 
 
     //display how many order using database
@@ -95,7 +106,6 @@ public class Customer extends User {
         if(DataBaseFB.getHistoryAmount(this.getName()) == 0)
             return "All Clean!";
         else {
-            System.out.println(this.clothes.getSize());
             return "You have " + DataBaseFB.getHistoryAmount(this.getName()) + " order";
         }
     }

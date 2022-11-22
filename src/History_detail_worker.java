@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class History_detail_worker {
     private JPanel History_detail_worker;
@@ -59,18 +61,20 @@ public class History_detail_worker {
 
     public History_detail_worker(JFrame frame, Worker worker,String name,String index_order) throws JacksonUtilityException, FirebaseException, IOException {
         int order_number = Integer.parseInt(index_order);
-        int size = DataBaseFB.getHistory(name,order_number).size();
+        int size = Objects.requireNonNull(DataBaseFB.getHistory(name, order_number)).size();
         String[] temp = new String[size];
         for (int i=0; i<size; i++){
-            temp[i] = DataBaseFB.getHistory(name,order_number).get(i);
+            temp[i] = Objects.requireNonNull(DataBaseFB.getHistory(name, order_number)).get(i);
         }
-        System.out.println(temp.toString());
         JLabel [] amount = {Amount1,Amount2,Amount3,Amount4,Amount5,Amount6,Amount7,Amount8,Amount9,Amount10,Amount11,Amount12,Amount13,Amount14,AmountTotal,sta};
-        if(temp[15]=="-2"){
+        if(Objects.equals(temp[15],"-1")){
+            sta.setText("Waiting");
+        }
+        if(Objects.equals(temp[15], "-2")){
             sta.setText("Processing");
         }
-        if(temp[15]=="-1"){
-            sta.setText("Waiting");
+        if(Objects.equals(temp[15], "-3")){
+            sta.setText("Delivered");
         }
         for(int j=0;j< 15;j++){
             amount[j].setText(temp[j]);
@@ -80,7 +84,6 @@ public class History_detail_worker {
         Address.setText(DataBaseFB.getCustomerAddress(name));
         String n = DataBaseFB.getCustomerName(name);
         name_customer.setText(n);
-        sta.setText(temp[15]);
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,9 +99,23 @@ public class History_detail_worker {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String input = JOptionPane.showInputDialog(null,"Enter new status(Processing,Delivered)");
-                if(sta.getText().compareTo(input)!=0){
+                if(input.equalsIgnoreCase("processing") || input.equalsIgnoreCase("delivered")){
                     JOptionPane.showMessageDialog(null,"Status changed");
                     sta.setText(input);
+                    if(input.equalsIgnoreCase("processing")){
+                        try {
+                            DataBaseFB.setHistoryStatus(name,order_number,-2);
+                        } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                    else {
+                        try {
+                            DataBaseFB.setHistoryStatus(name,order_number,-3);
+                        } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
                     try {
                         frame.setContentPane(new History_detail_worker(frame,worker,name,index_order).get_history_detail_worker());
                     } catch (JacksonUtilityException | FirebaseException | IOException ex) {
