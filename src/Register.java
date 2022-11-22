@@ -107,6 +107,18 @@ public class Register extends LoginNRegister{
                     Status.setText(passwdNotMatch);
                     sta = false;
                 }else if (Customer.isSelected() || Worker.isSelected()){
+                    try {
+                        if(DataBaseFB.checkUser(email)) {
+                            Status.setText("User already exists");
+                            sta = false;
+                        }
+                    } catch (FirebaseException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (JacksonUtilityException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     JOptionPane.showMessageDialog(null, "Register successfully!");
                 if (Customer.isSelected()) {
                     type = "Customer";
