@@ -107,7 +107,7 @@ public class DataBaseFB{
         }
         dataMap2.put("Worker", worker);
         dataMap.put("Data", dataMap2);
-        dataMap.put("Password", worker.getPassword());
+        dataMap2.put("Password", worker.getPassword());
         response = firebase.put( username, dataMap );
     }
 
@@ -171,7 +171,13 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         response = firebase.get( username );
         dataMap = response.getBody();
         dataMap2 = (Map<String, Object>) dataMap.get("Data");
+        if(dataMap2 == null) {
+            return null;
+        }
         dataMap3 = (Map<String, Object>) dataMap2.get("Worker");
+        if(dataMap3 == null) {
+            return null;
+        }
         return (String) dataMap3.get("phone");
     }
 

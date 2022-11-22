@@ -53,7 +53,7 @@ public class Other_Worker {
             public void actionPerformed(ActionEvent e) {
                 try {
                     frame.setContentPane(new Profile_worker(frame,worker).get_profile_worker());
-                } catch (FirebaseException | UnsupportedEncodingException ex) {
+                } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                     throw new RuntimeException(ex);
                 }
                 frame.revalidate();
