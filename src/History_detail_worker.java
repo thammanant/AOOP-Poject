@@ -2,15 +2,12 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class History_detail_worker {
     private JPanel History_detail_worker;
-    private JPanel history_detailpanel;
+    private JPanel history_detailPanel;
     private JLabel Num1;
     private JLabel CottonWh;
     private JLabel Num2;
@@ -84,62 +81,53 @@ public class History_detail_worker {
         Address.setText(DataBaseFB.getCustomerAddress(name));
         String n = DataBaseFB.getCustomerName(name);
         name_customer.setText(n);
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    frame.setContentPane(new worker_status(frame,worker).getworker_status());
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                frame.setVisible(true);
+        okButton.addActionListener(e -> {
+            try {
+                frame.setContentPane(new worker_status(frame,worker).getWorker_status());
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
             }
+            frame.setVisible(true);
         });
-        Edit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String input = JOptionPane.showInputDialog(null,"Enter new status(Processing,Delivered)");
-                if(input.toLowerCase().equals("processing") || input.toLowerCase().equals("delivered")){
-                    JOptionPane.showMessageDialog(null,"Status changed");
-                    sta.setText(input);
-                    if(input.equalsIgnoreCase("processing")){
-                        try {
-                            DataBaseFB.setHistoryStatus(name,order_number,-2);
-                        } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    }
-                    else {
-                        try {
-                            DataBaseFB.setHistoryStatus(name,order_number,-3);
-                        } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    }
+        Edit.addActionListener(e -> {
+            String input = JOptionPane.showInputDialog(null,"Enter new status(Processing,Delivered)");
+            if(input.toLowerCase().equals("processing") || input.toLowerCase().equals("delivered")){
+                JOptionPane.showMessageDialog(null,"Status changed");
+                sta.setText(input);
+                if(input.equalsIgnoreCase("processing")){
                     try {
-                        frame.setContentPane(new History_detail_worker(frame,worker,name,index_order).get_history_detail_worker());
-                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        DataBaseFB.setHistoryStatus(name,order_number,-2);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null,"Please enter Processing or Delivered only!");
                 }
-            }
-        });
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                else {
+                    try {
+                        DataBaseFB.setHistoryStatus(name,order_number,-3);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
                 try {
-                    frame.setContentPane(new worker_status(frame,worker).getworker_status());
+                    frame.setContentPane(new History_detail_worker(frame,worker,name,index_order).get_history_detail_worker());
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                frame.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"Please enter Processing or Delivered only!");
             }
+        });
+        okButton.addActionListener(e -> {
+            try {
+                frame.setContentPane(new worker_status(frame,worker).getWorker_status());
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            frame.setVisible(true);
         });
     }
 
     public JPanel get_history_detail_worker(){
-        return history_detailpanel;
+        return history_detailPanel;
     }
 }

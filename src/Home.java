@@ -3,8 +3,6 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Home {
@@ -14,59 +12,47 @@ public class Home {
     private JPanel HomePanel;
     private JButton RefreshButton;
     private JLabel Hi_user;
-    private JLabel orderr;
+    private JLabel orderR;
     private JButton Check_your_order;
 
     public Home(JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
         Color colour18 = new Color(39, 59, 105); //main background
         HomePanel.setBackground(colour18);
         Hi_user.setText("Hi " + DataBaseFB.getCustomerName(customer.getName()));
-        orderr.setText(customer.displayOrder());
+        orderR.setText(customer.displayOrder());
 
         // set new order button
-        NewOrderButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                customer.resetClothes();
-                frame.setContentPane((new Order(frame, customer).getOrderPanel()));
-                frame.revalidate();
-            }
+        NewOrderButton.addActionListener(e -> {
+            customer.resetClothes();
+            frame.setContentPane((new Order(frame, customer).getOrderPanel()));
+            frame.revalidate();
         });
 
         //set the other button
-        RefreshButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    frame.setContentPane((new Home(frame,customer).getHomePanel()));
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                frame.revalidate();
+        RefreshButton.addActionListener(e -> {
+            try {
+                frame.setContentPane((new Home(frame,customer).getHomePanel()));
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
             }
+            frame.revalidate();
         });
 
-        OtherButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Other(frame,customer).getOtherPanel()));
-                frame.revalidate();
-            }
+        OtherButton.addActionListener(e -> {
+            frame.setContentPane((new Other(frame,customer).getOtherPanel()));
+            frame.revalidate();
         });
 
-        Check_your_order.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    if(customer.check()==1){
-                        frame.setContentPane(new User_status(frame,customer).getUser_StatusPanel());
-                        frame.revalidate();
-                    }if(customer.check()==0){
-                        JOptionPane.showMessageDialog(null, "You don't have any order yet!");
-                    }
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                    throw new RuntimeException(ex);
+        Check_your_order.addActionListener(e -> {
+            try {
+                if(customer.check()==1){
+                    frame.setContentPane(new User_status(frame,customer).getUser_StatusPanel());
+                    frame.revalidate();
+                }if(customer.check()==0){
+                    JOptionPane.showMessageDialog(null, "You don't have any order yet!");
                 }
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
     }

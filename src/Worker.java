@@ -2,7 +2,6 @@ import AbstactClass.User;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -27,7 +26,7 @@ public class Worker extends User {
     //check order of customer
     public String checkOrder() throws JacksonUtilityException, FirebaseException, IOException {
         String[] cus = new String[DataBaseFB.findAllCustomerUsernames().size()];        //find all customer
-        String res = "";//result
+        String res; //result
         int num = 0;
         for(int i =0 ; i< DataBaseFB.findAllCustomerUsernames().size();i++){        //transfer all customer to array cus
             cus[i] = DataBaseFB.findAllCustomerUsernames().get(i);

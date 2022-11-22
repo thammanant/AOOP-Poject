@@ -3,9 +3,8 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -65,31 +64,25 @@ public class Login extends LoginNRegister {
         }
 
         //set Login button
-        LoginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String email = emailTextField.getText();
-                String password = PasswordTextField.getText();
-                try {
-                    CheckValidations(email, password, frame, customer);
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+        LoginButton.addActionListener(e -> {
+            String email = emailTextField.getText();
+            String password = PasswordTextField.getText();
+            try {
+                CheckValidations(email, password, frame);
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
 
         //set Register button
-        RegisterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Register(frame, customer,worker).getRegisterPanel());
-                frame.revalidate();
-            }
+        RegisterButton.addActionListener(e -> {
+            frame.setContentPane(new Register(frame, customer,worker).getRegisterPanel());
+            frame.revalidate();
         });
     }
 
     //check validation
-    private void CheckValidations(String email, String password, JFrame frame, Customer customer) throws JacksonUtilityException, FirebaseException, IOException {
+    private void CheckValidations(String email, String password, JFrame frame) throws JacksonUtilityException, FirebaseException, IOException {
         if (email.isEmpty() || email.equals(userTxt)) {
             Status.setText(emptyUsername);
         } else if (password.isEmpty() || password.equals(passTxt)) {

@@ -1,14 +1,8 @@
-import Resources.ClothesAmount;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class History_detail {
@@ -53,7 +47,7 @@ public class History_detail {
     private JLabel AmountTotal;
     private JLabel Total;
     private JButton okButton;
-    private JPanel history_detailpanel;
+    private JPanel history_detailPanel;
     private JLabel Amount3;
     private JLabel sta;
 
@@ -64,7 +58,7 @@ public class History_detail {
         for(int j=0 ; j<temp ; j++){
             temp2[j] = Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), order)).get(j);
         }
-        JLabel c[] = {Amount1,Amount2,Amount3,Amount4,Amount5,Amount6,Amount7,Amount8,Amount9,Amount10,Amount11,Amount12,Amount13,Amount14,AmountTotal,sta};
+        JLabel[] c = {Amount1,Amount2,Amount3,Amount4,Amount5,Amount6,Amount7,Amount8,Amount9,Amount10,Amount11,Amount12,Amount13,Amount14,AmountTotal,sta};
         if(temp2[15].equals("-2")){
             sta.setText("Processing");
         }
@@ -79,20 +73,17 @@ public class History_detail {
         }
 
 
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    frame.setContentPane(new Home(frame,customer).getHomePanel());
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                frame.revalidate();
+        okButton.addActionListener(e -> {
+            try {
+                frame.setContentPane(new Home(frame,customer).getHomePanel());
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
             }
+            frame.revalidate();
         });
     }
-    public JPanel getHistory_detailpanel(){
-        return history_detailpanel;
+    public JPanel getHistory_detailPanel(){
+        return history_detailPanel;
     }
 }
 

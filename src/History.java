@@ -3,9 +3,6 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
@@ -34,40 +31,31 @@ public class History {
             }
         }
 
-        Exit_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        Exit_button.addActionListener(e -> {
+            try {
+                frame.setContentPane(new Home(frame,customer).getHomePanel());
+            } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            frame.revalidate();
+        });
+
+        Back_button.addActionListener(e -> {
+            frame.setContentPane(new Other(frame,customer).getOtherPanel());
+            frame.revalidate();
+        });
+        confirm_button.addActionListener(e -> {
+            String i = Objects.requireNonNull(comboBox1.getSelectedItem()).toString();
+            if(i.equals(("Select your order:"))){
+                JOptionPane.showMessageDialog(null, "Please select your order");
+            }
+            else{
                 try {
-                    frame.setContentPane(new Home(frame,customer).getHomePanel());
+                    frame.setContentPane(new History_detail(frame,customer,i).getHistory_detailPanel());
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
                 frame.revalidate();
-            }
-        });
-
-        Back_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new Other(frame,customer).getOtherPanel());
-                frame.revalidate();
-            }
-        });
-        confirm_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String i = comboBox1.getSelectedItem().toString();
-                if(i.equals(("Select your order:"))){
-                    JOptionPane.showMessageDialog(null, "Please select your order");
-                }
-                else{
-                    try {
-                        frame.setContentPane(new History_detail(frame,customer,i).getHistory_detailpanel());
-                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    frame.revalidate();
-                }
             }
         });
     }
