@@ -47,7 +47,7 @@ public class Home_worker {
         Check_your_order_worker.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(worker_status.getText().equals("You have no order")){
+                if(worker_status.getText().equals("You don't have order")){
                     JOptionPane.showMessageDialog(null, "You have no order");
                 }
                 else{
