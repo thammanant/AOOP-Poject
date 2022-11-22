@@ -38,7 +38,7 @@ public class Home {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    frame.setContentPane((new Home(frame, customer).getHomePanel()));
+                    frame.setContentPane((new Home(frame,customer).getHomePanel()));
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -49,7 +49,7 @@ public class Home {
         OtherButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane((new Other(frame, customer).getOtherPanel()));
+                frame.setContentPane((new Other(frame,customer).getOtherPanel()));
                 frame.revalidate();
             }
         });
@@ -58,23 +58,20 @@ public class Home {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (customer.check().equals("0")) {
-                        JOptionPane.showMessageDialog(null, "You have no order");
-                    } else if(customer.check().equals("1")){
-                        try {
-                            frame.setContentPane(new User_status(frame, customer).getUser_StatusPanel());
-                        } catch (JacksonUtilityException | FirebaseException | IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
+                    if(customer.check()){
+                        frame.setContentPane(new User_status(frame,customer).getUser_StatusPanel());
                         frame.revalidate();
+                    }if(!customer.check()){
+                        JOptionPane.showMessageDialog(null, "You don't have any order yet!");
                     }
                 } catch (JacksonUtilityException | FirebaseException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
             }
         });
-
     }
-    public JPanel getHomePanel() {return HomePanel;}
-}
 
+    public JPanel getHomePanel(){
+        return HomePanel;
+    }
+}

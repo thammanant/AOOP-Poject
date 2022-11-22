@@ -41,18 +41,30 @@ public class Other {
         History_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean next = false;
                 try {
-                    if(customer.check_history()=="0"){
-                        frame.setContentPane(new History(frame,customer).getHistoryPanel());
-                        frame.revalidate();
-                    } else{
-                        JOptionPane.showMessageDialog(null, "You don't have any order yet");
+                    int num = DataBaseFB.getHistoryAmount(customer.getName());
+                    String[] arr;
+                    for(int i=0; i<num; i++) {
+                        //create array
+                        arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).size(), String[].class);
+                        //check status
+                        if(arr[i].equals("-3")) {
+                            next = true;
+                        } else if (DataBaseFB.getHistoryAmount(customer.getName()) == 0) {
+                            next = true;
+                        }
                     }
-                } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                    if(next) {
+                        JOptionPane.showMessageDialog(null, "No order to show");
+                    }
+                    else {
+                        frame.setContentPane(new History(frame, customer).getHistoryPanel());
+                        frame.revalidate();
+                    }
+                } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
-
-
             }
         });
 

@@ -5,10 +5,7 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -30,14 +27,14 @@ public class Login extends LoginNRegister {
 
         //set text field
         emailTextField.setText(userTxt);
-        emailTextField.addMouseListener(new MouseAdapter() {
+        emailTextField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if (emailTextField.getText().equals(userTxt)) {
                     emailTextField.setText("");
                 }
 
-                super.mouseClicked(e);
+                super.focusGained(e);
 
                 if (PasswordTextField.getText().isEmpty()) {
                     PasswordTextField.setText(passTxt);
@@ -48,14 +45,14 @@ public class Login extends LoginNRegister {
         //set password field
         PasswordTextField.setText(passTxt);
         PasswordTextField.setEchoChar((char) 0);
-        PasswordTextField.addMouseListener(new MouseAdapter() {
+        PasswordTextField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if (PasswordTextField.getText().equals(passTxt)) {
                     PasswordTextField.setText("");
                 }
 
-                super.mouseClicked(e);
+                super.focusGained(e);
                 PasswordTextField.setEchoChar(passwdChar);
 
                 if (emailTextField.getText().isEmpty()) {
@@ -100,14 +97,14 @@ public class Login extends LoginNRegister {
         } else {
             if (DataBaseFB.checkUserPass(email, password)) {
                 //check if user is customer or worker
-                if(DataBaseFB.checkType(email).equals("Customer")){
+                if(Objects.equals(DataBaseFB.checkType(email), "Customer")){
                     //set panel
                     Customer customer1 = new Customer(DataBaseFB.getCustomerName(email), DataBaseFB.getCustomerAddress(email), DataBaseFB.getCustomerPhone(email));
                     customer1.setPassword(password);
                     frame.setContentPane(new Home(frame, customer1).getHomePanel());
                     frame.revalidate();
                 }
-                else if (DataBaseFB.checkType(email).equals("Worker")){
+                else if (Objects.equals(DataBaseFB.checkType(email), "Worker")){
                     //set panel
                     Worker worker = new Worker(DataBaseFB.getWorkerName(email));
                     frame.setContentPane(new Home_worker(frame,worker).get_Home_worker_panel());

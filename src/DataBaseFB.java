@@ -265,22 +265,4 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         }
         return dataMap2.size() - 2;
     }
-
-    //set customer status
-    public static void setCustomerStatus(String username, String status) throws FirebaseException, JacksonUtilityException, JsonParseException, JsonMappingException, IOException {
-        response = firebase.get( username );
-        dataMap = response.getBody();
-        if(dataMap == null) {
-            return;
-        }
-        dataMap2 = (Map<String, Object>) dataMap.get("Data");
-        if(dataMap2 == null) {
-            return;
-        }
-        dataMap2.put("Status", status);
-        dataMap.put("Data", dataMap2);
-        dataMap.put("Username", username);
-        dataMap.put("Password", dataMap.get("Password"));
-        response = firebase.put( username, dataMap );
-    }
 }
