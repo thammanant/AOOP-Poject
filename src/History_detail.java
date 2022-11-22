@@ -74,7 +74,7 @@ public class History_detail {
         else{
             sta.setText("Delivered");
         }
-        for(int i=0 ; i<14 ; i++){
+        for(int i=0 ; i<=14 ; i++){
             c[i].setText(temp2[i]);
         }
 

@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Vector;
 
 public class Customer extends User {
@@ -86,14 +87,14 @@ public class Customer extends User {
 
     //check whether there is order or not
     public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
-        int arr = DataBaseFB.getHistoryAmount(this.name);
+        int arr = DataBaseFB.getHistoryAmount(this.getName());
         boolean temp = true;
         if(arr==1){
             if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
                 temp = false;
             }
         }
-        if(arr<1){
+        if(arr==0){
             temp = false;
         }
         return temp;
@@ -103,11 +104,24 @@ public class Customer extends User {
 
     //display how many order using database
     public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
-        if(DataBaseFB.getHistoryAmount(this.getName()) == 0)
-            return "All Clean!";
-        else {
-            return "You have " + DataBaseFB.getHistoryAmount(this.getName()) + " order";
+        int arr = DataBaseFB.getHistoryAmount(this.getName());
+        String temp = "";
+        if(arr==1){
+            if(DataBaseFB.getHistory(this.getName(),1).get(15).equals("-3")){
+                temp = "You have no order";
+            }
+            else{
+                temp = "You have "+arr+" order";
+            }
         }
+        if(arr==0){
+            temp = "You have no order";
+        }
+        if(arr>1){
+            temp = "You have "+arr+" orders";
+        }
+        return temp;
+
     }
 
     //popup that there is no order
