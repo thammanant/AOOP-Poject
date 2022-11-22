@@ -195,8 +195,8 @@ public static List<String> findAllCustomerUsernames() throws FirebaseException, 
         }
         arr[14] = sum;
         arr[15] = -1;
-
-        dataMap2.put("Order" + customer.getHistory().size(), arr);
+        int size = DataBaseFB.getHistoryAmount(username) + 1;
+        dataMap2.put("Order" + size, arr);
         dataMap.put("Data", dataMap2);
         dataMap.put("Username", customer.getName());
         dataMap.put("Password", customer.getPassword());

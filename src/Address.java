@@ -244,7 +244,8 @@ public class Address {
                         customer.setPhone(phone);
                         String temp = address + "," + apartment + "," + city + "," + state + "," + postal;
                         customer.setAddress(temp);
-                        customer.addHistory(customer.getClothes());
+                        customer.addHistory(DataBaseFB.getHistoryAmount(customer.getName()),customer.getClothes());
+
                         DataBaseFB.addHistory(customer.getName(),customer.getClothes(),customer);
                         DataBaseFB.updateCustomerData(customer.getName(),customer);
                     } catch (FirebaseException | JacksonUtilityException | IOException ex) {

@@ -36,7 +36,7 @@ public class Customer extends User {
     public Customer() {
         this.clothes = new ClothesAmount();
     }
-    public void addHistory(ClothesAmount temp){this.history.add(temp);}
+    public void addHistory(int index,ClothesAmount temp){this.history.add(index,temp);}
     public ArrayList<ClothesAmount> getHistory(){return this.history;}
 
     public ClothesAmount getClothes() {
