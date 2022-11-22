@@ -118,27 +118,19 @@ public class Customer extends User {
     public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
         int arr = DataBaseFB.getHistoryAmount(this.getName());
         String temp = "";
-        if(arr==1){
-            if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), 1)).get(15).equals("-3")){
-                temp = "You have no order";
-            }
-            else{
-                temp = "You have "+arr+" order";
+        int num =0;
+        for(int i =0 ; i<arr ;i ++){
+            if(DataBaseFB.getHistory(this.getName(),i+1).get(15).equals("-2") || DataBaseFB.getHistory(this.getName(),i+1).get(15).equals("-1")){
+                num++;
             }
         }
-        if(arr==0){
-            temp = "You have no order";
+        if(num==0){
+            temp = "You don't have order";
         }
-        if(arr>0){
-            temp = "You have "+arr+" orders";
-            for(int i = 0; i < arr; i ++){
-                if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-1")){
-                    temp = "You have "+(arr)+" orders";
-                }
-            }
+        else if(num>0){
+            temp = "You have "+num+" order";
         }
         return temp;
-
     }
 
     //popup that there is no order
