@@ -1,5 +1,3 @@
-import Resources.ClothesAmount;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -74,7 +72,7 @@ public class Total {
         Amount12.setText(customer.printAmount(11));
         Amount13.setText(customer.printAmount(12));
         Amount14.setText(customer.printAmount(13));
-        AmountTotal.setText(customer.printtotal());
+        AmountTotal.setText(customer.printTotal());
         // set edit button
         editButton.addActionListener(new ActionListener() {
             @Override
