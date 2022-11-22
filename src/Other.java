@@ -41,32 +41,38 @@ public class Other {
         History_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean next = false;
+                int next = 0;
+                int size = 0;
                 try {
-                    int num = DataBaseFB.getHistoryAmount(customer.getName());
-                    String[] arr;
-                    for(int i=0; i<num; i++) {
-                        //create array
-                        arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(customer.getName(), i + 1)).size(), String[].class);
-                        //check status
-                        if(arr[i].equals("-3")) {
-                            next = true;
-                        } else if (DataBaseFB.getHistoryAmount(customer.getName()) == 0) {
-                            next = true;
-                        }
-                    }
-                    if(next) {
-                        JOptionPane.showMessageDialog(null, "No order to show");
-                    }
-                    else {
-                        frame.setContentPane(new History(frame, customer).getHistoryPanel());
-                        frame.revalidate();
-                    }
+                    size = DataBaseFB.getHistoryAmount(customer.getName());
                 } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                String[] arr = new String[size];
+                for (int i = 0; i < size; i++) {
+                    try {
+                        arr[i] = DataBaseFB.getHistory(customer.getName(), i + 1).get(15);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    if (arr[i].equals("-3")) {
+                        next++;
+                    }
+                }
+                if (next > 0) {
+                    try {
+                        frame.setContentPane(new History(frame, customer).getHistoryPanel());
+                    } catch (JacksonUtilityException | FirebaseException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    frame.revalidate();
+                } else if (next == 0) {
+                    JOptionPane.showMessageDialog(null, "You don't have any order yet");
+                }
             }
-        });
+
+
+            });
 
         //goto the customer's profile
         Profile_Button.addActionListener(new ActionListener() {

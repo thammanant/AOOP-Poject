@@ -86,18 +86,30 @@ public class Customer extends User {
     }
 
     //check whether there is order or not
-    public boolean check() throws JacksonUtilityException, FirebaseException, IOException {
-        int arr = DataBaseFB.getHistoryAmount(this.getName());
-        boolean temp = true;
-        if(arr>0){
+    public int check() throws JacksonUtilityException, FirebaseException, IOException {
+        int arr2 = DataBaseFB.getHistoryAmount(this.getName());
+        int temp = 0;
+        if(arr2==1){
             if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), 1)).get(15).equals("-3")){
-                temp = false;
+                temp = 0;
+            }
+            else{
+                temp = 1;
             }
         }
-        if(arr==0){
-            temp = false;
+        if(arr2==0){
+            temp = 0;
+        }
+        if(arr2>1){
+            temp = 1;
+            for(int i = 0; i < arr2; i ++){
+                if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-1")){
+                    temp = 1;
+                }
+            }
         }
         return temp;
+
     }
 
 
@@ -120,7 +132,7 @@ public class Customer extends User {
         if(arr>1){
             temp = "You have "+arr+" orders";
             for(int i = 0; i < arr; i ++){
-                if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-3")){
+                if(Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-2") || Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i+1)).get(15).equals("-1")){
                     temp = "You have "+(arr-1)+" orders";
                 }
             }
