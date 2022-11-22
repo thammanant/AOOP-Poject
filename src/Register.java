@@ -5,10 +5,7 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.IOException;
 
 public class Register extends LoginNRegister{
@@ -30,13 +27,13 @@ public class Register extends LoginNRegister{
         Type.add(Worker);
         //set text field
         emailTextField.setText(this.userTxt);
-        emailTextField.addMouseListener(new MouseAdapter() {
+        emailTextField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(emailTextField.getText().equals(userTxt)){
                     emailTextField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
 
                 if (passwordTextField.getText().isEmpty()){
                     passwordTextField.setText(passTxt);
@@ -52,13 +49,13 @@ public class Register extends LoginNRegister{
         //set password field
         passwordTextField.setText(passTxt);
         passwordTextField.setEchoChar((char) 0);
-        passwordTextField.addMouseListener(new MouseAdapter() {
+        passwordTextField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if (passwordTextField.getText().equals(passTxt)) {
                     passwordTextField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 passwordTextField.setEchoChar(passwdChar);
 
                 if (emailTextField.getText().isEmpty()) {
@@ -74,14 +71,14 @@ public class Register extends LoginNRegister{
         //set confirm password field
         confirmPasswordTextField.setText(confirmpassTxt);
         confirmPasswordTextField.setEchoChar((char) 0);
-        confirmPasswordTextField.addMouseListener(new MouseAdapter() {
+        confirmPasswordTextField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if (confirmPasswordTextField.getText().equals(confirmpassTxt)) {
                     confirmPasswordTextField.setText("");
                 }
                 confirmPasswordTextField.setEchoChar(passwdChar);
-                super.mouseClicked(e);
+                super.focusGained(e);
 
                 if (emailTextField.getText().isEmpty()) {
                     emailTextField.setText(userTxt);

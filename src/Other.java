@@ -55,7 +55,7 @@ public class Other {
                             next = true;
                         }
                     }
-                    if(!next) {
+                    if(next) {
                         JOptionPane.showMessageDialog(null, "No order to show");
                     }
                     else {
