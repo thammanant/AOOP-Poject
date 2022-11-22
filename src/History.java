@@ -58,7 +58,7 @@ public class History {
             public void actionPerformed(ActionEvent e) {
                 String i = comboBox1.getSelectedItem().toString();
                 if(i.equals(("Select your order:"))){
-                    JOptionPane.showMessageDialog(null, "Select your order:");
+                    JOptionPane.showMessageDialog(null, "Please select your order");
                 }
                 else{
                     try {

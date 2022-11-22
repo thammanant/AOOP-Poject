@@ -103,6 +103,21 @@ public class Customer extends User {
         }
         return c;
     }
+    public String check_history() throws JacksonUtilityException, FirebaseException, IOException {
+        //keep status of every order
+        String[] arr2 = new String[DataBaseFB.getHistoryAmount(this.getName())];
+        String c= "";
+        for(int i=0; i<arr2.length; i++){
+            arr2[i] = Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i + 1)).get(15);
+        }
+        //check whether there is order or not
+        for(int i=0; i<arr2.length; i++){
+             if (arr2[i].equals("-3")) {
+                c="0";
+            }
+        }
+        return c;
+    }
 
 
 
@@ -110,15 +125,18 @@ public class Customer extends User {
     public String displayOrder() throws JacksonUtilityException, FirebaseException, IOException {
         //display current order
         String[] arr = new String[DataBaseFB.getHistoryAmount(this.getName())];
+        int count = 0;
         for(int i=0; i<arr.length; i++){
             if(DataBaseFB.getHistory(this.getName(), i+1).get(15).equals("-1")){
                 arr[i] = Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i + 1)).get(15);
+                count++;
             }
             else if(DataBaseFB.getHistory(this.getName(), i+1).get(15).equals("-2")){
                 arr[i] = Objects.requireNonNull(DataBaseFB.getHistory(this.getName(), i + 1)).get(15);
+                count++;
             }
         }
-        return "You have " + arr.length + " order(s)";
+        return "You have " + count + " order(s)";
     }
 
     //popup that there is no order
