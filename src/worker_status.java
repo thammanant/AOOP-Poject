@@ -34,32 +34,31 @@ public class worker_status {
         comboBox1.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                String c = Objects.requireNonNull(comboBox1.getSelectedItem()).toString();
-                int num;
-                List<String> history;
-                String a;
-                try {
-                    num = DataBaseFB.getHistoryAmount(c);
-                } catch (FirebaseException | JacksonUtilityException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
                 combobox2.removeAllItems();
+                int num = 0;
                 try {
-                    history = DataBaseFB.getHistory(c, num);
-                    assert history != null;
+                    num = DataBaseFB.getHistoryAmount(Objects.requireNonNull(comboBox1.getSelectedItem()).toString());
                 } catch (FirebaseException | JacksonUtilityException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                a = history.get(15);
-                for(int i = 0; i< num; i++){
-                    if(Objects.equals(a, "-1")){
-                        combobox2.addItem(i+1);
+                String[] boxList = new String[num];
+                String[] arr;
+                for(int i=0; i<num; i++) {
+                    boxList[i] = String.valueOf(i + 1);
+                    //create array
+                    try {
+                        arr = Arrays.copyOf(Objects.requireNonNull(DataBaseFB.getHistory(comboBox1.getSelectedItem().toString(), i + 1)).toArray(), Objects.requireNonNull(DataBaseFB.getHistory(comboBox1.getSelectedItem().toString(), i + 1)).size(), String[].class);
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
                     }
-                    if(Objects.equals(a, "-2")){
+                    //check status
+                    if(arr[15].equals("-2") || arr[15].equals("-1")) {
                         combobox2.addItem(i+1);
                     }
                 }
             }
+
+
         });
 //
 
