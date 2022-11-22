@@ -5,10 +5,7 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.Vector;
 
@@ -57,13 +54,13 @@ public class Address {
         StateField.setText(StateTxt);
         PostalField.setText(PostalTxt);
         //set phone field
-        PhoneField.addMouseListener(new MouseAdapter() {
+        PhoneField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(PhoneField.getText().equals(PhoneTxt)){
                     PhoneField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 if(AddressField.getText().isEmpty()){
                     AddressField.setText(AddressTxt);
                 }
@@ -83,13 +80,13 @@ public class Address {
             }
         });
         // set address field
-        AddressField.addMouseListener(new MouseAdapter() {
+        AddressField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(AddressField.getText().equals(AddressTxt)){
                     AddressField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 if(PhoneField.getText().isEmpty()){
                     PhoneField.setText(PhoneTxt);
                 }
@@ -108,13 +105,13 @@ public class Address {
             }
         });
         //set apartment field
-        ApartmentField.addMouseListener(new MouseAdapter() {
+        ApartmentField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(ApartmentField.getText().equals(ApartmentTxt)){
                     ApartmentField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 if(PhoneField.getText().isEmpty()){
                     PhoneField.setText(PhoneTxt);
                 }
@@ -133,13 +130,13 @@ public class Address {
             }
         });
         //set City feild
-        CityField.addMouseListener(new MouseAdapter() {
+        CityField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(CityField.getText().equals(CityTxt)){
                     CityField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 if(PhoneField.getText().isEmpty()){
                     PhoneField.setText(PhoneTxt);
                 }
@@ -158,13 +155,13 @@ public class Address {
             }
         });
         //set state field
-        StateField.addMouseListener(new MouseAdapter() {
+        StateField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(StateField.getText().equals(StateTxt)){
                     StateField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 if(PhoneField.getText().isEmpty()){
                     PhoneField.setText(PhoneTxt);
                 if(AddressField.getText().isEmpty()){
@@ -183,13 +180,13 @@ public class Address {
             }
         });
         //set postal field
-        PostalField.addMouseListener(new MouseAdapter() {
+        PostalField.addFocusListener(new FocusAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void focusGained(FocusEvent e) {
                 if(PostalField.getText().equals(PostalTxt)){
                     PostalField.setText("");
                 }
-                super.mouseClicked(e);
+                super.focusGained(e);
                 if(PhoneField.getText().isEmpty()){
                     PhoneField.setText(PhoneTxt);
                 }
