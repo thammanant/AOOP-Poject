@@ -108,7 +108,16 @@ public class Register extends LoginNRegister{
                     sta = false;
                 }else if (Customer.isSelected() || Worker.isSelected()){
                     JOptionPane.showMessageDialog(null, "Register successfully!");
-                if (Customer.isSelected()) {
+                    try {
+                        if(DataBaseFB.checkUser(email)) {
+                            Status.setText("This email has been used!");
+                            sta = false;
+                        }
+                    } catch (FirebaseException | JacksonUtilityException | IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                    if (Customer.isSelected()) {
                     type = "Customer";
                     Customer customer = new Customer(email);
                     customer.setPassword(password);
@@ -123,7 +132,8 @@ public class Register extends LoginNRegister{
                     } catch (FirebaseException | IOException | JacksonUtilityException ex) {
                         throw new RuntimeException(ex);
                     }
-                } else if (Worker.isSelected()) {
+                }
+                    else if (Worker.isSelected()) {
                     type = "Worker";
                     Worker worker = new Worker(email);
                     worker.setPassword(password);
