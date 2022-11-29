@@ -10,3 +10,9 @@ How to install and run project: User can download our zip file and open it in Us
 
 Credits:https://github.com/bane73/firebase4j
         https://github.com/JFormDesigner/FlatLaf
+        
+        
+Group members:Puttiphat Udompholpattanaporn 64011594
+              Thammanant Thamtaranon 64011658
+              Jade Chuapakdee 64011397
+              Chananon Kanunghet 64011366
