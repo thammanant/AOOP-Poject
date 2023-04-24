@@ -6,7 +6,6 @@ public class ClothesType {
 
     public static ClothesType CottonWhite = new ClothesType("Cotton", "White");
     public static ClothesType CottonColoured = new ClothesType("Cotton", "Coloured");
-
     public static ClothesType WoolWhite = new ClothesType("Wool", "White");
     public static ClothesType WoolColoured = new ClothesType("Wool", "Coloured");
     public static ClothesType MixedWhite = new ClothesType("Mixed", "White");
