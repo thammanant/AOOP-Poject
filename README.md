@@ -1,4 +1,4 @@
-# AOOP-Poject
+# AOOP-Project
 
 Project title: Wash App
 
